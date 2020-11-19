@@ -14,3 +14,7 @@
 # UI - Paciente.
 1. Consultar sugestão de Dieta.
 2. Consultar Porção de alimento.
+
+
+Senha Banco de dados
+dietcsharp
