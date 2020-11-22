@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B763E66C-D998-46C0-A210-EDA07EE9B263}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietCSharpForm", "DietCSharpForm\DietCSharpForm.csproj", "{C26008CC-9A5F-4558-AF15-8250A2551C9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B763E66C-D998-46C0-A210-EDA07EE9B263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B763E66C-D998-46C0-A210-EDA07EE9B263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B763E66C-D998-46C0-A210-EDA07EE9B263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B763E66C-D998-46C0-A210-EDA07EE9B263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C26008CC-9A5F-4558-AF15-8250A2551C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C26008CC-9A5F-4558-AF15-8250A2551C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C26008CC-9A5F-4558-AF15-8250A2551C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C26008CC-9A5F-4558-AF15-8250A2551C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A54D45D-C24B-425D-9222-6216BAF7BA72}
+	EndGlobalSection
+EndGlobal
