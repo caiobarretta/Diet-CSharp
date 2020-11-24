@@ -12,18 +12,21 @@ namespace DietCSharpForm
 {
     public partial class FormMain : Form
     {
+        private bool isLogin { get; set; }
         public FormMain()
         {
+            FormLogin formLogin = new FormLogin();
+            formLogin.ShowDialog();
+            isLogin = formLogin.isLogin;
+         
             InitializeComponent();
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            if (!isLogin)
+                this.Close();
+            
             toolStripRefeicoesCadastrar.Click += ToolStripRefeicoesCadastrar_Click;
             toolStripRefeicoesPesquisar.Click += ToolStripRefeicoesPesquisar_Click;
             toolStripPorcAlimentosCadastrar.Click += ToolStripPorcAlimentosCadastrar_Click;
