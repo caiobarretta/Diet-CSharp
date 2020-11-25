@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Core.Entities.Base;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
 
 namespace Core.Entities.DietcSharp
 {
-    public partial class Perfil
+    public partial class Perfil : Entity
     {
         public Perfil()
         {

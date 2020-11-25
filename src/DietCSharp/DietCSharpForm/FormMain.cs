@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Core.Entities.Enums;
+using Core.Services;
+using DietCSharpForm.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +15,23 @@ namespace DietCSharpForm
 {
     public partial class FormMain : Form
     {
+        private readonly UsuarioService _usuarioService;
         private bool isLogin { get; set; }
+        private int CodigoUsuario { get; set; }
+        private TipoUsuario TipoUsuario { get; set; }
+        private readonly ToolStripHelper _toolStripHelper;
         public FormMain()
         {
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
             isLogin = formLogin.isLogin;
-         
+            CodigoUsuario = formLogin.CodigoUsuario;
+            _usuarioService = new UsuarioService();
+            TipoUsuario = _usuarioService.GetTipoUsuarioById(CodigoUsuario);
+
             InitializeComponent();
+
+            _toolStripHelper = new ToolStripHelper();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -27,66 +39,14 @@ namespace DietCSharpForm
             if (!isLogin)
                 this.Close();
             
-            toolStripRefeicoesCadastrar.Click += ToolStripRefeicoesCadastrar_Click;
-            toolStripRefeicoesPesquisar.Click += ToolStripRefeicoesPesquisar_Click;
-            toolStripPorcAlimentosCadastrar.Click += ToolStripPorcAlimentosCadastrar_Click;
-            toolStripPorcAlimentosPesquisar.Click += ToolStripPorcAlimentosPesquisar_Click;
-            toolStripDietaCadastrar.Click += ToolStripDietaCadastrar_Click;
-            toolStripDietaPesquisar.Click += ToolStripDietaPesquisar_Click;
-            toolStripPacienteCadastrar.Click += ToolStripPacienteCadastrar_Click;
-            toolStripPacientePesquisar.Click += ToolStripPacientePesquisar_Click;
+            toolStripRefeicoesCadastrar.Click += _toolStripHelper.ToolStripRefeicoesCadastrar_Click;
+            toolStripRefeicoesPesquisar.Click += _toolStripHelper.ToolStripRefeicoesPesquisar_Click;
+            toolStripPorcAlimentosCadastrar.Click += _toolStripHelper.ToolStripPorcAlimentosCadastrar_Click;
+            toolStripPorcAlimentosPesquisar.Click += _toolStripHelper.ToolStripPorcAlimentosPesquisar_Click;
+            toolStripDietaCadastrar.Click += _toolStripHelper.ToolStripDietaCadastrar_Click;
+            toolStripDietaPesquisar.Click += _toolStripHelper.ToolStripDietaPesquisar_Click;
+            toolStripPacienteCadastrar.Click += _toolStripHelper.ToolStripPacienteCadastrar_Click;
+            toolStripPacientePesquisar.Click += _toolStripHelper.ToolStripPacientePesquisar_Click;
         }
-
-        private void ToolStripPacientePesquisar_Click(object sender, EventArgs e)
-        {
-            Pesquisar pesquisa = new Pesquisar();
-            pesquisa.Show();
-        }
-
-        private void ToolStripPacienteCadastrar_Click(object sender, EventArgs e)
-        {
-            AdiconarPaciente paciente = new AdiconarPaciente();
-            paciente.Show();
-        }
-
-        private void ToolStripDietaPesquisar_Click(object sender, EventArgs e)
-        {
-            Pesquisar pesquisa = new Pesquisar();
-            pesquisa.Show();
-        }
-
-        private void ToolStripDietaCadastrar_Click(object sender, EventArgs e)
-        {
-            CadastrarDieta cadDieta = new CadastrarDieta();
-            cadDieta.Show();
-        }
-
-        private void ToolStripPorcAlimentosPesquisar_Click(object sender, EventArgs e)
-        {
-            Pesquisar pesquisa = new Pesquisar();
-            pesquisa.Show();
-        }
-
-        private void ToolStripPorcAlimentosCadastrar_Click(object sender, EventArgs e)
-        {
-            CadastroPorcAlimento cadPorcAli = new CadastroPorcAlimento();
-            cadPorcAli.Show();
-        }
-
-        private void ToolStripRefeicoesPesquisar_Click(object sender, EventArgs e)
-        {
-            Pesquisar pesquisarRef = new Pesquisar();
-            pesquisarRef.Show();
-        }
-
-        private void ToolStripRefeicoesCadastrar_Click(object sender, EventArgs e)
-        {
-            Cadastro cadastroRef = new Cadastro();
-            cadastroRef.Show();
-         
-        }
-
-
-        
     }
 }

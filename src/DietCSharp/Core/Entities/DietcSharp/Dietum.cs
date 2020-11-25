@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Core.Entities.Base;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
 
 namespace Core.Entities.DietcSharp
 {
-    public partial class Dietum
+    public partial class Dietum : Entity
     {
         public Dietum()
         {
@@ -13,8 +14,8 @@ namespace Core.Entities.DietcSharp
         }
 
         public int ID_Dieta { get; set; }
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
+        //public string Nome { get; set; }
+        //public string Descricao { get; set; }
 
         public virtual ICollection<Usuario> Usuarios { get; set; }
     }

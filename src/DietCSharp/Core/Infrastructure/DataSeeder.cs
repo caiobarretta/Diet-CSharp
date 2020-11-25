@@ -11,30 +11,46 @@ namespace Core.Infrastructure
     {
         public static void SeedUsers(DietCScharpContext ctx)
         {
-            if (!ctx.Perfils.Any())
+            var perfilNutricionista = ctx.Perfils.Where(x => x.Nome == "Nutricionista").FirstOrDefault();
+            if (perfilNutricionista == null)
             {
-                var perfies = new List<Perfil>
+                ctx.Add(new Perfil()
                 {
-                new Perfil() {ID_Perfil = 1, Nome = "Nutricionista", Descricao = "Nutricionista"},
-                new Perfil() {ID_Perfil = 2, Nome = "Paciente", Descricao = "Paciente" }
-                };
-                ctx.AddRange(perfies);
+                    ID_Perfil = 1,
+                    Nome = "Nutricionista",
+                    Descricao = "Nutricionista"
+                });
                 ctx.SaveChanges();
             }
 
-            if (!ctx.Usuarios.Any())
+            var nutricionistaPadrao = ctx.Usuarios.Where(x => x.Nome == "Nutri").FirstOrDefault();
+            if (nutricionistaPadrao == null)
             {
-                //var perfilNutricionista = ctx.Perfils.Where(x => x.Nome == "Nutricionista").FirstOrDefault();
-                var usuarioNutricionista = new Usuario()
+                ctx.Add(new Usuario()
                 {
+                    Usuario1 = "Nutri",
                     Nome = "Nutri",
                     Descricao = "Nutricionista",
                     Senha = "1234",
-                    ID_Perfil = 1
-                };
-                ctx.Add(usuarioNutricionista);
+                    ID_Perfil = perfilNutricionista.ID_Perfil
+                });
                 ctx.SaveChanges();
             }
+
+
+            var perfilPaciente = ctx.Perfils.Where(x => x.Nome == "Paciente").FirstOrDefault();
+            if (perfilPaciente == null)
+            {
+                ctx.Add(new Perfil()
+                {
+                    Nome = "Paciente",
+                    Descricao = "Paciente"
+                });
+                ctx.SaveChanges();
+            }
+
+            
+
         }
     }
 }

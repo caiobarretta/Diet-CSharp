@@ -1,5 +1,7 @@
 ﻿using Core.Entities.DietcSharp;
+using Core.Infrastructure.Repository.Base;
 using Core.Interfaces.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,42 +10,13 @@ using System.Threading.Tasks;
 
 namespace Core.Infrastructure.Repository
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public class UsuarioRepository : DefaultRepository<Usuario>, IUsuarioRepository
     {
-        public UsuarioRepository()
-        {
-            using (var ctx = new DietCScharpContext())
-            {
-                DataSeeder.SeedUsers(ctx);
-            }
-        }
+        public UsuarioRepository(DietCScharpContext ctx) : base(ctx) => DataSeeder.SeedUsers(ctx);
 
-        public void AddAsync(Usuario entity)
-        {
-            throw new NotImplementedException();
-        }
+        public override Usuario Get(int id) => base._ctx.Usuarios.Where(x => x.ID_Usuario == id).FirstOrDefault();
 
-        public void DeleteAsync(Usuario entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Usuario> GetAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Usuario GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Usuario GetAsync(Usuario entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Usuario GetAsync(object obj)
+        public override Usuario Get(Usuario entity)
         {
             throw new NotImplementedException();
         }
@@ -62,12 +35,5 @@ namespace Core.Infrastructure.Repository
             }
             return false;
         }
-
-        public void UpdateAsync(Usuario entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        
     }
 }

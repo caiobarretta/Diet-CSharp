@@ -42,9 +42,9 @@ namespace DietCSharpForm
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(12, 9);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(41, 15);
+            this.lblEmail.Size = new System.Drawing.Size(37, 15);
             this.lblEmail.TabIndex = 0;
-            this.lblEmail.Text = "E-mail";
+            this.lblEmail.Text = "Login";
             // 
             // lblPassword
             // 
@@ -57,27 +57,32 @@ namespace DietCSharpForm
             // 
             // txtBEmail
             // 
+            this.txtBEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBEmail.Location = new System.Drawing.Point(12, 27);
             this.txtBEmail.Name = "txtBEmail";
-            this.txtBEmail.Size = new System.Drawing.Size(522, 23);
+            this.txtBEmail.Size = new System.Drawing.Size(213, 23);
             this.txtBEmail.TabIndex = 2;
             // 
             // txtBPassword
             // 
+            this.txtBPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBPassword.Location = new System.Drawing.Point(12, 96);
             this.txtBPassword.Name = "txtBPassword";
-            this.txtBPassword.Size = new System.Drawing.Size(522, 23);
+            this.txtBPassword.PasswordChar = '*';
+            this.txtBPassword.Size = new System.Drawing.Size(213, 23);
             this.txtBPassword.TabIndex = 3;
-            this.txtBPassword.TextChanged += new System.EventHandler(this.txtBPassword_TextChanged);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelar.Location = new System.Drawing.Point(452, 140);
+            this.btnCancelar.Location = new System.Drawing.Point(143, 140);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(82, 34);
             this.btnCancelar.TabIndex = 9;
@@ -87,12 +92,13 @@ namespace DietCSharpForm
             // 
             // btnLogin
             // 
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogin.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLogin.Location = new System.Drawing.Point(354, 140);
+            this.btnLogin.Location = new System.Drawing.Point(45, 140);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(82, 34);
             this.btnLogin.TabIndex = 8;
@@ -104,14 +110,18 @@ namespace DietCSharpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 450);
+            this.ClientSize = new System.Drawing.Size(237, 202);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtBPassword);
             this.Controls.Add(this.txtBEmail);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
+            this.MaximumSize = new System.Drawing.Size(253, 241);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(253, 241);
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -124,7 +134,6 @@ namespace DietCSharpForm
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtBEmail;
         private System.Windows.Forms.TextBox txtBPassword;
-        private System.Windows.Forms.Button btnEditarCancelar;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancelar;
     }

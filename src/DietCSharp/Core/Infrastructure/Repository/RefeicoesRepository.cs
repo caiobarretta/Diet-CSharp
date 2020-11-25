@@ -1,4 +1,5 @@
 ﻿using Core.Entities.DietcSharp;
+using Core.Infrastructure.Repository.Base;
 using Core.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
@@ -8,41 +9,21 @@ using System.Threading.Tasks;
 
 namespace Core.Infrastructure.Repository
 {
-    public class RefeicoesRepository : IRefeicoesRepository
+    public class RefeicoesRepository : DefaultRepository<Refeico>, IRefeicoesRepository
     {
-        public void AddAsync(Refeico entity)
+        public RefeicoesRepository(DietCScharpContext ctx) : base(ctx)
+        {
+        }
+
+        public override Refeico Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteAsync(Refeico entity)
+        public override Refeico Get(Refeico entity)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Refeico> GetAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Refeico GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Refeico GetAsync(Refeico entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Refeico GetAsync(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateAsync(Refeico entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

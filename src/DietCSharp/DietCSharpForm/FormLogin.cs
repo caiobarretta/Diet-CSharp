@@ -13,6 +13,7 @@ namespace DietCSharpForm
     {
         private readonly UsuarioService _usuarioService;
         public bool isLogin { get; set; }
+        public int CodigoUsuario { get; set; }
         public FormLogin()
         {
             InitializeComponent();
@@ -20,20 +21,17 @@ namespace DietCSharpForm
             isLogin = false;
         }
 
-        private void txtBPassword_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnEditarSalvar_Click(object sender, EventArgs e)
         {
-            var ehUsuario = _usuarioService.IsLogin(txtBEmail.Text, txtBPassword.Text, out int CodigoUsuario);
+            var ehUsuario = _usuarioService.IsUsuario(txtBEmail.Text, txtBPassword.Text, out int codigoUsuario);
             if (!ehUsuario)
             {
                 MessageBox.Show("Usuário ou senha invalido!");
                 return;
             }
             isLogin = ehUsuario;
+            CodigoUsuario = codigoUsuario;
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

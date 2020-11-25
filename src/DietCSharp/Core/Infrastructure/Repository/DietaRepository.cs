@@ -1,4 +1,5 @@
 ﻿using Core.Entities.DietcSharp;
+using Core.Infrastructure.Repository.Base;
 using Core.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
@@ -8,41 +9,21 @@ using System.Threading.Tasks;
 
 namespace Core.Infrastructure.Repository
 {
-    public class DietaRepository : IDietaRepository
+    public class DietaRepository : DefaultRepository<Dietum>, IDietaRepository
     {
-        public void AddAsync(Dietum entity)
+        public DietaRepository(DietCScharpContext ctx) : base(ctx)
+        {
+        }
+
+        public override Dietum Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteAsync(Dietum entity)
+        public override Dietum Get(Dietum entity)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Dietum> GetAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dietum GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dietum GetAsync(Dietum entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dietum GetAsync(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateAsync(Dietum entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

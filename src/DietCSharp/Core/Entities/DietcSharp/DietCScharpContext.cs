@@ -172,7 +172,7 @@ namespace Core.Entities.DietcSharp
                     .HasConstraintName("FK_Usuario_Perfil");
             });
 
-            modelBuilder.Seed();
+            //modelBuilder.Seed();
 
             OnModelCreatingPartial(modelBuilder);
         }

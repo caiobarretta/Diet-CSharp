@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Core.Entities.Base;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
 
 namespace Core.Entities.DietcSharp
 {
-    public partial class Rel_Porc_Dietum
+    public partial class Rel_Porc_Dietum : Entity
     {
         public int ID_PorcAlimento { get; set; }
         public int ID_Dieta { get; set; }
