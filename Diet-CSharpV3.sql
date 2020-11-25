@@ -6,7 +6,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[DiasdaSemana](
-	[ID_DiaSemana] [int] NOT NULL,
+	[ID_DiaSemana] [int] IDENTITY(1,1) NOT NULL,
 	[Nome] [varchar](50) NOT NULL,
 	[Descricao] [varchar](50) NULL,
  CONSTRAINT [PK_DiasdaSemana] PRIMARY KEY CLUSTERED 
