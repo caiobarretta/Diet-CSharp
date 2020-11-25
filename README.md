@@ -19,4 +19,6 @@
 Senha Banco de dados
 dietcsharp
 
+
+Ajustar para cada maquina S2
 Scaffold-DbContext "Server=.\SQLExpress;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities/DietcSharp -UseDatabaseNames -force
