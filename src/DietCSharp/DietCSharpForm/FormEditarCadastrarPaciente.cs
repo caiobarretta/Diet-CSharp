@@ -1,4 +1,8 @@
-﻿using Core.Entities.Enums;
+﻿using Core.Entities.DietcSharp;
+using Core.Entities.Enums;
+using Core.Interfaces.Service.Base;
+using Core.Services;
+using DietCSharpForm.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,19 +15,22 @@ namespace DietCSharpForm
 {
     public partial class FormEditarCadastrarPaciente : Form
     {
-        private TipoDeOperacao TipoDeOperacao { get; set; }
-        private int Id { get; set; }
-        public FormEditarCadastrarPaciente()
+        public IService<Dietum> _service { get; private set; }
+        public CriarEditarService<Dietum> criarEditarService { get; private set; }
+        public TipoDeOperacao TipoDeOperacao { get; private set; }
+        public int Id { get; set; }
+
+        public FormEditarCadastrarPaciente(TipoDeOperacao tipoDeOperacao)
         {
-            this.TipoDeOperacao = TipoDeOperacao.Criar;
             InitializeComponent();
         }
 
-        public FormEditarCadastrarPaciente(int id)
+        public Form BuildServices(IService<Dietum> service, TipoDeOperacao tipoDeOperacao)
         {
-            this.Id = id;
-            this.TipoDeOperacao = TipoDeOperacao.Editar;
-            InitializeComponent();
+            _service = service;
+            criarEditarService = new CriarEditarService<Dietum>(_service, tipoDeOperacao);
+            TipoDeOperacao = tipoDeOperacao;
+            return this;
         }
 
         private void btnCadastrarCancelar_Click(object sender, EventArgs e)
@@ -33,8 +40,8 @@ namespace DietCSharpForm
 
         private void FormEditarCadastrarPaciente_Load(object sender, EventArgs e)
         {
-            this.Text = TipoDeOperacao.ToString();
-            this.txtCodigo.Text = Id.ToString();
+            //this.Text = TipoDeOperacao.ToString();
+            //this.txtCodigo.Text = Id.ToString();
         }
     }
 }

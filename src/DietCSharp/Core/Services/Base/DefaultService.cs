@@ -14,9 +14,9 @@ namespace Core.Services.Base
         protected readonly IRepository<TEntity> _repo;
         
         public DefaultService(IRepository<TEntity> repo) => _repo = repo;
-        public void AddAsync(TEntity entity) => _repo.AddAsync(entity);
+        public void Add(TEntity entity) => _repo.Add(entity);
 
-        public void DeleteAsync(TEntity entity) => _repo.DeleteAsync(entity);
+        public void Delete(TEntity entity) => _repo.Delete(entity);
 
         public List<TEntity> Get(int take = 0, int skip = 0) => _repo.Get(take, skip);
 
@@ -26,6 +26,6 @@ namespace Core.Services.Base
 
         public List<TEntity> Search(string search) => _repo.Search(search);
 
-        public void UpdateAsync(TEntity entity) => _repo.UpdateAsync(entity);
+        public void Update(TEntity entity) => _repo.Update(entity);
     }
 }

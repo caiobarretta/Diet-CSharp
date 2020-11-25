@@ -1,7 +1,9 @@
 ﻿
+using System.Windows.Forms;
+
 namespace DietCSharpForm
 {
-    partial class PacienteFormMain
+    partial class PacienteFormMain : Form
     {
         /// <summary>
         /// Required designer variable.

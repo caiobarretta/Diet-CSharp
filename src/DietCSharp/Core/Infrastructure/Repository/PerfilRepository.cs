@@ -12,11 +12,16 @@ namespace Core.Infrastructure.Repository
 {
     public class PerfilRepository : DefaultRepository<Perfil>, IPerfilRepository
     {
-        public PerfilRepository(DietCScharpContext ctx) : base(ctx)
+        public override Perfil Get(int id)
         {
-        }
+            Perfil perfil = null;
+            using(var ctx = new DietCScharpContext())
+            {
+                perfil = ctx.Perfils.Where(x => x.ID_Perfil == id).FirstOrDefault();
+            }
 
-        public override Perfil Get(int id) => base._ctx.Perfils.Where(x => x.ID_Perfil == id).FirstOrDefault();
+            return perfil;
+        }
 
         public override Perfil Get(Perfil entity)
         {

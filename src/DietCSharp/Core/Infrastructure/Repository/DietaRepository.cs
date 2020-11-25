@@ -11,10 +11,6 @@ namespace Core.Infrastructure.Repository
 {
     public class DietaRepository : DefaultRepository<Dietum>, IDietaRepository
     {
-        public DietaRepository(DietCScharpContext ctx) : base(ctx)
-        {
-        }
-
         public override Dietum Get(int id)
         {
             throw new NotImplementedException();

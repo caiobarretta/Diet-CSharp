@@ -25,13 +25,14 @@ namespace DietCSharpForm
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
             isLogin = formLogin.isLogin;
-            CodigoUsuario = formLogin.CodigoUsuario;
-            _usuarioService = new UsuarioService();
-            TipoUsuario = _usuarioService.GetTipoUsuarioById(CodigoUsuario);
-
-            InitializeComponent();
-
+            if (isLogin)
+            {
+                CodigoUsuario = formLogin.CodigoUsuario;
+                _usuarioService = new UsuarioService();
+                TipoUsuario = _usuarioService.GetTipoUsuarioById(CodigoUsuario);
+            }
             _toolStripHelper = new ToolStripHelper();
+            InitializeComponent();
         }
 
         private void FormMain_Load(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace Core.Services
 {
     public class DietaService : DefaultService<Dietum>, IDietaService
     {
-        public DietaService() : base(new DietaRepository(new DietCScharpContext()))
+        public DietaService() : base(new DietaRepository())
         {
         }
     }

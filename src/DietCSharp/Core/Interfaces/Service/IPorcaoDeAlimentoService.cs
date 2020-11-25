@@ -1,4 +1,5 @@
 ﻿using Core.Entities.DietcSharp;
+using Core.Interfaces.Repository;
 using Core.Interfaces.Service.Base;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces.Service
 {
-    public interface IPorcaoDeAlimentoService : IService<PorcaoDeAlimento>
+    public interface IPorcaoDeAlimentoService : IService<PorcaoDeAlimento>, IPorcaoDeAlimentoRepository
     {
         
     }

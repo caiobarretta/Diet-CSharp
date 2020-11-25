@@ -1,7 +1,9 @@
 ﻿
+using System.Windows.Forms;
+
 namespace DietCSharpForm
 {
-    partial class FormEditarCadastrarPaciente
+    partial class FormEditarCadastrarPaciente : Form
     {
         /// <summary>
         /// Required designer variable.

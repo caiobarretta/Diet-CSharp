@@ -17,13 +17,16 @@ namespace Core.Services
     {
         private readonly UsuarioRepository _usuarioRepository;
         private readonly PerfilRepository _perfilRepository;
-        public UsuarioService() : base(new UsuarioRepository(new DietCScharpContext()))
+        public UsuarioService() : base(new UsuarioRepository())
         {
             var ctx = new DietCScharpContext();
-            _usuarioRepository = new UsuarioRepository(ctx);
-            _perfilRepository = new PerfilRepository(ctx);
+            _usuarioRepository = new UsuarioRepository();
+            _perfilRepository = new PerfilRepository();
         }
-        public bool IsUsuario(string nome, string senha, out int CodigoUsuario) => _usuarioRepository.IsUsuario(nome, senha, out CodigoUsuario);
+        public bool IsUsuario(string nome, string senha, out int CodigoUsuario)
+        {
+            return _usuarioRepository.IsUsuario(nome, senha, out CodigoUsuario);
+        }
 
         public TipoUsuario GetTipoUsuarioById(int id)
         {

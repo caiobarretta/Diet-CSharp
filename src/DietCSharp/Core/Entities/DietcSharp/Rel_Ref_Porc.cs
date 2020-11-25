@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Core.Entities.DietcSharp
 {
-    public partial class Rel_Ref_Porc : Entity
+    public partial class Rel_Ref_Porc
     {
         public int ID_Refeicao { get; set; }
         public int ID_PorcAlimento { get; set; }

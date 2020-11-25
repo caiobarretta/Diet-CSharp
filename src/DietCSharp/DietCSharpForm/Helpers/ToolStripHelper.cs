@@ -4,6 +4,7 @@ using Core.Entities.Enums;
 using Core.Interfaces.Service;
 using Core.Interfaces.Service.Base;
 using Core.Services;
+using DietCSharpForm.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,22 +29,39 @@ namespace DietCSharpForm.Helpers
         }
 
         #region Paciente
-        public void ToolStripPacientePesquisar_Click(object sender, EventArgs e) => new PesquisarForm<Usuario>(_usuarioService).ShowDialog();
-        public void ToolStripPacienteCadastrar_Click(object sender, EventArgs e) => new FormEditarCadastrarPaciente().ShowDialog();
+        public void ToolStripPacientePesquisar_Click(object sender, EventArgs e)
+        {
+            //var form = new FormEditarCadastrarPaciente(TipoDeOperacao.Editar);
+            //new PesquisarForm<Usuario>(_usuarioService, ).ShowDialog();
+        }
+
+        public void ToolStripPacienteCadastrar_Click(object sender, EventArgs e)
+        {
+            //new FormEditarCadastrarPaciente(TipoDeOperacao.Criar).ShowDialog();
+        }
         #endregion
 
         #region Dieta
-        public void ToolStripDietaPesquisar_Click(object sender, EventArgs e) => new PesquisarForm<Dietum>(_dietaService).ShowDialog();
-        public void ToolStripDietaCadastrar_Click(object sender, EventArgs e) => new FormEditarCadastrarDieta().ShowDialog();
+        public void ToolStripDietaPesquisar_Click(object sender, EventArgs e)
+        {
+            //new PesquisarForm<Dietum>(_dietaService, new FormEditarCadastrarDieta(0)).ShowDialog();
+        }
+
+        public void ToolStripDietaCadastrar_Click(object sender, EventArgs e)
+        {
+            //new FormEditarCadastrarDieta(TipoDeOperacao.Criar).ShowDialog();
+        }
         #endregion
         #region PorcaoAlimento
-        public void ToolStripPorcAlimentosPesquisar_Click(object sender, EventArgs e) => new PesquisarForm<PorcaoDeAlimento>(_porcaoDeAlimentoService).ShowDialog();
-        public void ToolStripPorcAlimentosCadastrar_Click(object sender, EventArgs e) => new FormEditarCadastrarPorcAlimento().ShowDialog();
+        public void ToolStripPorcAlimentosPesquisar_Click(object sender, EventArgs e) => new PesquisarForm<PorcaoDeAlimento>(_porcaoDeAlimentoService, new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+
+        public void ToolStripPorcAlimentosCadastrar_Click(object sender, EventArgs e) => new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Criar).GetForm().ShowDialog();
         #endregion
 
         #region Refeições
-        public void ToolStripRefeicoesPesquisar_Click(object sender, EventArgs e) => new PesquisarForm<Refeico>(_refeicoesService).ShowDialog();
-        public void ToolStripRefeicoesCadastrar_Click(object sender, EventArgs e) => new FormEditarCadastrarRefeicoes().ShowDialog();
+        public void ToolStripRefeicoesPesquisar_Click(object sender, EventArgs e) => new PesquisarForm<Refeico>(_refeicoesService, new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+
+        public void ToolStripRefeicoesCadastrar_Click(object sender, EventArgs e) => new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Criar).GetForm().ShowDialog();
         #endregion
     }
 }

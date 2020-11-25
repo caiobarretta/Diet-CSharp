@@ -12,31 +12,37 @@ namespace Core.Infrastructure.Repository.Base
 {
     public abstract class DefaultRepository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
-        protected readonly DietCScharpContext _ctx;
-        protected readonly DbSet<TEntity> _db;
-        public DefaultRepository(DietCScharpContext ctx)
+        public virtual void Add(TEntity entity)
         {
-            _ctx = ctx;
-            _db = _ctx.Set<TEntity>();
+            using (var ctx = new DietCScharpContext())
+            {
+                var db = ctx.Set<TEntity>();
+                db.Add(entity);
+                ctx.SaveChanges();
+            }
         }
 
-        public virtual void AddAsync(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
-            _db.Add(entity);
-            _ctx.SaveChanges();
-        }
+            using (var ctx = new DietCScharpContext())
+            {
+                var db = ctx.Set<TEntity>();
+                db.Remove(entity);
+                ctx.SaveChanges();
+            }
 
-        public virtual void DeleteAsync(TEntity entity)
-        {
-            _db.Remove(entity);
-            _ctx.SaveChanges();
         }
 
         public virtual List<TEntity> Get(int take = 0, int skip = 0)
         {
-            var list = _db.Take(take)
-                .Skip(skip)
-                .ToList();
+            List<TEntity> list = new List<TEntity>();
+            using (var ctx = new DietCScharpContext())
+            {
+                var db = ctx.Set<TEntity>();
+                list = db.Take(take)
+                    .Skip(skip)
+                    .ToList();
+            }
             return list;
         }
 
@@ -46,13 +52,24 @@ namespace Core.Infrastructure.Repository.Base
 
         public List<TEntity> Search(string search)
         {
-            return _db.Where(x => x.Nome.Contains(search) || x.Descricao.Contains(search)).ToList();
+            List<TEntity> list = new List<TEntity>();
+            using (var ctx = new DietCScharpContext())
+            {
+                ctx.SaveChanges();
+                var db = ctx.Set<TEntity>();
+                list = db.Where(x => x.Nome.Contains(search) || x.Descricao.Contains(search)).ToList();
+            }
+            return list;
         }
 
-        public virtual void UpdateAsync(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
-            _db.Update(entity);
-            _ctx.SaveChangesAsync();
+            using (var ctx = new DietCScharpContext())
+            {
+                var db = ctx.Set<TEntity>();
+                db.Update(entity);
+                ctx.SaveChanges();
+            }
         }
     }
 }

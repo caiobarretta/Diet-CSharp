@@ -13,8 +13,10 @@ namespace Core.Services
 {
     public class PorcaoDeAlimentoService : DefaultService<PorcaoDeAlimento>, IPorcaoDeAlimentoService
     {
-        public PorcaoDeAlimentoService() : base(new PorcaoDeAlimentoRepository(new DietCScharpContext()))
+        public PorcaoDeAlimentoService() : base(new PorcaoDeAlimentoRepository())
         {
         }
+
+        public void AssociarPorcaoRefeicoes(List<int> listIdRefeicao, int idPorcaoDeAlimento) => new PorcaoDeAlimentoRepository().AssociarPorcaoRefeicoes(listIdRefeicao, idPorcaoDeAlimento);
     }
 }

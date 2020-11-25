@@ -1,7 +1,11 @@
 ﻿
+using Core.Entities.DietcSharp;
+using DietCSharpForm.Base;
+using System.Windows.Forms;
+
 namespace DietCSharpForm
 {
-    partial class FormEditarCadastrarRefeicoes
+    partial class FormEditarCadastrarRefeicoes : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +36,11 @@ namespace DietCSharpForm
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblPesquisaNome = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.lblPesquisarDescricao = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.btnEditarSalvar = new System.Windows.Forms.Button();
-            this.btnEditarCancelar = new System.Windows.Forms.Button();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -65,12 +69,12 @@ namespace DietCSharpForm
             this.lblPesquisaNome.TabIndex = 2;
             this.lblPesquisaNome.Text = "Nome";
             // 
-            // textBox2
+            // txtNome
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 83);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(479, 23);
-            this.textBox2.TabIndex = 3;
+            this.txtNome.Location = new System.Drawing.Point(12, 83);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(479, 23);
+            this.txtNome.TabIndex = 3;
             // 
             // lblPesquisarDescricao
             // 
@@ -81,53 +85,54 @@ namespace DietCSharpForm
             this.lblPesquisarDescricao.TabIndex = 4;
             this.lblPesquisarDescricao.Text = "Descrição";
             // 
-            // textBox3
+            // txtDescricao
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 143);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(479, 149);
-            this.textBox3.TabIndex = 5;
+            this.txtDescricao.Location = new System.Drawing.Point(12, 143);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(479, 149);
+            this.txtDescricao.TabIndex = 5;
             // 
-            // btnEditarSalvar
+            // btnSalvar
             // 
-            this.btnEditarSalvar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnEditarSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEditarSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditarSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditarSalvar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEditarSalvar.Location = new System.Drawing.Point(311, 298);
-            this.btnEditarSalvar.Name = "btnEditarSalvar";
-            this.btnEditarSalvar.Size = new System.Drawing.Size(82, 34);
-            this.btnEditarSalvar.TabIndex = 6;
-            this.btnEditarSalvar.Text = "Salvar";
-            this.btnEditarSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSalvar.Location = new System.Drawing.Point(311, 298);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(82, 34);
+            this.btnSalvar.TabIndex = 6;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // btnEditarCancelar
+            // btnCancelar
             // 
-            this.btnEditarCancelar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnEditarCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEditarCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditarCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditarCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEditarCancelar.Location = new System.Drawing.Point(409, 298);
-            this.btnEditarCancelar.Name = "btnEditarCancelar";
-            this.btnEditarCancelar.Size = new System.Drawing.Size(82, 34);
-            this.btnEditarCancelar.TabIndex = 7;
-            this.btnEditarCancelar.Text = "Cancelar";
-            this.btnEditarCancelar.UseVisualStyleBackColor = false;
-            this.btnEditarCancelar.Click += new System.EventHandler(this.btnEditarCancelar_Click);
+            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.Location = new System.Drawing.Point(409, 298);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(82, 34);
+            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnEditarCancelar_Click);
             // 
             // FormEditarCadastrarRefeicoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 344);
-            this.Controls.Add(this.btnEditarCancelar);
-            this.Controls.Add(this.btnEditarSalvar);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.lblPesquisarDescricao);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblPesquisaNome);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
@@ -145,10 +150,10 @@ namespace DietCSharpForm
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblPesquisaNome;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblPesquisarDescricao;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button btnEditarSalvar;
-        private System.Windows.Forms.Button btnEditarCancelar;
+        private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

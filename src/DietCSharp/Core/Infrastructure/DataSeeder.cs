@@ -16,14 +16,13 @@ namespace Core.Infrastructure
             {
                 ctx.Add(new Perfil()
                 {
-                    ID_Perfil = 1,
                     Nome = "Nutricionista",
                     Descricao = "Nutricionista"
                 });
                 ctx.SaveChanges();
             }
 
-            var nutricionistaPadrao = ctx.Usuarios.Where(x => x.Nome == "Nutri").FirstOrDefault();
+            var nutricionistaPadrao = ctx.Usuarios.Where(x => x.Nome == "Nutricionista").FirstOrDefault();
             if (nutricionistaPadrao == null)
             {
                 ctx.Add(new Usuario()

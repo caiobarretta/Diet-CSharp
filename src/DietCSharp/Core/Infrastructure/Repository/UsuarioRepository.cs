@@ -12,9 +12,17 @@ namespace Core.Infrastructure.Repository
 {
     public class UsuarioRepository : DefaultRepository<Usuario>, IUsuarioRepository
     {
-        public UsuarioRepository(DietCScharpContext ctx) : base(ctx) => DataSeeder.SeedUsers(ctx);
 
-        public override Usuario Get(int id) => base._ctx.Usuarios.Where(x => x.ID_Usuario == id).FirstOrDefault();
+        public override Usuario Get(int id)
+        {
+            Usuario usuario = null;
+            using (var ctx = new DietCScharpContext())
+            {
+                usuario = ctx.Usuarios.Where(x => x.ID_Usuario == id).FirstOrDefault();
+            }
+
+            return usuario;
+        }
 
         public override Usuario Get(Usuario entity)
         {

@@ -1,7 +1,9 @@
 ﻿
+using System.Windows.Forms;
+
 namespace DietCSharpForm
 {
-    partial class FormEditarCadastrarPorcAlimento
+    partial class FormEditarCadastrarPorcAlimento : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +32,14 @@ namespace DietCSharpForm
         private void InitializeComponent()
         {
             this.lblRefeicoes = new System.Windows.Forms.Label();
-            this.checkLBoxREfeicoes = new System.Windows.Forms.CheckedListBox();
-            this.checkLBoxDiasSemana = new System.Windows.Forms.CheckedListBox();
+            this.chbRefeicoes = new System.Windows.Forms.CheckedListBox();
+            this.chbDiasSemana = new System.Windows.Forms.CheckedListBox();
             this.btnCadastrarCancelar = new System.Windows.Forms.Button();
-            this.btnCadastrarSalvar = new System.Windows.Forms.Button();
-            this.txtBoxDescricao = new System.Windows.Forms.TextBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxNome = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -52,18 +54,18 @@ namespace DietCSharpForm
             this.lblRefeicoes.TabIndex = 23;
             this.lblRefeicoes.Text = "Refeições";
             // 
-            // checkLBoxREfeicoes
+            // chbRefeicoes
             // 
-            this.checkLBoxREfeicoes.FormattingEnabled = true;
-            this.checkLBoxREfeicoes.Location = new System.Drawing.Point(12, 198);
-            this.checkLBoxREfeicoes.Name = "checkLBoxREfeicoes";
-            this.checkLBoxREfeicoes.Size = new System.Drawing.Size(522, 58);
-            this.checkLBoxREfeicoes.TabIndex = 22;
+            this.chbRefeicoes.FormattingEnabled = true;
+            this.chbRefeicoes.Location = new System.Drawing.Point(12, 198);
+            this.chbRefeicoes.Name = "chbRefeicoes";
+            this.chbRefeicoes.Size = new System.Drawing.Size(522, 58);
+            this.chbRefeicoes.TabIndex = 22;
             // 
-            // checkLBoxDiasSemana
+            // chbDiasSemana
             // 
-            this.checkLBoxDiasSemana.FormattingEnabled = true;
-            this.checkLBoxDiasSemana.Items.AddRange(new object[] {
+            this.chbDiasSemana.FormattingEnabled = true;
+            this.chbDiasSemana.Items.AddRange(new object[] {
             "Domingo",
             "Segunda-Feira",
             "Terça-feira",
@@ -71,10 +73,10 @@ namespace DietCSharpForm
             "Quinta-feira",
             "Sexta-feira",
             "Sabado"});
-            this.checkLBoxDiasSemana.Location = new System.Drawing.Point(12, 119);
-            this.checkLBoxDiasSemana.Name = "checkLBoxDiasSemana";
-            this.checkLBoxDiasSemana.Size = new System.Drawing.Size(522, 58);
-            this.checkLBoxDiasSemana.TabIndex = 21;
+            this.chbDiasSemana.Location = new System.Drawing.Point(12, 119);
+            this.chbDiasSemana.Name = "chbDiasSemana";
+            this.chbDiasSemana.Size = new System.Drawing.Size(522, 58);
+            this.chbDiasSemana.TabIndex = 21;
             // 
             // btnCadastrarCancelar
             // 
@@ -91,27 +93,28 @@ namespace DietCSharpForm
             this.btnCadastrarCancelar.UseVisualStyleBackColor = false;
             this.btnCadastrarCancelar.Click += new System.EventHandler(this.btnCadastrarCancelar_Click);
             // 
-            // btnCadastrarSalvar
+            // btnSalvar
             // 
-            this.btnCadastrarSalvar.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnCadastrarSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCadastrarSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrarSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCadastrarSalvar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCadastrarSalvar.Location = new System.Drawing.Point(364, 404);
-            this.btnCadastrarSalvar.Name = "btnCadastrarSalvar";
-            this.btnCadastrarSalvar.Size = new System.Drawing.Size(82, 34);
-            this.btnCadastrarSalvar.TabIndex = 19;
-            this.btnCadastrarSalvar.Text = "Salvar";
-            this.btnCadastrarSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSalvar.Location = new System.Drawing.Point(364, 404);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(82, 34);
+            this.btnSalvar.TabIndex = 19;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // txtBoxDescricao
+            // txtDescricao
             // 
-            this.txtBoxDescricao.Location = new System.Drawing.Point(12, 277);
-            this.txtBoxDescricao.Multiline = true;
-            this.txtBoxDescricao.Name = "txtBoxDescricao";
-            this.txtBoxDescricao.Size = new System.Drawing.Size(522, 120);
-            this.txtBoxDescricao.TabIndex = 18;
+            this.txtDescricao.Location = new System.Drawing.Point(12, 277);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(522, 120);
+            this.txtDescricao.TabIndex = 18;
             // 
             // lblDescricao
             // 
@@ -131,12 +134,12 @@ namespace DietCSharpForm
             this.label1.TabIndex = 26;
             this.label1.Text = "Dias da Semana";
             // 
-            // txtBoxNome
+            // txtNome
             // 
-            this.txtBoxNome.Location = new System.Drawing.Point(12, 75);
-            this.txtBoxNome.Name = "txtBoxNome";
-            this.txtBoxNome.Size = new System.Drawing.Size(522, 23);
-            this.txtBoxNome.TabIndex = 25;
+            this.txtNome.Location = new System.Drawing.Point(12, 75);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(522, 23);
+            this.txtNome.TabIndex = 25;
             // 
             // lblNome
             // 
@@ -172,14 +175,14 @@ namespace DietCSharpForm
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtBoxNome);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.lblRefeicoes);
-            this.Controls.Add(this.checkLBoxREfeicoes);
-            this.Controls.Add(this.checkLBoxDiasSemana);
+            this.Controls.Add(this.chbRefeicoes);
+            this.Controls.Add(this.chbDiasSemana);
             this.Controls.Add(this.btnCadastrarCancelar);
-            this.Controls.Add(this.btnCadastrarSalvar);
-            this.Controls.Add(this.txtBoxDescricao);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.lblDescricao);
             this.Name = "FormEditarCadastrarPorcAlimento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -193,14 +196,14 @@ namespace DietCSharpForm
         #endregion
 
         private System.Windows.Forms.Label lblRefeicoes;
-        private System.Windows.Forms.CheckedListBox checkLBoxREfeicoes;
-        private System.Windows.Forms.CheckedListBox checkLBoxDiasSemana;
+        private System.Windows.Forms.CheckedListBox chbRefeicoes;
+        private System.Windows.Forms.CheckedListBox chbDiasSemana;
         private System.Windows.Forms.Button btnCadastrarCancelar;
-        private System.Windows.Forms.Button btnCadastrarSalvar;
-        private System.Windows.Forms.TextBox txtBoxDescricao;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBoxNome;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.TextBox txtCodigo;

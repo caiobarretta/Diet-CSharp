@@ -54,6 +54,8 @@ namespace DietCSharpForm
             // 
             // txtPesquisar
             // 
+            this.txtPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPesquisar.Location = new System.Drawing.Point(100, 34);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(258, 23);
@@ -61,6 +63,8 @@ namespace DietCSharpForm
             // 
             // btnEditar
             // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.Gold;
             this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -72,9 +76,12 @@ namespace DietCSharpForm
             this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExcluir.BackColor = System.Drawing.Color.Firebrick;
             this.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -87,13 +94,19 @@ namespace DietCSharpForm
             this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // dtgPesquisa
             // 
+            this.dtgPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgPesquisa.Location = new System.Drawing.Point(12, 67);
+            this.dtgPesquisa.MultiSelect = false;
             this.dtgPesquisa.Name = "dtgPesquisa";
+            this.dtgPesquisa.ReadOnly = true;
             this.dtgPesquisa.RowTemplate.Height = 25;
+            this.dtgPesquisa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgPesquisa.Size = new System.Drawing.Size(522, 264);
             this.dtgPesquisa.TabIndex = 4;
             // 
@@ -108,6 +121,7 @@ namespace DietCSharpForm
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.btnPesquisar);
             this.Name = "PesquisarForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pequisar";
             this.Load += new System.EventHandler(this.Pesquisar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPesquisa)).EndInit();

@@ -11,8 +11,21 @@ namespace Core.Infrastructure.Repository
 {
     public class PorcaoDeAlimentoRepository : DefaultRepository<PorcaoDeAlimento>, IPorcaoDeAlimentoRepository
     {
-        public PorcaoDeAlimentoRepository(DietCScharpContext ctx) : base(ctx)
+        public void AssociarPorcaoRefeicoes(List<int> listIdRefeicao, int idPorcaoDeAlimento)
         {
+            using (var ctx = new DietCScharpContext())
+            {
+                foreach (var idRefeicao in listIdRefeicao)
+                {
+                    ctx.Rel_Ref_Porcs.Add(new Rel_Ref_Porc()
+                    {
+                        ID_PorcAlimento = idPorcaoDeAlimento,
+                        ID_Refeicao = idRefeicao
+                    });
+                    ctx.SaveChanges();
+                }
+                
+            }
         }
 
         public override PorcaoDeAlimento Get(int id)

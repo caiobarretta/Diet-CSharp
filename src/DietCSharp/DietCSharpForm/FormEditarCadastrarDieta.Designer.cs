@@ -1,7 +1,11 @@
 ﻿
+using Core.Entities.DietcSharp;
+using DietCSharpForm.Base;
+using System.Windows.Forms;
+
 namespace DietCSharpForm
 {
-    partial class FormEditarCadastrarDieta
+    partial class FormEditarCadastrarDieta : Form
     {
         /// <summary>
         /// Required designer variable.

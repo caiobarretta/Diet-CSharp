@@ -1,4 +1,8 @@
-﻿using Core.Entities.Enums;
+﻿using Core.Entities.DietcSharp;
+using Core.Entities.Enums;
+using Core.Interfaces.Service.Base;
+using Core.Services;
+using DietCSharpForm.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,21 +15,12 @@ namespace DietCSharpForm
 {
     public partial class FormEditarCadastrarDieta : Form
     {
-        private TipoDeOperacao TipoDeOperacao { get; set; }
-        private int Id { get; set; }
-        public FormEditarCadastrarDieta()
+
+
+        private FormEditarCadastrarDieta()
         {
-            TipoDeOperacao = TipoDeOperacao.Criar;
             InitializeComponent();
         }
-
-        public FormEditarCadastrarDieta(int id)
-        {
-            Id = id;
-            TipoDeOperacao = TipoDeOperacao.Editar;
-            InitializeComponent();
-        }
-
         private void btnCadastrarCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -33,9 +28,8 @@ namespace DietCSharpForm
 
         private void FormEditarCadastrarDieta_Load(object sender, EventArgs e)
         {
-            this.Text = TipoDeOperacao.ToString();
-            this.txtCodigo.Text = Id.ToString();
-            
+            //this.Text = TipoDeOperacao.ToString();
+            //this.txtCodigo.Text = Id.ToString();
         }
     }
 }
