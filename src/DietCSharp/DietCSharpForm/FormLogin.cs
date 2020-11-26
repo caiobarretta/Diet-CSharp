@@ -23,7 +23,7 @@ namespace DietCSharpForm
 
         private void btnEditarSalvar_Click(object sender, EventArgs e)
         {
-            var ehUsuario = _usuarioService.IsUsuario(txtBEmail.Text, txtBPassword.Text, out int codigoUsuario);
+            var ehUsuario = _usuarioService.IsUsuario(txtUsuario.Text, txtSenha.Text, out int codigoUsuario);
             if (!ehUsuario)
             {
                 MessageBox.Show("Usuário ou senha invalido!");

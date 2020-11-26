@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace Core.Entities.DietcSharp
 {
-    public partial class Rel_Porc_Dietum
+    public partial class Rel_Porc_Dium
     {
-        public int ID_Rel_Porc_Dieta { get; set; }
         public int ID_PorcAlimento { get; set; }
-        public int ID_Dieta { get; set; }
+        public int ID_DiaSemana { get; set; }
+        public int ID_Porc_Dia { get; set; }
 
-        public virtual Dietum ID_DietaNavigation { get; set; }
+        public virtual DiasdaSemana ID_DiaSemanaNavigation { get; set; }
         public virtual PorcaoDeAlimento ID_PorcAlimentoNavigation { get; set; }
     }
 }

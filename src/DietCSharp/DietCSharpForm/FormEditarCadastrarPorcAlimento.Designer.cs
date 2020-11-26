@@ -65,14 +65,6 @@ namespace DietCSharpForm
             // chbDiasSemana
             // 
             this.chbDiasSemana.FormattingEnabled = true;
-            this.chbDiasSemana.Items.AddRange(new object[] {
-            "Domingo",
-            "Segunda-Feira",
-            "Terça-feira",
-            "Quarta-feira",
-            "Quinta-feira",
-            "Sexta-feira",
-            "Sabado"});
             this.chbDiasSemana.Location = new System.Drawing.Point(12, 119);
             this.chbDiasSemana.Name = "chbDiasSemana";
             this.chbDiasSemana.Size = new System.Drawing.Size(522, 58);

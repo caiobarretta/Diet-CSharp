@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces.Repository
 {
-    public interface IUsuarioRepository : IRepository<Usuario>
+    public interface IDiasdaSemanaRepository : IRepository<DiasdaSemana>
     {
-        bool IsUsuario(string usuario, string senha, out int CodigoUsuario);
+        void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento);
     }
 }

@@ -34,12 +34,12 @@ namespace DietCSharpForm
         private void InitializeComponent()
         {
             this.btnCadastrarCancelar = new System.Windows.Forms.Button();
-            this.btnCadastrarSalvar = new System.Windows.Forms.Button();
-            this.checkLBoxPorcAlimento = new System.Windows.Forms.CheckedListBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.chbPorcAlimento = new System.Windows.Forms.CheckedListBox();
             this.lvlPorAlimento = new System.Windows.Forms.Label();
-            this.txtBoxDescricao = new System.Windows.Forms.TextBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -60,27 +60,28 @@ namespace DietCSharpForm
             this.btnCadastrarCancelar.UseVisualStyleBackColor = false;
             this.btnCadastrarCancelar.Click += new System.EventHandler(this.btnCadastrarCancelar_Click);
             // 
-            // btnCadastrarSalvar
+            // btnSalvar
             // 
-            this.btnCadastrarSalvar.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnCadastrarSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCadastrarSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrarSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCadastrarSalvar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCadastrarSalvar.Location = new System.Drawing.Point(364, 396);
-            this.btnCadastrarSalvar.Name = "btnCadastrarSalvar";
-            this.btnCadastrarSalvar.Size = new System.Drawing.Size(82, 34);
-            this.btnCadastrarSalvar.TabIndex = 18;
-            this.btnCadastrarSalvar.Text = "Salvar";
-            this.btnCadastrarSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSalvar.Location = new System.Drawing.Point(364, 396);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(82, 34);
+            this.btnSalvar.TabIndex = 18;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // checkLBoxPorcAlimento
+            // chbPorcAlimento
             // 
-            this.checkLBoxPorcAlimento.FormattingEnabled = true;
-            this.checkLBoxPorcAlimento.Location = new System.Drawing.Point(12, 177);
-            this.checkLBoxPorcAlimento.Name = "checkLBoxPorcAlimento";
-            this.checkLBoxPorcAlimento.Size = new System.Drawing.Size(522, 94);
-            this.checkLBoxPorcAlimento.TabIndex = 17;
+            this.chbPorcAlimento.FormattingEnabled = true;
+            this.chbPorcAlimento.Location = new System.Drawing.Point(12, 177);
+            this.chbPorcAlimento.Name = "chbPorcAlimento";
+            this.chbPorcAlimento.Size = new System.Drawing.Size(522, 94);
+            this.chbPorcAlimento.TabIndex = 17;
             // 
             // lvlPorAlimento
             // 
@@ -91,13 +92,13 @@ namespace DietCSharpForm
             this.lvlPorAlimento.TabIndex = 16;
             this.lvlPorAlimento.Text = "Poção de Alimento";
             // 
-            // txtBoxDescricao
+            // txtDescricao
             // 
-            this.txtBoxDescricao.Location = new System.Drawing.Point(12, 304);
-            this.txtBoxDescricao.Multiline = true;
-            this.txtBoxDescricao.Name = "txtBoxDescricao";
-            this.txtBoxDescricao.Size = new System.Drawing.Size(522, 86);
-            this.txtBoxDescricao.TabIndex = 15;
+            this.txtDescricao.Location = new System.Drawing.Point(12, 304);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(522, 86);
+            this.txtDescricao.TabIndex = 15;
             // 
             // lblDescricao
             // 
@@ -108,12 +109,12 @@ namespace DietCSharpForm
             this.lblDescricao.TabIndex = 14;
             this.lblDescricao.Text = "Descrição";
             // 
-            // textBox1
+            // txtNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(522, 23);
-            this.textBox1.TabIndex = 21;
+            this.txtNome.Location = new System.Drawing.Point(12, 118);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(522, 23);
+            this.txtNome.TabIndex = 21;
             // 
             // lblNome
             // 
@@ -148,13 +149,13 @@ namespace DietCSharpForm
             this.ClientSize = new System.Drawing.Size(555, 450);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.btnCadastrarCancelar);
-            this.Controls.Add(this.btnCadastrarSalvar);
-            this.Controls.Add(this.checkLBoxPorcAlimento);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.chbPorcAlimento);
             this.Controls.Add(this.lvlPorAlimento);
-            this.Controls.Add(this.txtBoxDescricao);
+            this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.lblDescricao);
             this.Name = "FormEditarCadastrarDieta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -168,14 +169,15 @@ namespace DietCSharpForm
         #endregion
 
         private System.Windows.Forms.Button btnCadastrarCancelar;
-        private System.Windows.Forms.Button btnCadastrarSalvar;
-        private System.Windows.Forms.CheckedListBox checkLBoxPorcAlimento;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.CheckedListBox chbPorcAlimento;
         private System.Windows.Forms.Label lvlPorAlimento;
         private System.Windows.Forms.TextBox txtBoxDescricao;
         private System.Windows.Forms.Label lblDescricao;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.TextBox txtCodigo;
+        private TextBox txtDescricao;
     }
 }

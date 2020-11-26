@@ -29,12 +29,12 @@ namespace Core.Infrastructure.Repository
             throw new NotImplementedException();
         }
 
-        public bool IsUsuario(string nome, string senha, out int CodigoUsuario)
+        public bool IsUsuario(string usuario, string senha, out int CodigoUsuario)
         {
             CodigoUsuario = 0;
             using (var ctx = new DietCScharpContext())
             {
-                var user = ctx.Usuarios.Where(x => x.Nome == nome && x.Senha == senha).FirstOrDefault();
+                var user = ctx.Usuarios.Where(x => x.Usuario1 == usuario && x.Senha == senha).FirstOrDefault();
                 if (user != null)
                 {
                     CodigoUsuario = user.ID_Usuario;

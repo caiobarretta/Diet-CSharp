@@ -38,5 +38,34 @@ namespace DietCSharpForm.Helpers
             }
             return list;
         }
+
+        public static void SetItemCheckState(CheckedListBox chb, string content, CheckState state)
+        {
+            for (int i = 0; i < chb.Items.Count; i++)
+            {
+                var valorDiaChb = chb.Items[i].ToString();
+                var ehDiaDaSemanaJaChecado = valorDiaChb.Equals(content);
+                if (ehDiaDaSemanaJaChecado)
+                    chb.SetItemCheckState(i, state);
+            }
+        }
+
+        public static void SetItemSelectListBox(ListBox lst, string content)
+        {
+            for (int i = 0; i < lst.Items.Count; i++)
+            {
+                var valorDiaChb = lst.Items[i].ToString();
+                var ehDiaDaSemanaJaChecado = valorDiaChb.Equals(content);
+
+                if (ehDiaDaSemanaJaChecado)
+                    lst.SelectedIndex = i;
+            }
+        }
+
+        public static int GetIdSelectedFromListBox(ListBox lst)
+        {
+            int.TryParse(lst.SelectedItem.ToString().Split("-")[0], out int codigo);
+            return codigo;
+        }
     }
 }

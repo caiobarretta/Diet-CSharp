@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DietCSharpForm.Helpers
 {
@@ -31,37 +32,105 @@ namespace DietCSharpForm.Helpers
         #region Paciente
         public void ToolStripPacientePesquisar_Click(object sender, EventArgs e)
         {
-            //var form = new FormEditarCadastrarPaciente(TipoDeOperacao.Editar);
-            //new PesquisarForm<Usuario>(_usuarioService, ).ShowDialog();
+            try
+            {
+                new PesquisarForm<Usuario>(_usuarioService, new FormEditarCadastrarPaciente().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void ToolStripPacienteCadastrar_Click(object sender, EventArgs e)
         {
-            //new FormEditarCadastrarPaciente(TipoDeOperacao.Criar).ShowDialog();
+            try
+            {
+                new FormEditarCadastrarPaciente().BuildServices(TipoDeOperacao.Criar).GetForm().ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
 
         #region Dieta
         public void ToolStripDietaPesquisar_Click(object sender, EventArgs e)
         {
-            //new PesquisarForm<Dietum>(_dietaService, new FormEditarCadastrarDieta(0)).ShowDialog();
+            try
+            {
+                new PesquisarForm<Dietum>(_dietaService, new FormEditarCadastrarDieta().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void ToolStripDietaCadastrar_Click(object sender, EventArgs e)
         {
-            //new FormEditarCadastrarDieta(TipoDeOperacao.Criar).ShowDialog();
+            try
+            {
+                new FormEditarCadastrarDieta().BuildServices(TipoDeOperacao.Criar).GetForm().ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
-        #region PorcaoAlimento
-        public void ToolStripPorcAlimentosPesquisar_Click(object sender, EventArgs e) => new PesquisarForm<PorcaoDeAlimento>(_porcaoDeAlimentoService, new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
 
-        public void ToolStripPorcAlimentosCadastrar_Click(object sender, EventArgs e) => new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Criar).GetForm().ShowDialog();
+        #region PorcaoAlimento
+        public void ToolStripPorcAlimentosPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new PesquisarForm<PorcaoDeAlimento>(_porcaoDeAlimentoService, new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void ToolStripPorcAlimentosCadastrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Criar).GetForm().ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         #endregion
 
         #region Refeições
-        public void ToolStripRefeicoesPesquisar_Click(object sender, EventArgs e) => new PesquisarForm<Refeico>(_refeicoesService, new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+        public void ToolStripRefeicoesPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new PesquisarForm<Refeico>(_refeicoesService, new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-        public void ToolStripRefeicoesCadastrar_Click(object sender, EventArgs e) => new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Criar).GetForm().ShowDialog();
+        public void ToolStripRefeicoesCadastrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Criar).GetForm().ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         #endregion
     }
 }

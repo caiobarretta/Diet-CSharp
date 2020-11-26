@@ -18,5 +18,7 @@ namespace Core.Services
         }
 
         public void AssociarPorcaoRefeicoes(List<int> listIdRefeicao, int idPorcaoDeAlimento) => new PorcaoDeAlimentoRepository().AssociarPorcaoRefeicoes(listIdRefeicao, idPorcaoDeAlimento);
+
+        public void AssociarPorcaoAlimentoDieta(List<int> listIdProcaoAlimento, int idDieta) => new PorcaoDeAlimentoRepository().AssociarPorcaoAlimentoDieta(listIdProcaoAlimento, idDieta);
     }
 }

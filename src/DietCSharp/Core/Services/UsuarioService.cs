@@ -19,13 +19,13 @@ namespace Core.Services
         private readonly PerfilRepository _perfilRepository;
         public UsuarioService() : base(new UsuarioRepository())
         {
-            var ctx = new DietCScharpContext();
             _usuarioRepository = new UsuarioRepository();
             _perfilRepository = new PerfilRepository();
+            DataSeeder.SeedUsers();
         }
-        public bool IsUsuario(string nome, string senha, out int CodigoUsuario)
+        public bool IsUsuario(string usuario, string senha, out int CodigoUsuario)
         {
-            return _usuarioRepository.IsUsuario(nome, senha, out CodigoUsuario);
+            return _usuarioRepository.IsUsuario(usuario, senha, out CodigoUsuario);
         }
 
         public TipoUsuario GetTipoUsuarioById(int id)

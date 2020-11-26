@@ -1,5 +1,4 @@
 ﻿using System;
-using Core.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -18,26 +17,42 @@ namespace Core.Entities.DietcSharp
         {
         }
 
+        public virtual DbSet<DiasdaSemana> DiasdaSemanas { get; set; }
         public virtual DbSet<Dietum> Dieta { get; set; }
         public virtual DbSet<Perfil> Perfils { get; set; }
         public virtual DbSet<PorcaoDeAlimento> PorcaoDeAlimentos { get; set; }
         public virtual DbSet<Refeico> Refeicoes { get; set; }
         public virtual DbSet<Rel_Porc_Dietum> Rel_Porc_Dieta { get; set; }
+        public virtual DbSet<Rel_Porc_Dium> Rel_Porc_Dia { get; set; }
         public virtual DbSet<Rel_Ref_Porc> Rel_Ref_Porcs { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //string conexao = @"Server=DESKTOP-ICV15QV;Database=DietCScharp;Trusted_Connection=True;";
-            string conexao = @"Server=DESKTOP-UBOE2EP\SQLEXPRESS;Database=DietCScharp;Trusted_Connection=True;";
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(conexao);
+                optionsBuilder.UseSqlServer("Server=DESKTOP-UBOE2EP\\SQLEXPRESS;Database=DietCScharp;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<DiasdaSemana>(entity =>
+            {
+                entity.HasKey(e => e.ID_DiaSemana);
+
+                entity.ToTable("DiasdaSemana");
+
+                entity.Property(e => e.Descricao)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Nome)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Dietum>(entity =>
             {
                 entity.HasKey(e => e.ID_Dieta);
@@ -100,35 +115,52 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<Rel_Porc_Dietum>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.ID_Rel_Porc_Dieta);
 
                 entity.HasOne(d => d.ID_DietaNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Rel_Porc_Dieta)
                     .HasForeignKey(d => d.ID_Dieta)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Porc_Dieta_Dieta");
 
                 entity.HasOne(d => d.ID_PorcAlimentoNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Rel_Porc_Dieta)
                     .HasForeignKey(d => d.ID_PorcAlimento)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Porc_Dieta_PorcaoDeAlimento");
             });
 
+            modelBuilder.Entity<Rel_Porc_Dium>(entity =>
+            {
+                entity.HasKey(e => e.ID_Porc_Dia);
+
+                entity.HasOne(d => d.ID_DiaSemanaNavigation)
+                    .WithMany(p => p.Rel_Porc_Dia)
+                    .HasForeignKey(d => d.ID_DiaSemana)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Rel_Porc_Dia_DiasdaSemana");
+
+                entity.HasOne(d => d.ID_PorcAlimentoNavigation)
+                    .WithMany(p => p.Rel_Porc_Dia)
+                    .HasForeignKey(d => d.ID_PorcAlimento)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Rel_Porc_Dia_PorcaoDeAlimento");
+            });
+
             modelBuilder.Entity<Rel_Ref_Porc>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.ID_Ref_Porc);
 
                 entity.ToTable("Rel_Ref_Porc");
 
                 entity.HasOne(d => d.ID_PorcAlimentoNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Rel_Ref_Porcs)
                     .HasForeignKey(d => d.ID_PorcAlimento)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Ref_Porc_PorcaoDeAlimento");
 
                 entity.HasOne(d => d.ID_RefeicaoNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Rel_Ref_Porcs)
                     .HasForeignKey(d => d.ID_Refeicao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Ref_Porc_Refeicoes");
@@ -171,8 +203,6 @@ namespace Core.Entities.DietcSharp
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Usuario_Perfil");
             });
-
-            //modelBuilder.Seed();
 
             OnModelCreatingPartial(modelBuilder);
         }

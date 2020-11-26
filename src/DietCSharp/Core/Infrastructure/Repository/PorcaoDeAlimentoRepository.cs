@@ -1,6 +1,7 @@
 ﻿using Core.Entities.DietcSharp;
 using Core.Infrastructure.Repository.Base;
 using Core.Interfaces.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,22 @@ namespace Core.Infrastructure.Repository
 {
     public class PorcaoDeAlimentoRepository : DefaultRepository<PorcaoDeAlimento>, IPorcaoDeAlimentoRepository
     {
+        public void AssociarPorcaoAlimentoDieta(List<int> listIdProcaoAlimento, int idDieta)
+        {
+            using (var ctx = new DietCScharpContext())
+            {
+                foreach (var idPorcaoAlimento in listIdProcaoAlimento)
+                {
+                    ctx.Rel_Porc_Dieta.Add(new Rel_Porc_Dietum()
+                    {
+                        ID_Dieta = idDieta,
+                        ID_PorcAlimento = idPorcaoAlimento
+                    });
+                    ctx.SaveChanges();
+                }
+            }
+        }
+
         public void AssociarPorcaoRefeicoes(List<int> listIdRefeicao, int idPorcaoDeAlimento)
         {
             using (var ctx = new DietCScharpContext())
@@ -24,13 +41,24 @@ namespace Core.Infrastructure.Repository
                     });
                     ctx.SaveChanges();
                 }
-                
+
             }
         }
 
         public override PorcaoDeAlimento Get(int id)
         {
-            throw new NotImplementedException();
+            PorcaoDeAlimento porcaoDeAlimento = null;
+            using (var ctx = new DietCScharpContext())
+            {
+                porcaoDeAlimento = ctx.PorcaoDeAlimentos
+                    .Where(x => x.ID_PorcAlimento == id)
+                    .Include(x => x.Rel_Porc_Dia)
+                    .Include(x => x.Rel_Ref_Porcs)
+                    .FirstOrDefault();
+
+            }
+
+            return porcaoDeAlimento;
         }
 
         public override PorcaoDeAlimento Get(PorcaoDeAlimento entity)

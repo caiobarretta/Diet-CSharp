@@ -31,8 +31,8 @@ namespace DietCSharpForm
         {
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.txtBEmail = new System.Windows.Forms.TextBox();
-            this.txtBPassword = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -55,24 +55,24 @@ namespace DietCSharpForm
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Senha";
             // 
-            // txtBEmail
+            // txtUsuario
             // 
-            this.txtBEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBEmail.Location = new System.Drawing.Point(12, 27);
-            this.txtBEmail.Name = "txtBEmail";
-            this.txtBEmail.Size = new System.Drawing.Size(213, 23);
-            this.txtBEmail.TabIndex = 2;
+            this.txtUsuario.Location = new System.Drawing.Point(12, 27);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(213, 23);
+            this.txtUsuario.TabIndex = 2;
             // 
-            // txtBPassword
+            // txtSenha
             // 
-            this.txtBPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSenha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBPassword.Location = new System.Drawing.Point(12, 96);
-            this.txtBPassword.Name = "txtBPassword";
-            this.txtBPassword.PasswordChar = '*';
-            this.txtBPassword.Size = new System.Drawing.Size(213, 23);
-            this.txtBPassword.TabIndex = 3;
+            this.txtSenha.Location = new System.Drawing.Point(12, 96);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(213, 23);
+            this.txtSenha.TabIndex = 3;
             // 
             // btnCancelar
             // 
@@ -113,8 +113,8 @@ namespace DietCSharpForm
             this.ClientSize = new System.Drawing.Size(237, 202);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtBPassword);
-            this.Controls.Add(this.txtBEmail);
+            this.Controls.Add(this.txtSenha);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
             this.MaximumSize = new System.Drawing.Size(253, 241);
@@ -132,8 +132,8 @@ namespace DietCSharpForm
 
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtBEmail;
-        private System.Windows.Forms.TextBox txtBPassword;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancelar;
     }

@@ -11,5 +11,6 @@ namespace Core.Interfaces.Repository
     public interface IPorcaoDeAlimentoRepository : IRepository<PorcaoDeAlimento>
     {
         void AssociarPorcaoRefeicoes(List<int> listIdRefeicao, int idPorcaoDeAlimento);
+        void AssociarPorcaoAlimentoDieta(List<int> listIdProcaoAlimento, int iD_Dieta);
     }
 }

@@ -12,8 +12,6 @@ namespace Core.Entities.DietcSharp
         public string Usuario1 { get; set; }
         public string Senha { get; set; }
         public int ID_Perfil { get; set; }
-        //public string Descricao { get; set; }
-        //public string Nome { get; set; }
         public int? ID_Dieta { get; set; }
 
         public virtual Dietum ID_DietaNavigation { get; set; }

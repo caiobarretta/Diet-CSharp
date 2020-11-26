@@ -10,13 +10,13 @@ namespace Core.Entities.DietcSharp
     {
         public Dietum()
         {
+            Rel_Porc_Dieta = new HashSet<Rel_Porc_Dietum>();
             Usuarios = new HashSet<Usuario>();
         }
 
         public int ID_Dieta { get; set; }
-        //public string Nome { get; set; }
-        //public string Descricao { get; set; }
 
+        public virtual ICollection<Rel_Porc_Dietum> Rel_Porc_Dieta { get; set; }
         public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }
