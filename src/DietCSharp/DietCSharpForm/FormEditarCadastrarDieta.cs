@@ -81,7 +81,9 @@ namespace DietCSharpForm
                 throw new NotImplementedException("Fluxo não implementado!");
 
             dietum.Nome = txtNome.Text;
-            dietum.Descricao = txtNome.Text;
+            dietum.Descricao = txtDescricao.Text;
+
+            
 
             List<int> listIdProcaoAlimento = ValidaComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbPorcAlimento);
 

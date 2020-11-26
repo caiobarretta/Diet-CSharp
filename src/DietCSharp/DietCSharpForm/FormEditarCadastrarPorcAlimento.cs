@@ -101,7 +101,7 @@ namespace DietCSharpForm
                 throw new NotImplementedException("Fluxo não implementado!");
 
             porcaoDeAlimento.Nome = txtNome.Text;
-            porcaoDeAlimento.Descricao = txtNome.Text;
+            porcaoDeAlimento.Descricao = txtDescricao.Text;
 
             List<int> listIdRefeicoes = ValidaComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbRefeicoes);
             List<int> listIdDiasdaSemana = ValidaComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbDiasSemana);

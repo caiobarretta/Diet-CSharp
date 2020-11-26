@@ -86,7 +86,7 @@ namespace DietCSharpForm
                 throw new NotImplementedException("Fluxo não implementado!");
 
             usuario.Nome = txtNome.Text;
-            usuario.Descricao = txtNome.Text;
+            usuario.Descricao = txtDescricao.Text;
             usuario.Usuario1 = txtUsuario.Text;
             usuario.Senha = txtSenha.Text;
             usuario.ID_Perfil = new PerfilService().Search("Paciente").Where(x => x.Nome == "Paciente").FirstOrDefault().ID_Perfil;

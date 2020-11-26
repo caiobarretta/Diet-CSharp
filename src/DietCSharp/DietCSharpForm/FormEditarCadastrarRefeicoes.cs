@@ -73,7 +73,7 @@ namespace DietCSharpForm
                 throw new NotImplementedException("Fluxo não implementado!");
 
             refeicao.Nome = txtNome.Text;
-            refeicao.Descricao = txtNome.Text;
+            refeicao.Descricao = txtDescricao.Text;
             criarEditarService.Executar(refeicao, out string mensagem);
 
             MessageBox.Show(mensagem);
