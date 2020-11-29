@@ -18,7 +18,7 @@ namespace DietCSharpForm
         private readonly UsuarioService _usuarioService;
         private bool isLogin { get; set; }
         private int CodigoUsuario { get; set; }
-        private TipoUsuario TipoUsuario { get; set; }
+        private readonly TipoUsuario _tipoUsuario;
         private readonly ToolStripHelper _toolStripHelper;
         public FormMain()
         {
@@ -29,9 +29,9 @@ namespace DietCSharpForm
             {
                 CodigoUsuario = formLogin.CodigoUsuario;
                 _usuarioService = new UsuarioService();
-                TipoUsuario = _usuarioService.GetTipoUsuarioById(CodigoUsuario);
+                _tipoUsuario = _usuarioService.GetTipoUsuarioById(CodigoUsuario);
             }
-            _toolStripHelper = new ToolStripHelper();
+            _toolStripHelper = new ToolStripHelper(_tipoUsuario);
             InitializeComponent();
         }
 
@@ -39,14 +39,25 @@ namespace DietCSharpForm
         {
             if (!isLogin)
                 this.Close();
-            
-            toolStripRefeicoesCadastrar.Click += _toolStripHelper.ToolStripRefeicoesCadastrar_Click;
+
+            if (_tipoUsuario == TipoUsuario.Paciente)
+            {
+                toolStripRefeicoesCadastrar.Visible = false;
+                toolStripPorcAlimentosCadastrar.Visible = false;
+                toolStripDietaCadastrar.Visible = false;
+                toolStripPacienteCadastrar.Visible = false;
+            }
+
+            if (_tipoUsuario == TipoUsuario.Nutricionista)
+            {
+                toolStripRefeicoesCadastrar.Click += _toolStripHelper.ToolStripRefeicoesCadastrar_Click;
+                toolStripPorcAlimentosCadastrar.Click += _toolStripHelper.ToolStripPorcAlimentosCadastrar_Click;
+                toolStripDietaCadastrar.Click += _toolStripHelper.ToolStripDietaCadastrar_Click;
+                toolStripPacienteCadastrar.Click += _toolStripHelper.ToolStripPacienteCadastrar_Click;
+            }
             toolStripRefeicoesPesquisar.Click += _toolStripHelper.ToolStripRefeicoesPesquisar_Click;
-            toolStripPorcAlimentosCadastrar.Click += _toolStripHelper.ToolStripPorcAlimentosCadastrar_Click;
             toolStripPorcAlimentosPesquisar.Click += _toolStripHelper.ToolStripPorcAlimentosPesquisar_Click;
-            toolStripDietaCadastrar.Click += _toolStripHelper.ToolStripDietaCadastrar_Click;
             toolStripDietaPesquisar.Click += _toolStripHelper.ToolStripDietaPesquisar_Click;
-            toolStripPacienteCadastrar.Click += _toolStripHelper.ToolStripPacienteCadastrar_Click;
             toolStripPacientePesquisar.Click += _toolStripHelper.ToolStripPacientePesquisar_Click;
         }
     }

@@ -16,13 +16,16 @@ namespace DietCSharpForm.Helpers
 {
     public class ToolStripHelper
     {
+        private readonly TipoUsuario _tipoUsuario;
+
         private readonly IDietaService _dietaService;
         private readonly IUsuarioService _usuarioService;
         private readonly IPorcaoDeAlimentoService _porcaoDeAlimentoService;
         private readonly IRefeicoesService _refeicoesService;
 
-        public ToolStripHelper()
+        public ToolStripHelper(TipoUsuario TipoUsuario)
         {
+            _tipoUsuario = TipoUsuario;
             _dietaService = new DietaService();
             _usuarioService = new UsuarioService();
             _porcaoDeAlimentoService = new PorcaoDeAlimentoService();
@@ -34,7 +37,7 @@ namespace DietCSharpForm.Helpers
         {
             try
             {
-                new PesquisarForm<Usuario>(_usuarioService, new FormEditarCadastrarPaciente().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+                new PesquisarForm<Usuario>(_usuarioService, new FormEditarCadastrarPaciente().BuildServices(TipoDeOperacao.Editar), _tipoUsuario).ShowDialog();
             }
             catch (Exception ex)
             {
@@ -60,7 +63,7 @@ namespace DietCSharpForm.Helpers
         {
             try
             {
-                new PesquisarForm<Dietum>(_dietaService, new FormEditarCadastrarDieta().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+                new PesquisarForm<Dietum>(_dietaService, new FormEditarCadastrarDieta().BuildServices(TipoDeOperacao.Editar), _tipoUsuario).ShowDialog();
             }
             catch (Exception ex)
             {
@@ -86,7 +89,7 @@ namespace DietCSharpForm.Helpers
         {
             try
             {
-                new PesquisarForm<PorcaoDeAlimento>(_porcaoDeAlimentoService, new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+                new PesquisarForm<PorcaoDeAlimento>(_porcaoDeAlimentoService, new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Editar), _tipoUsuario).ShowDialog();
             }
             catch(Exception ex)
             {
@@ -112,7 +115,7 @@ namespace DietCSharpForm.Helpers
         {
             try
             {
-                new PesquisarForm<Refeico>(_refeicoesService, new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Editar)).ShowDialog();
+                new PesquisarForm<Refeico>(_refeicoesService, new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Editar), _tipoUsuario).ShowDialog();
             }
             catch (Exception ex)
             {

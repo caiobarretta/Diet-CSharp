@@ -21,15 +21,26 @@ namespace DietCSharpForm
         private const int Skip = 0;
         private readonly IService<TEntity> _service;
         private readonly IFormBase<TEntity> _formBase;
+        private readonly TipoUsuario _tipoUsuario;
         private string lastSearch { get; set; }
-        public PesquisarForm(IService<TEntity> service, IFormBase<TEntity> formBase)
+        public PesquisarForm(IService<TEntity> service, IFormBase<TEntity> formBase, TipoUsuario tipoUsuario)
         {
+            this._tipoUsuario = tipoUsuario;
             this._formBase = formBase;
             this._service = service;
             InitializeComponent();
         }
 
-        private void Pesquisar_Load(object sender, EventArgs e) => dtgPesquisa.DataSource = _service.Get(Take, Skip);
+        private void Pesquisar_Load(object sender, EventArgs e)
+        {
+            dtgPesquisa.DataSource = _service.Get(Take, Skip);
+
+            if (_tipoUsuario == TipoUsuario.Paciente)
+            {
+                btnEditar.Visible = false;
+                btnExcluir.Visible = false;
+            }
+        }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
