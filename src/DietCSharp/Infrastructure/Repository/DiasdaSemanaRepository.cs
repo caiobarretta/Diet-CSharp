@@ -10,6 +10,10 @@ namespace Infrastructure.Repository
 {
     public class DiasdaSemanaRepository : DefaultRepository<DiasdaSemana>, IDiasdaSemanaRepository
     {
+        public DiasdaSemanaRepository(DietCScharpContext ctx) : base(ctx)
+        {
+        }
+
         public void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento)
         {
             using (var ctx = new DietCScharpContext())

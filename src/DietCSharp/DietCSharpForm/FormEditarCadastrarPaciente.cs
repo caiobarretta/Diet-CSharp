@@ -12,11 +12,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Core.Interfaces;
+using Infrastructure;
 
 namespace DietCSharpForm
 {
     public partial class FormEditarCadastrarPaciente : Form, IFormBase<Usuario>
     {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly DietCScharpContext _ctx;
         public IService<Usuario> _service { get; private set; }
 
         public CriarEditarService<Usuario> criarEditarService { get; private set; }
@@ -27,12 +31,14 @@ namespace DietCSharpForm
 
         public FormEditarCadastrarPaciente()
         {
+            _ctx = new DietCScharpContext();
+            _unitOfWork = new UnitOfWork(_ctx);
             InitializeComponent();
         }
 
         public IFormBase<Usuario> BuildServices(TipoDeOperacao tipoDeOperacao)
         {
-            this._service = new UsuarioService();
+            this._service = new UsuarioService(_unitOfWork);
             TipoDeOperacao = tipoDeOperacao;
             criarEditarService = new CriarEditarService<Usuario>(this._service, tipoDeOperacao);
             return this;
@@ -49,7 +55,7 @@ namespace DietCSharpForm
         {
             this.Text = TipoDeOperacao.ToString();
             this.txtCodigo.Text = Id.ToString();
-            var dietaService = new DietaService();
+            var dietaService = new DietaService(_unitOfWork);
             var dietaList = dietaService.Get(int.MaxValue, 0);
             dietaList.ForEach(r =>
             {
@@ -89,12 +95,23 @@ namespace DietCSharpForm
             usuario.Descricao = txtDescricao.Text;
             usuario.Usuario1 = txtUsuario.Text;
             usuario.Senha = txtSenha.Text;
-            usuario.ID_Perfil = new PerfilService().Search("Paciente").Where(x => x.Nome == "Paciente").FirstOrDefault().ID;
+            var perfilService = new PerfilService(_unitOfWork);
+            usuario.ID_Perfil = perfilService.Search(new Perfil(), "Paciente").Where(x => x.Nome == "Paciente").FirstOrDefault().ID;
             usuario.ID_Dieta = ComponentesFormHelper.GetIdSelectedFromListBox(lstDieta);
 
-            criarEditarService.Executar(usuario, out string mensagem);
+            if(!criarEditarService.Executar(usuario, out string mensagem))
+            {
+                MessageBox.Show(mensagem);
+                return;
+            }
 
             MessageBox.Show(mensagem);
+            _unitOfWork.Commit();
+        }
+
+        private void FormEditarCadastrarPaciente_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _unitOfWork.Dispose();
         }
     }
 }

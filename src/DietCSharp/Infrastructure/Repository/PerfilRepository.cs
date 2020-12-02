@@ -12,6 +12,8 @@ namespace Infrastructure.Repository
 {
     public class PerfilRepository : DefaultRepository<Perfil>, IPerfilRepository
     {
-
+        public PerfilRepository(DietCScharpContext ctx) : base(ctx)
+        {
+        }
     }
 }

@@ -7,14 +7,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Interfaces;
 
 namespace Services
 {
     public class RefeicoesService : DefaultService<Refeico>, IRefeicoesService
     {
-        public RefeicoesService() : base(new RefeicoesRepository())
+        private readonly IUnitOfWork _unitOfWork;
+        public RefeicoesService(IUnitOfWork unitOfWork) : base(unitOfWork.RefeicoesRepository)
         {
-
+            _unitOfWork = unitOfWork;
         }
     }
 }

@@ -12,6 +12,10 @@ namespace Infrastructure.Repository
 {
     public class PorcaoDeAlimentoRepository : DefaultRepository<PorcaoDeAlimento>, IPorcaoDeAlimentoRepository
     {
+        public PorcaoDeAlimentoRepository(DietCScharpContext ctx) : base(ctx)
+        {
+        }
+
         public void AssociarPorcaoAlimentoDieta(List<int> listIdProcaoAlimento, int idDieta)
         {
             using (var ctx = new DietCScharpContext())

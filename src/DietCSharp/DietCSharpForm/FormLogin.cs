@@ -1,4 +1,8 @@
-﻿using Services;
+﻿using Core.Entities.DietcSharp;
+using Core.Interfaces;
+using Core.Interfaces.Service;
+using Infrastructure;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +15,21 @@ namespace DietCSharpForm
 {
     public partial class FormLogin : Form
     {
-        private readonly UsuarioService _usuarioService;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly DietCScharpContext _ctx;
+        private readonly IUsuarioService _usuarioService;
         public bool isLogin { get; set; }
         public int CodigoUsuario { get; set; }
         public FormLogin()
         {
+            _ctx = new DietCScharpContext();
+            _unitOfWork = new UnitOfWork(_ctx);
+            _usuarioService = new UsuarioService(_unitOfWork);
             InitializeComponent();
-            _usuarioService = new UsuarioService();
             isLogin = false;
         }
 
-        private void btnEditarSalvar_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             var ehUsuario = _usuarioService.IsUsuario(txtUsuario.Text, txtSenha.Text, out int codigoUsuario);
             if (!ehUsuario)

@@ -12,82 +12,67 @@ namespace Infrastructure.Repository.Base
 {
     public abstract class DefaultRepository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
+        protected readonly DietCScharpContext _ctx;
+        public DefaultRepository(DietCScharpContext ctx)
+        {
+            _ctx = ctx;
+        }
         public virtual void Add(TEntity entity)
         {
-            using (var ctx = new DietCScharpContext())
-            {
-                var db = ctx.Set<TEntity>();
-                db.Add(entity);
-                ctx.SaveChanges();
-            }
+            var db = _ctx.Set<TEntity>();
+            db.Add(entity);
         }
 
         public virtual void Delete(TEntity entity)
         {
-            using (var ctx = new DietCScharpContext())
-            {
-                var db = ctx.Set<TEntity>();
-                db.Remove(entity);
-                ctx.SaveChanges();
-            }
-
+            var db = _ctx.Set<TEntity>();
+            db.Remove(entity);
         }
 
         public virtual List<TEntity> Get(int take = 0, int skip = 0)
         {
             List<TEntity> list = new List<TEntity>();
-            using (var ctx = new DietCScharpContext())
-            {
-                var db = ctx.Set<TEntity>();
-                list = db.Take(take)
-                    .Skip(skip)
-                    .ToList();
-            }
+            var db = _ctx.Set<TEntity>();
+            list = db.Take(take)
+                .Skip(skip)
+                .AsNoTracking()
+                .ToList();
             return list;
         }
 
         public virtual TEntity Get(int id)
         {
             TEntity entity = null;
-            using (var ctx = new DietCScharpContext())
-            {
-                var db = ctx.Set<TEntity>();
-                entity = db.Where(x => x.ID == id).FirstOrDefault();
-            }
+            var db = _ctx.Set<TEntity>();
+            entity = db.Where(x => x.ID == id).FirstOrDefault();
             return entity;
         }
 
         public virtual TEntity Get(TEntity entity)
         {
             TEntity entityReturn = null;
-            using (var ctx = new DietCScharpContext())
-            {
-                var db = ctx.Set<TEntity>();
-                entityReturn = db.Find(entity);
-            }
+            _ctx.Entry(entity).Reload();
+            var db = _ctx.Set<TEntity>();
+            entityReturn = db.Find(entity);
             return entityReturn;
         }
 
-        public List<TEntity> Search(string search)
+        public List<TEntity> Search(TEntity entity, string search)
         {
             List<TEntity> list = new List<TEntity>();
-            using (var ctx = new DietCScharpContext())
-            {
-                ctx.SaveChanges();
-                var db = ctx.Set<TEntity>();
-                list = db.Where(x => x.Nome.Contains(search) || x.Descricao.Contains(search)).ToList();
-            }
+            _ctx.Entry(entity).Reload();
+            var db = _ctx.Set<TEntity>();
+            list = db.Where(x => x.Nome.Contains(search) || x.Descricao.Contains(search))
+                .AsNoTracking()
+                .ToList();
             return list;
         }
 
         public virtual void Update(TEntity entity)
         {
-            using (var ctx = new DietCScharpContext())
-            {
-                var db = ctx.Set<TEntity>();
-                db.Update(entity);
-                ctx.SaveChanges();
-            }
+            var db = _ctx.Set<TEntity>();
+            db.Update(entity);
         }
+
     }
 }

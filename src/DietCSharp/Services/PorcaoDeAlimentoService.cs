@@ -8,17 +8,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Interfaces.Repository;
+using Core.Interfaces;
 
 namespace Services
 {
     public class PorcaoDeAlimentoService : DefaultService<PorcaoDeAlimento>, IPorcaoDeAlimentoService
     {
-        public PorcaoDeAlimentoService() : base(new PorcaoDeAlimentoRepository())
+        private readonly IUnitOfWork _unitOfWork;
+        public PorcaoDeAlimentoService(IUnitOfWork unitOfWork) : base(unitOfWork.PorcaoDeAlimentoRepository)
         {
+            _unitOfWork = unitOfWork;
         }
 
-        public void AssociarPorcaoRefeicoes(List<int> listIdRefeicao, int idPorcaoDeAlimento) => new PorcaoDeAlimentoRepository().AssociarPorcaoRefeicoes(listIdRefeicao, idPorcaoDeAlimento);
+        public void AssociarPorcaoRefeicoes(List<int> listIdRefeicao, int idPorcaoDeAlimento) => _unitOfWork.PorcaoDeAlimentoRepository.AssociarPorcaoRefeicoes(listIdRefeicao, idPorcaoDeAlimento);
 
-        public void AssociarPorcaoAlimentoDieta(List<int> listIdProcaoAlimento, int idDieta) => new PorcaoDeAlimentoRepository().AssociarPorcaoAlimentoDieta(listIdProcaoAlimento, idDieta);
+        public void AssociarPorcaoAlimentoDieta(List<int> listIdProcaoAlimento, int idDieta) => _unitOfWork.PorcaoDeAlimentoRepository.AssociarPorcaoAlimentoDieta(listIdProcaoAlimento, idDieta);
     }
 }

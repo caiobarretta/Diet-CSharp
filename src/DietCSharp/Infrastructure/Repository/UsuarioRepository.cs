@@ -12,18 +12,22 @@ namespace Infrastructure.Repository
 {
     public class UsuarioRepository : DefaultRepository<Usuario>, IUsuarioRepository
     {
+        public UsuarioRepository(DietCScharpContext ctx) : base(ctx)
+        {
+        }
+
         public bool IsUsuario(string usuario, string senha, out int CodigoUsuario)
         {
             CodigoUsuario = 0;
-            using (var ctx = new DietCScharpContext())
+            //using (var ctx = new DietCScharpContext())
+            //{
+            var user = _ctx.Usuarios.Where(x => x.Usuario1 == usuario && x.Senha == senha).FirstOrDefault();
+            if (user != null)
             {
-                var user = ctx.Usuarios.Where(x => x.Usuario1 == usuario && x.Senha == senha).FirstOrDefault();
-                if (user != null)
-                {
-                    CodigoUsuario = user.ID;
-                    return true;
-                }
+                CodigoUsuario = user.ID;
+                return true;
             }
+            //}
             return false;
         }
     }

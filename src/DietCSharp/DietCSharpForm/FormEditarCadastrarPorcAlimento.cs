@@ -11,11 +11,15 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Core.Interfaces;
+using Infrastructure;
 
 namespace DietCSharpForm
 {
     public partial class FormEditarCadastrarPorcAlimento : Form, IFormBase<PorcaoDeAlimento>
     {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly DietCScharpContext _ctx;
         public IService<PorcaoDeAlimento> _service { get; private set; }
 
         public CriarEditarService<PorcaoDeAlimento> criarEditarService { get; private set; }
@@ -26,12 +30,14 @@ namespace DietCSharpForm
 
         public FormEditarCadastrarPorcAlimento()
         {
+            _ctx = new DietCScharpContext();
+            _unitOfWork = new UnitOfWork(_ctx);
             InitializeComponent();
         }
 
         public IFormBase<PorcaoDeAlimento> BuildServices(TipoDeOperacao tipoDeOperacao)
         {
-            this._service = new PorcaoDeAlimentoService();
+            this._service = new PorcaoDeAlimentoService(_unitOfWork);
             TipoDeOperacao = tipoDeOperacao;
             criarEditarService = new CriarEditarService<PorcaoDeAlimento>(this._service, tipoDeOperacao);
             return this;
@@ -49,18 +55,18 @@ namespace DietCSharpForm
             this.Text = TipoDeOperacao.ToString();
             this.txtCodigo.Text = Id.ToString();
 
-            var diadaSemanaService = new DiasdaSemanaService();
+            var diadaSemanaService = new DiasdaSemanaService(_unitOfWork);
             var diadaSemanaList = diadaSemanaService.Get(int.MaxValue, 0);
             diadaSemanaList.ForEach(r =>
             {
                 chbDiasSemana.Items.Add(string.Format("{0}-{1}", r.ID, r.Nome));
             });
-            
-            var refeicaoService = new RefeicoesService();
+
+            var refeicaoService = new RefeicoesService(_unitOfWork);
             var refeicoesList = refeicaoService.Get(int.MaxValue, 0);
             refeicoesList.ForEach(r =>
             {
-                chbRefeicoes.Items.Add(string.Format("{0}-{1}",r.ID,r.Nome));
+                chbRefeicoes.Items.Add(string.Format("{0}-{1}", r.ID, r.Nome));
             });
 
             PorcaoDeAlimento porcaoDeAlimento = null;
@@ -106,15 +112,25 @@ namespace DietCSharpForm
             List<int> listIdRefeicoes = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbRefeicoes);
             List<int> listIdDiasdaSemana = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbDiasSemana);
 
-            criarEditarService.Executar(porcaoDeAlimento, out string mensagem);
+            if(!criarEditarService.Executar(porcaoDeAlimento, out string mensagem))
+            {
+                MessageBox.Show(mensagem);
+                return;
+            }
 
-            new DiasdaSemanaService().AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, porcaoDeAlimento.ID);
+            var diasdaSemanaService = new DiasdaSemanaService(_unitOfWork);
+            diasdaSemanaService.AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, porcaoDeAlimento.ID);
 
-            new PorcaoDeAlimentoService().AssociarPorcaoRefeicoes(listIdRefeicoes, porcaoDeAlimento.ID);
-            
+            var porcaoDeAlimentoService = new PorcaoDeAlimentoService(_unitOfWork);
+            porcaoDeAlimentoService.AssociarPorcaoRefeicoes(listIdRefeicoes, porcaoDeAlimento.ID);
+
             MessageBox.Show(mensagem);
+            _unitOfWork.Commit();
         }
 
-        
+        private void FormEditarCadastrarPorcAlimento_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _unitOfWork.Dispose();
+        }
     }
 }

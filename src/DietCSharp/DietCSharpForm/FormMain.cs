@@ -10,11 +10,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Core.Entities.DietcSharp;
+using Core.Interfaces;
+using Infrastructure;
 
 namespace DietCSharpForm
 {
     public partial class FormMain : Form
     {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly DietCScharpContext _ctx;
         private readonly UsuarioService _usuarioService;
         private bool isLogin { get; set; }
         private int CodigoUsuario { get; set; }
@@ -22,13 +27,15 @@ namespace DietCSharpForm
         private readonly ToolStripHelper _toolStripHelper;
         public FormMain()
         {
+            _ctx = new DietCScharpContext();
+            _unitOfWork = new UnitOfWork(_ctx);
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
             isLogin = formLogin.isLogin;
             if (isLogin)
             {
                 CodigoUsuario = formLogin.CodigoUsuario;
-                _usuarioService = new UsuarioService();
+                _usuarioService = new UsuarioService(_unitOfWork);
                 _tipoUsuario = _usuarioService.GetTipoUsuarioById(CodigoUsuario);
             }
             _toolStripHelper = new ToolStripHelper(_tipoUsuario);

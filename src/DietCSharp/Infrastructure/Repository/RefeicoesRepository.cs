@@ -11,6 +11,8 @@ namespace Infrastructure.Repository
 {
     public class RefeicoesRepository : DefaultRepository<Refeico>, IRefeicoesRepository
     {
-
+        public RefeicoesRepository(DietCScharpContext ctx) : base(ctx)
+        {
+        }
     }
 }

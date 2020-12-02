@@ -13,11 +13,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Core.Interfaces;
+using Infrastructure;
 
 namespace DietCSharpForm.Helpers
 {
     public class ToolStripHelper
     {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly DietCScharpContext _ctx;
         private readonly TipoUsuario _tipoUsuario;
 
         private readonly IDietaService _dietaService;
@@ -27,11 +31,14 @@ namespace DietCSharpForm.Helpers
 
         public ToolStripHelper(TipoUsuario TipoUsuario)
         {
+            _ctx = new DietCScharpContext();
+            _unitOfWork = new UnitOfWork(_ctx);
+
             _tipoUsuario = TipoUsuario;
-            _dietaService = new DietaService();
-            _usuarioService = new UsuarioService();
-            _porcaoDeAlimentoService = new PorcaoDeAlimentoService();
-            _refeicoesService = new RefeicoesService();
+            _dietaService = new DietaService(_unitOfWork);
+            _usuarioService = new UsuarioService(_unitOfWork);
+            _porcaoDeAlimentoService = new PorcaoDeAlimentoService(_unitOfWork);
+            _refeicoesService = new RefeicoesService(_unitOfWork);
         }
 
         #region Paciente
@@ -41,7 +48,8 @@ namespace DietCSharpForm.Helpers
             {
                 var form = new FormEditarCadastrarPaciente().BuildServices(TipoDeOperacao.Editar);
                 var componenteService = new UsuarioComponenteService();
-                new PesquisarForm<Usuario>(_usuarioService, form, componenteService, _tipoUsuario).ShowDialog();
+                var usuario = new Usuario();
+                new PesquisarForm<Usuario>(_unitOfWork, _usuarioService, form, componenteService, _tipoUsuario, usuario).ShowDialog();
             }
             catch (Exception ex)
             {
@@ -69,7 +77,8 @@ namespace DietCSharpForm.Helpers
             {
                 var form = new FormEditarCadastrarDieta().BuildServices(TipoDeOperacao.Editar);
                 var componenteService = new DietaComponenteService();
-                new PesquisarForm<Dietum>(_dietaService, form, componenteService, _tipoUsuario).ShowDialog();
+                var dieta = new Dietum();
+                new PesquisarForm<Dietum>(_unitOfWork, _dietaService, form, componenteService, _tipoUsuario, dieta).ShowDialog();
             }
             catch (Exception ex)
             {
@@ -97,7 +106,8 @@ namespace DietCSharpForm.Helpers
             {
                 var form = new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Editar);
                 var componenteService = new PorcaoDeAlimentoComponenteService();
-                new PesquisarForm<PorcaoDeAlimento>(_porcaoDeAlimentoService, form, componenteService, _tipoUsuario).ShowDialog();
+                var porcaoDeAlimento = new PorcaoDeAlimento();
+                new PesquisarForm<PorcaoDeAlimento>(_unitOfWork, _porcaoDeAlimentoService, form, componenteService, _tipoUsuario, porcaoDeAlimento).ShowDialog();
             }
             catch(Exception ex)
             {
@@ -125,7 +135,8 @@ namespace DietCSharpForm.Helpers
             {
                 var form = new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Editar);
                 var componenteService = new RefeicoesComponenteService();
-                new PesquisarForm<Refeico>(_refeicoesService, form, componenteService, _tipoUsuario).ShowDialog();
+                var refeicao = new Refeico();
+                new PesquisarForm<Refeico>(_unitOfWork, _refeicoesService, form, componenteService, _tipoUsuario, refeicao).ShowDialog();
             }
             catch (Exception ex)
             {

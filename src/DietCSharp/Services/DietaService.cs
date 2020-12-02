@@ -7,13 +7,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Interfaces;
 
 namespace Services
 {
     public class DietaService : DefaultService<Dietum>, IDietaService
     {
-        public DietaService() : base(new DietaRepository())
+        private readonly IUnitOfWork _unitOfWork;
+        public DietaService(IUnitOfWork unitOfWork) : base(unitOfWork.DietaRepository)
         {
+            _unitOfWork = unitOfWork;
         }
     }
 }

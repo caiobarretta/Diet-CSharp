@@ -10,17 +10,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Interfaces;
+using Core.Interfaces.Repository;
 
 namespace Services
 {
     public class UsuarioService : DefaultService<Usuario>, IUsuarioService
     {
-        private readonly UsuarioRepository _usuarioRepository;
-        private readonly PerfilRepository _perfilRepository;
-        public UsuarioService() : base(new UsuarioRepository())
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IPerfilRepository _perfilRepository;
+        public UsuarioService(IUnitOfWork unitOfWork) : base(unitOfWork.UsuarioRepository)
         {
-            _usuarioRepository = new UsuarioRepository();
-            _perfilRepository = new PerfilRepository();
+            _unitOfWork = unitOfWork;
+            _usuarioRepository = unitOfWork.UsuarioRepository;
+            _perfilRepository = unitOfWork.PerfilRepository;
             DataSeeder.SeedUsers();
         }
         public bool IsUsuario(string usuario, string senha, out int CodigoUsuario)
@@ -31,7 +35,6 @@ namespace Services
         public TipoUsuario GetTipoUsuarioById(int id)
         {
             var usuario = _usuarioRepository.Get(id);
-
             var perfil = _perfilRepository.Get(usuario.ID_Perfil);
 
             if (perfil == null)

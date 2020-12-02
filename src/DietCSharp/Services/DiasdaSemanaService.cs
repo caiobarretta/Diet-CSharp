@@ -1,4 +1,6 @@
 ﻿using Core.Entities.DietcSharp;
+using Core.Interfaces;
+using Core.Interfaces.Repository;
 using Core.Interfaces.Repository.Base;
 using Core.Interfaces.Service;
 using Infrastructure.Repository;
@@ -13,10 +15,15 @@ namespace Services
 {
     public class DiasdaSemanaService : DefaultService<DiasdaSemana>, IDiasdaSemanaService
     {
-        public DiasdaSemanaService() : base(new DiasdaSemanaRepository())
+        private readonly IUnitOfWork _unitOfWork;
+        public DiasdaSemanaService(IUnitOfWork unitOfWork) : base(unitOfWork.DiasdaSemanaRepository)
         {
+            _unitOfWork = unitOfWork;
         }
 
-        public void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento) => new DiasdaSemanaRepository().AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, iD_PorcAlimento);
+        public void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento)
+        {
+            _unitOfWork.DiasdaSemanaRepository.AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, iD_PorcAlimento);
+        }
     }
 }

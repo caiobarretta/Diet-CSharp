@@ -21,16 +21,17 @@ namespace Services
 
         public virtual bool Executar(TEntity entity, out string mensagem)
         {
+            var service = _service;
             mensagem = string.Empty;
             if (_tipoDeOperacao == TipoDeOperacao.Criar)
             {
-                _service.Add(entity);
+                service.Add(entity);
                 mensagem = "Refeição Criada Com Sucesso";
                 return true;
             }
             else if (_tipoDeOperacao == TipoDeOperacao.Editar)
             {
-                _service.Update(entity);
+                service.Update(entity);
                 mensagem = $"Refeição {entity.Nome} Alterada Com Sucesso";
                 return true;
             }
@@ -40,11 +41,12 @@ namespace Services
 
         public virtual bool LoadEntity(ref TEntity entity, int id)
         {
+            var service = _service;
             if (_tipoDeOperacao == TipoDeOperacao.Editar && id == 0)
                 throw new AccessViolationException("Erro ao carregar dados");
             else if (_tipoDeOperacao == TipoDeOperacao.Editar && id > 0)
             {
-                entity = _service.Get(id);
+                entity = service.Get(id);
                 return true;
             }
             return false;

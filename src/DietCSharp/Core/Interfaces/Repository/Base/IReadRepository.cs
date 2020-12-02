@@ -12,6 +12,6 @@ namespace Core.Interfaces
         List<TEntity> Get(int take = 0, int skip = 0);
         TEntity Get(int id);
         TEntity Get(TEntity entity);
-        List<TEntity> Search(string search);
+        List<TEntity> Search(TEntity entity, string search);
     }
 }
