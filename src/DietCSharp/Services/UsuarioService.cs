@@ -1,17 +1,17 @@
 ﻿using Core.Entities.DietcSharp;
 using Core.Entities.Enums;
-using Core.Infrastructure;
-using Core.Infrastructure.Repository;
+using Infrastructure;
+using Infrastructure.Repository;
 using Core.Interfaces.Repository.Base;
 using Core.Interfaces.Service;
-using Core.Services.Base;
+using Services.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Services
+namespace Services
 {
     public class UsuarioService : DefaultService<Usuario>, IUsuarioService
     {

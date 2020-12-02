@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Services.Base
+namespace Services.Base
 {
     public class DefaultService<TEntity> : IService<TEntity> where TEntity : Entity
     {
