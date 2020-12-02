@@ -12,6 +12,7 @@ namespace Core.Entities.DietcSharp
         {
             Rel_Porc_Dia = new HashSet<Rel_Porc_Dium>();
         }
+
         public virtual ICollection<Rel_Porc_Dium> Rel_Porc_Dia { get; set; }
     }
 }

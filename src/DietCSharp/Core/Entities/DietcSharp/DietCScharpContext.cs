@@ -108,13 +108,11 @@ namespace Core.Entities.DietcSharp
                 entity.HasOne(d => d.ID_DietaNavigation)
                     .WithMany(p => p.Rel_Porc_Dieta)
                     .HasForeignKey(d => d.ID_Dieta)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Porc_Dieta_Dieta");
 
                 entity.HasOne(d => d.ID_PorcAlimentoNavigation)
                     .WithMany(p => p.Rel_Porc_Dieta)
                     .HasForeignKey(d => d.ID_PorcAlimento)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Porc_Dieta_PorcaoDeAlimento");
             });
 
@@ -123,7 +121,6 @@ namespace Core.Entities.DietcSharp
                 entity.HasOne(d => d.ID_DiaSemanaNavigation)
                     .WithMany(p => p.Rel_Porc_Dia)
                     .HasForeignKey(d => d.ID_DiaSemana)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Porc_Dia_DiasdaSemana");
 
                 entity.HasOne(d => d.ID_PorcAlimentoNavigation)
@@ -140,13 +137,11 @@ namespace Core.Entities.DietcSharp
                 entity.HasOne(d => d.ID_PorcAlimentoNavigation)
                     .WithMany(p => p.Rel_Ref_Porcs)
                     .HasForeignKey(d => d.ID_PorcAlimento)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Ref_Porc_PorcaoDeAlimento");
 
                 entity.HasOne(d => d.ID_RefeicaoNavigation)
                     .WithMany(p => p.Rel_Ref_Porcs)
                     .HasForeignKey(d => d.ID_Refeicao)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Ref_Porc_Refeicoes");
             });
 
@@ -177,12 +172,12 @@ namespace Core.Entities.DietcSharp
                 entity.HasOne(d => d.ID_DietaNavigation)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.ID_Dieta)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Usuario_Dieta");
 
                 entity.HasOne(d => d.ID_PerfilNavigation)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.ID_Perfil)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Usuario_Perfil");
             });
 

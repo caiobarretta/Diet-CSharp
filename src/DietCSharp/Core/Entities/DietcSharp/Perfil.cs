@@ -12,7 +12,6 @@ namespace Core.Entities.DietcSharp
         {
             Usuarios = new HashSet<Usuario>();
         }
-
         public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }
