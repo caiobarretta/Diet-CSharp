@@ -48,7 +48,7 @@ namespace DietCSharpForm
             var porcaoList = porcaoDeAlimentoService.Get(int.MaxValue, 0);
             porcaoList.ForEach(r =>
             {
-                chbPorcAlimento.Items.Add(string.Format("{0}-{1}", r.ID_PorcAlimento, r.Nome));
+                chbPorcAlimento.Items.Add(string.Format("{0}-{1}", r.ID, r.Nome));
             });
 
             Dietum dietum = null;
@@ -61,8 +61,8 @@ namespace DietCSharpForm
                 foreach (var item in dietum.Rel_Porc_Dieta)
                 {
                     var porcaoDeAlimento = porcaoDeAlimentoService.Get(item.ID_Dieta);
-                    var formatoConteudoItemChb = string.Format("{0}-{1}", porcaoDeAlimento.ID_PorcAlimento, porcaoDeAlimento.Nome);
-                    ValidaComponentesFormHelper.SetItemCheckState(chbPorcAlimento, formatoConteudoItemChb, CheckState.Checked);
+                    var formatoConteudoItemChb = string.Format("{0}-{1}", porcaoDeAlimento.ID, porcaoDeAlimento.Nome);
+                    ComponentesFormHelper.SetItemCheckState(chbPorcAlimento, formatoConteudoItemChb, CheckState.Checked);
                 }
             }
         }
@@ -85,11 +85,11 @@ namespace DietCSharpForm
 
             
 
-            List<int> listIdProcaoAlimento = ValidaComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbPorcAlimento);
+            List<int> listIdProcaoAlimento = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbPorcAlimento);
 
             criarEditarService.Executar(dietum, out string mensagem);
 
-            new PorcaoDeAlimentoService().AssociarPorcaoAlimentoDieta(listIdProcaoAlimento, dietum.ID_Dieta);
+            new PorcaoDeAlimentoService().AssociarPorcaoAlimentoDieta(listIdProcaoAlimento, dietum.ID);
 
             MessageBox.Show(mensagem);
         }

@@ -25,18 +25,5 @@ namespace Core.Infrastructure.Repository
                 }
             }
         }
-
-        public override DiasdaSemana Get(int id)
-        {
-            DiasdaSemana diasdaSemana = null;
-            using (var ctx = new DietCScharpContext())
-                diasdaSemana = ctx.DiasdaSemanas.Where(x => x.ID_DiaSemana == id).FirstOrDefault();
-            return diasdaSemana;
-        }
-
-        public override DiasdaSemana Get(DiasdaSemana entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

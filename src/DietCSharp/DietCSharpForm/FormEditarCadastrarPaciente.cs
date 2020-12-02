@@ -53,7 +53,7 @@ namespace DietCSharpForm
             var dietaList = dietaService.Get(int.MaxValue, 0);
             dietaList.ForEach(r =>
             {
-                lstDieta.Items.Add(string.Format("{0}-{1}", r.ID_Dieta, r.Nome));
+                lstDieta.Items.Add(string.Format("{0}-{1}", r.ID, r.Nome));
             });
 
             Usuario usuario = null;
@@ -66,8 +66,8 @@ namespace DietCSharpForm
                 if (usuario.ID_Dieta.HasValue)
                 {
                     var dieta = dietaService.Get(usuario.ID_Dieta.Value);
-                    var formatoConteudoItemLst = string.Format("{0}-{1}", dieta.ID_Dieta, dieta.Nome);
-                    ValidaComponentesFormHelper.SetItemSelectListBox(lstDieta, formatoConteudoItemLst);
+                    var formatoConteudoItemLst = string.Format("{0}-{1}", dieta.ID, dieta.Nome);
+                    ComponentesFormHelper.SetItemSelectListBox(lstDieta, formatoConteudoItemLst);
                 }
             }
         }
@@ -89,8 +89,8 @@ namespace DietCSharpForm
             usuario.Descricao = txtDescricao.Text;
             usuario.Usuario1 = txtUsuario.Text;
             usuario.Senha = txtSenha.Text;
-            usuario.ID_Perfil = new PerfilService().Search("Paciente").Where(x => x.Nome == "Paciente").FirstOrDefault().ID_Perfil;
-            usuario.ID_Dieta = ValidaComponentesFormHelper.GetIdSelectedFromListBox(lstDieta);
+            usuario.ID_Perfil = new PerfilService().Search("Paciente").Where(x => x.Nome == "Paciente").FirstOrDefault().ID;
+            usuario.ID_Dieta = ComponentesFormHelper.GetIdSelectedFromListBox(lstDieta);
 
             criarEditarService.Executar(usuario, out string mensagem);
 

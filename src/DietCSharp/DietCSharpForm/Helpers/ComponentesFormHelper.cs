@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace DietCSharpForm.Helpers
 {
-    public class ValidaComponentesFormHelper
+    public class ComponentesFormHelper
     {
         public static bool ValidaERetornaIdDataGrid(DataGridView grid, out string mensagem, out int id)
         {

@@ -51,7 +51,7 @@ namespace Core.Infrastructure.Repository
             using (var ctx = new DietCScharpContext())
             {
                 porcaoDeAlimento = ctx.PorcaoDeAlimentos
-                    .Where(x => x.ID_PorcAlimento == id)
+                    .Where(x => x.ID == id)
                     .Include(x => x.Rel_Porc_Dia)
                     .Include(x => x.Rel_Ref_Porcs)
                     .FirstOrDefault();

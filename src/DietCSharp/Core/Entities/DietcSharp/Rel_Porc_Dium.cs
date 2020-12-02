@@ -9,7 +9,7 @@ namespace Core.Entities.DietcSharp
     {
         public int ID_PorcAlimento { get; set; }
         public int ID_DiaSemana { get; set; }
-        public int ID_Porc_Dia { get; set; }
+        public int ID { get; set; }
 
         public virtual DiasdaSemana ID_DiaSemanaNavigation { get; set; }
         public virtual PorcaoDeAlimento ID_PorcAlimentoNavigation { get; set; }

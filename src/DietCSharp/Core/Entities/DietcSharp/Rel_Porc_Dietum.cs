@@ -7,7 +7,7 @@ namespace Core.Entities.DietcSharp
 {
     public partial class Rel_Porc_Dietum
     {
-        public int ID_Rel_Porc_Dieta { get; set; }
+        public int ID { get; set; }
         public int ID_PorcAlimento { get; set; }
         public int ID_Dieta { get; set; }
 

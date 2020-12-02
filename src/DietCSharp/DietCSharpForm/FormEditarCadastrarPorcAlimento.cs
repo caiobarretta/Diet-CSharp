@@ -53,14 +53,14 @@ namespace DietCSharpForm
             var diadaSemanaList = diadaSemanaService.Get(int.MaxValue, 0);
             diadaSemanaList.ForEach(r =>
             {
-                chbDiasSemana.Items.Add(string.Format("{0}-{1}", r.ID_DiaSemana, r.Nome));
+                chbDiasSemana.Items.Add(string.Format("{0}-{1}", r.ID, r.Nome));
             });
             
             var refeicaoService = new RefeicoesService();
             var refeicoesList = refeicaoService.Get(int.MaxValue, 0);
             refeicoesList.ForEach(r =>
             {
-                chbRefeicoes.Items.Add(string.Format("{0}-{1}",r.ID_Refeicao,r.Nome));
+                chbRefeicoes.Items.Add(string.Format("{0}-{1}",r.ID,r.Nome));
             });
 
             PorcaoDeAlimento porcaoDeAlimento = null;
@@ -73,15 +73,15 @@ namespace DietCSharpForm
                 foreach (var item in porcaoDeAlimento.Rel_Porc_Dia)
                 {
                     var diasdaSemana = diadaSemanaService.Get(item.ID_DiaSemana);
-                    var formatoConteudoItemChb = string.Format("{0}-{1}", diasdaSemana.ID_DiaSemana, diasdaSemana.Nome);
-                    ValidaComponentesFormHelper.SetItemCheckState(chbDiasSemana, formatoConteudoItemChb, CheckState.Checked);
+                    var formatoConteudoItemChb = string.Format("{0}-{1}", diasdaSemana.ID, diasdaSemana.Nome);
+                    ComponentesFormHelper.SetItemCheckState(chbDiasSemana, formatoConteudoItemChb, CheckState.Checked);
                 }
 
                 foreach (var item in porcaoDeAlimento.Rel_Ref_Porcs)
                 {
                     var refeicao = refeicaoService.Get(item.ID_Refeicao);
-                    var formatoConteudoItemChb = string.Format("{0}-{1}", refeicao.ID_Refeicao, refeicao.Nome);
-                    ValidaComponentesFormHelper.SetItemCheckState(chbRefeicoes, formatoConteudoItemChb, CheckState.Checked);
+                    var formatoConteudoItemChb = string.Format("{0}-{1}", refeicao.ID, refeicao.Nome);
+                    ComponentesFormHelper.SetItemCheckState(chbRefeicoes, formatoConteudoItemChb, CheckState.Checked);
                 }
             }
 
@@ -103,14 +103,14 @@ namespace DietCSharpForm
             porcaoDeAlimento.Nome = txtNome.Text;
             porcaoDeAlimento.Descricao = txtDescricao.Text;
 
-            List<int> listIdRefeicoes = ValidaComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbRefeicoes);
-            List<int> listIdDiasdaSemana = ValidaComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbDiasSemana);
+            List<int> listIdRefeicoes = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbRefeicoes);
+            List<int> listIdDiasdaSemana = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbDiasSemana);
 
             criarEditarService.Executar(porcaoDeAlimento, out string mensagem);
 
-            new DiasdaSemanaService().AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, porcaoDeAlimento.ID_PorcAlimento);
+            new DiasdaSemanaService().AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, porcaoDeAlimento.ID);
 
-            new PorcaoDeAlimentoService().AssociarPorcaoRefeicoes(listIdRefeicoes, porcaoDeAlimento.ID_PorcAlimento);
+            new PorcaoDeAlimentoService().AssociarPorcaoRefeicoes(listIdRefeicoes, porcaoDeAlimento.ID);
             
             MessageBox.Show(mensagem);
         }

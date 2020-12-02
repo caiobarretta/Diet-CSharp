@@ -137,5 +137,6 @@ namespace DietCSharpForm
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.DataGridView dtgPesquisa;
+        
     }
 }

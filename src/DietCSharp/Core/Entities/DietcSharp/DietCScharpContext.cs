@@ -39,8 +39,6 @@ namespace Core.Entities.DietcSharp
         {
             modelBuilder.Entity<DiasdaSemana>(entity =>
             {
-                entity.HasKey(e => e.ID_DiaSemana);
-
                 entity.ToTable("DiasdaSemana");
 
                 entity.Property(e => e.Descricao)
@@ -55,8 +53,6 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<Dietum>(entity =>
             {
-                entity.HasKey(e => e.ID_Dieta);
-
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -69,8 +65,6 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<Perfil>(entity =>
             {
-                entity.HasKey(e => e.ID_Perfil);
-
                 entity.ToTable("Perfil");
 
                 entity.Property(e => e.Descricao)
@@ -85,8 +79,6 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<PorcaoDeAlimento>(entity =>
             {
-                entity.HasKey(e => e.ID_PorcAlimento);
-
                 entity.ToTable("PorcaoDeAlimento");
 
                 entity.Property(e => e.Descricao)
@@ -101,8 +93,6 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<Refeico>(entity =>
             {
-                entity.HasKey(e => e.ID_Refeicao);
-
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -115,8 +105,6 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<Rel_Porc_Dietum>(entity =>
             {
-                entity.HasKey(e => e.ID_Rel_Porc_Dieta);
-
                 entity.HasOne(d => d.ID_DietaNavigation)
                     .WithMany(p => p.Rel_Porc_Dieta)
                     .HasForeignKey(d => d.ID_Dieta)
@@ -132,8 +120,6 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<Rel_Porc_Dium>(entity =>
             {
-                entity.HasKey(e => e.ID_Porc_Dia);
-
                 entity.HasOne(d => d.ID_DiaSemanaNavigation)
                     .WithMany(p => p.Rel_Porc_Dia)
                     .HasForeignKey(d => d.ID_DiaSemana)
@@ -149,8 +135,6 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<Rel_Ref_Porc>(entity =>
             {
-                entity.HasKey(e => e.ID_Ref_Porc);
-
                 entity.ToTable("Rel_Ref_Porc");
 
                 entity.HasOne(d => d.ID_PorcAlimentoNavigation)
@@ -168,8 +152,6 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<Usuario>(entity =>
             {
-                entity.HasKey(e => e.ID_Usuario);
-
                 entity.ToTable("Usuario");
 
                 entity.Property(e => e.Descricao)
