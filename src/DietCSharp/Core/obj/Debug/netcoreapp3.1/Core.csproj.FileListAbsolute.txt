@@ -1,0 +1,12 @@
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\bin\Debug\netcoreapp3.1\Core.runtimeconfig.json
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\bin\Debug\netcoreapp3.1\Core.runtimeconfig.dev.json
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\bin\Debug\netcoreapp3.1\Core.dll
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\bin\Debug\netcoreapp3.1\Core.pdb
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\obj\Debug\netcoreapp3.1\Core.dll
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\obj\Debug\netcoreapp3.1\Core.pdb
+C:\Users\caioa\Documents\ifsp\cmp\LP2\Diet-CSharp\src\DietCSharp\Core\obj\Debug\netcoreapp3.1\Core.genruntimeconfig.cache
