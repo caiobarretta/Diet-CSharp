@@ -15,8 +15,6 @@ namespace Core.Entities.DietcSharp
             Rel_Ref_Porcs = new HashSet<Rel_Ref_Porc>();
         }
 
-        public int ID_PorcAlimento { get; set; }
-
         public virtual ICollection<Rel_Porc_Dium> Rel_Porc_Dia { get; set; }
         public virtual ICollection<Rel_Porc_Dietum> Rel_Porc_Dieta { get; set; }
         public virtual ICollection<Rel_Ref_Porc> Rel_Ref_Porcs { get; set; }

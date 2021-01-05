@@ -12,23 +12,6 @@ namespace Core.Infrastructure.Repository
 {
     public class UsuarioRepository : DefaultRepository<Usuario>, IUsuarioRepository
     {
-
-        public override Usuario Get(int id)
-        {
-            Usuario usuario = null;
-            using (var ctx = new DietCScharpContext())
-            {
-                usuario = ctx.Usuarios.Where(x => x.ID_Usuario == id).FirstOrDefault();
-            }
-
-            return usuario;
-        }
-
-        public override Usuario Get(Usuario entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool IsUsuario(string usuario, string senha, out int CodigoUsuario)
         {
             CodigoUsuario = 0;
@@ -37,7 +20,7 @@ namespace Core.Infrastructure.Repository
                 var user = ctx.Usuarios.Where(x => x.Usuario1 == usuario && x.Senha == senha).FirstOrDefault();
                 if (user != null)
                 {
-                    CodigoUsuario = user.ID_Usuario;
+                    CodigoUsuario = user.ID;
                     return true;
                 }
             }

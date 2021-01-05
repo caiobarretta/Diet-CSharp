@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Core.Interfaces.Repository
 {
-    interface IDietaRepository : IRepository<Dietum>
+    public interface IDietaRepository : IRepository<Dietum>
     {
     }
 }

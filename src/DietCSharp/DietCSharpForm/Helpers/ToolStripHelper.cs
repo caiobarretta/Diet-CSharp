@@ -3,19 +3,25 @@ using Core.Entities.DietcSharp;
 using Core.Entities.Enums;
 using Core.Interfaces.Service;
 using Core.Interfaces.Service.Base;
-using Core.Services;
+using Services;
 using DietCSharpForm.Base;
+using DietCSharpForm.Services.Componente;
+using DietCSharpForm.Services.Componente.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Core.Interfaces;
+using Infrastructure;
 
 namespace DietCSharpForm.Helpers
 {
     public class ToolStripHelper
     {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly DietCScharpContext _ctx;
         private readonly TipoUsuario _tipoUsuario;
 
         private readonly IDietaService _dietaService;
@@ -25,11 +31,14 @@ namespace DietCSharpForm.Helpers
 
         public ToolStripHelper(TipoUsuario TipoUsuario)
         {
+            _ctx = new DietCScharpContext();
+            _unitOfWork = new UnitOfWork(_ctx);
+
             _tipoUsuario = TipoUsuario;
-            _dietaService = new DietaService();
-            _usuarioService = new UsuarioService();
-            _porcaoDeAlimentoService = new PorcaoDeAlimentoService();
-            _refeicoesService = new RefeicoesService();
+            _dietaService = new DietaService(_unitOfWork);
+            _usuarioService = new UsuarioService(_unitOfWork);
+            _porcaoDeAlimentoService = new PorcaoDeAlimentoService(_unitOfWork);
+            _refeicoesService = new RefeicoesService(_unitOfWork);
         }
 
         #region Paciente
@@ -37,7 +46,10 @@ namespace DietCSharpForm.Helpers
         {
             try
             {
-                new PesquisarForm<Usuario>(_usuarioService, new FormEditarCadastrarPaciente().BuildServices(TipoDeOperacao.Editar), _tipoUsuario).ShowDialog();
+                var form = new FormEditarCadastrarPaciente().BuildServices(TipoDeOperacao.Editar);
+                var componenteService = new UsuarioComponenteService();
+                var usuario = new Usuario();
+                new PesquisarForm<Usuario>(_unitOfWork, _usuarioService, form, componenteService, _tipoUsuario, usuario).ShowDialog();
             }
             catch (Exception ex)
             {
@@ -63,7 +75,10 @@ namespace DietCSharpForm.Helpers
         {
             try
             {
-                new PesquisarForm<Dietum>(_dietaService, new FormEditarCadastrarDieta().BuildServices(TipoDeOperacao.Editar), _tipoUsuario).ShowDialog();
+                var form = new FormEditarCadastrarDieta().BuildServices(TipoDeOperacao.Editar);
+                var componenteService = new DietaComponenteService();
+                var dieta = new Dietum();
+                new PesquisarForm<Dietum>(_unitOfWork, _dietaService, form, componenteService, _tipoUsuario, dieta).ShowDialog();
             }
             catch (Exception ex)
             {
@@ -89,7 +104,10 @@ namespace DietCSharpForm.Helpers
         {
             try
             {
-                new PesquisarForm<PorcaoDeAlimento>(_porcaoDeAlimentoService, new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Editar), _tipoUsuario).ShowDialog();
+                var form = new FormEditarCadastrarPorcAlimento().BuildServices(TipoDeOperacao.Editar);
+                var componenteService = new PorcaoDeAlimentoComponenteService();
+                var porcaoDeAlimento = new PorcaoDeAlimento();
+                new PesquisarForm<PorcaoDeAlimento>(_unitOfWork, _porcaoDeAlimentoService, form, componenteService, _tipoUsuario, porcaoDeAlimento).ShowDialog();
             }
             catch(Exception ex)
             {
@@ -115,7 +133,10 @@ namespace DietCSharpForm.Helpers
         {
             try
             {
-                new PesquisarForm<Refeico>(_refeicoesService, new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Editar), _tipoUsuario).ShowDialog();
+                var form = new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Editar);
+                var componenteService = new RefeicoesComponenteService();
+                var refeicao = new Refeico();
+                new PesquisarForm<Refeico>(_unitOfWork, _refeicoesService, form, componenteService, _tipoUsuario, refeicao).ShowDialog();
             }
             catch (Exception ex)
             {

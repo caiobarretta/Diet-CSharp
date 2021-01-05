@@ -160,6 +160,7 @@ namespace DietCSharpForm
             this.Name = "FormEditarCadastrarDieta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditarDieta";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEditarCadastrarDieta_FormClosed);
             this.Load += new System.EventHandler(this.FormEditarCadastrarDieta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,7 +173,6 @@ namespace DietCSharpForm
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.CheckedListBox chbPorcAlimento;
         private System.Windows.Forms.Label lvlPorAlimento;
-        private System.Windows.Forms.TextBox txtBoxDescricao;
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblNome;

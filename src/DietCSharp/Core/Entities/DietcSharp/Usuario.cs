@@ -8,7 +8,6 @@ namespace Core.Entities.DietcSharp
 {
     public partial class Usuario : Entity
     {
-        public int ID_Usuario { get; set; }
         public string Usuario1 { get; set; }
         public string Senha { get; set; }
         public int ID_Perfil { get; set; }

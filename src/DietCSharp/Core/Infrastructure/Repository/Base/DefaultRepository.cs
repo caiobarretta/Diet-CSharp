@@ -46,9 +46,27 @@ namespace Core.Infrastructure.Repository.Base
             return list;
         }
 
-        public abstract TEntity Get(int id);
+        public virtual TEntity Get(int id)
+        {
+            TEntity entity = null;
+            using (var ctx = new DietCScharpContext())
+            {
+                var db = ctx.Set<TEntity>();
+                entity = db.Where(x => x.ID == id).FirstOrDefault();
+            }
+            return entity;
+        }
 
-        public abstract TEntity Get(TEntity entity);
+        public virtual TEntity Get(TEntity entity)
+        {
+            TEntity entityReturn = null;
+            using (var ctx = new DietCScharpContext())
+            {
+                var db = ctx.Set<TEntity>();
+                entityReturn = db.Find(entity);
+            }
+            return entityReturn;
+        }
 
         public List<TEntity> Search(string search)
         {

@@ -1,9 +1,13 @@
 ﻿using Core.Entities.Base;
 using Core.Entities.DietcSharp;
 using Core.Entities.Enums;
+using Core.Interfaces;
 using Core.Interfaces.Service.Base;
 using DietCSharpForm.Base;
 using DietCSharpForm.Helpers;
+using DietCSharpForm.Interfaces.Componente.Base;
+using DietCSharpForm.Services.Componente;
+using DietCSharpForm.Services.Componente.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,21 +23,28 @@ namespace DietCSharpForm
     {
         private const int Take = 10;
         private const int Skip = 0;
+        private readonly TEntity _entity;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IService<TEntity> _service;
         private readonly IFormBase<TEntity> _formBase;
+        private readonly IDefaultService<TEntity> _defaultComponenteService;
         private readonly TipoUsuario _tipoUsuario;
         private string lastSearch { get; set; }
-        public PesquisarForm(IService<TEntity> service, IFormBase<TEntity> formBase, TipoUsuario tipoUsuario)
+        public PesquisarForm(IUnitOfWork unitOfWork, IService<TEntity> service, IFormBase<TEntity> formBase, IDefaultService<TEntity> defaultComponenteService, TipoUsuario tipoUsuario, TEntity entity)
         {
-            this._tipoUsuario = tipoUsuario;
-            this._formBase = formBase;
-            this._service = service;
+            _entity = entity;
+            _unitOfWork = unitOfWork;
+            _tipoUsuario = tipoUsuario;
+            _formBase = formBase;
+            _service = service;
+            _defaultComponenteService = defaultComponenteService;
             InitializeComponent();
         }
 
         private void Pesquisar_Load(object sender, EventArgs e)
         {
-            dtgPesquisa.DataSource = _service.Get(Take, Skip);
+            var list = _service.Get(Take, Skip);
+            this._defaultComponenteService.ConfigureGridSearch(dtgPesquisa, list);
 
             if (_tipoUsuario == TipoUsuario.Paciente)
             {
@@ -44,16 +55,17 @@ namespace DietCSharpForm
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            var list = _service.Search(txtPesquisar.Text);
+            var list = _service.Search(_entity, txtPesquisar.Text);
             if (list.Count <= 0)
                 MessageBox.Show($"A pesquisa: {txtPesquisar.Text} não retornou resultado!");
-            dtgPesquisa.DataSource = list;
+
+            this._defaultComponenteService.ConfigureGridSearch(dtgPesquisa, list);
             lastSearch = txtPesquisar.Text;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            var dataGridEstaValido = ValidaComponentesFormHelper.ValidaERetornaIdDataGrid(dtgPesquisa, out string mensagem, out int id);
+            var dataGridEstaValido = ComponentesFormHelper.ValidaERetornaIdDataGrid(dtgPesquisa, out string mensagem, out int id);
             if (!dataGridEstaValido)
             {
                 MessageBox.Show(mensagem);
@@ -66,7 +78,7 @@ namespace DietCSharpForm
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            var dataGridEstaValido = ValidaComponentesFormHelper.ValidaERetornaIdDataGrid(dtgPesquisa, out string mensagem, out int id);
+            var dataGridEstaValido = ComponentesFormHelper.ValidaERetornaIdDataGrid(dtgPesquisa, out string mensagem, out int id);
             if (!dataGridEstaValido)
             {
                 MessageBox.Show(mensagem);
@@ -74,7 +86,8 @@ namespace DietCSharpForm
             }
             var entidade = this._service.Get(id);
             this._service.Delete(entidade);
-            var list = _service.Search(lastSearch);
+            _unitOfWork.Commit();
+            var list = _service.Search(_entity, lastSearch);
             dtgPesquisa.DataSource = list;
         }
     }

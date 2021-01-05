@@ -199,6 +199,7 @@ namespace DietCSharpForm
             this.Name = "FormEditarCadastrarPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditarPaciente";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEditarCadastrarPaciente_FormClosed);
             this.Load += new System.EventHandler(this.FormEditarCadastrarPaciente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

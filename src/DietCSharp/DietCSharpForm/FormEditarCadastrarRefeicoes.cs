@@ -1,7 +1,7 @@
 ﻿using Core.Entities.DietcSharp;
 using Core.Entities.Enums;
 using Core.Interfaces.Service.Base;
-using Core.Services;
+using Services;
 using DietCSharpForm.Base;
 using System;
 using System.Collections.Generic;
@@ -10,11 +10,15 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Core.Interfaces;
+using Infrastructure;
 
 namespace DietCSharpForm
 {
     public partial class FormEditarCadastrarRefeicoes : Form, IFormBase<Refeico>
     {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly DietCScharpContext _ctx;
         public IService<Refeico> _service { get; private set; }
 
         public CriarEditarService<Refeico> criarEditarService { get; private set; }
@@ -25,12 +29,14 @@ namespace DietCSharpForm
 
         public FormEditarCadastrarRefeicoes()
         {
+            _ctx = new DietCScharpContext();
+            _unitOfWork = new UnitOfWork(_ctx);
             InitializeComponent();
         }
 
         public IFormBase<Refeico> BuildServices(TipoDeOperacao tipoDeOperacao)
         {
-            this._service = new RefeicoesService();
+            this._service = new RefeicoesService(_unitOfWork);
             TipoDeOperacao = tipoDeOperacao;
             criarEditarService = new CriarEditarService<Refeico>(this._service, tipoDeOperacao);
             return this;
@@ -74,9 +80,16 @@ namespace DietCSharpForm
 
             refeicao.Nome = txtNome.Text;
             refeicao.Descricao = txtDescricao.Text;
-            criarEditarService.Executar(refeicao, out string mensagem);
+
+            if(!criarEditarService.Executar(refeicao, out string mensagem))
+            {
+                MessageBox.Show(mensagem);
+                return;
+            }
 
             MessageBox.Show(mensagem);
+            _unitOfWork.Commit();
         }
+
     }
 }
