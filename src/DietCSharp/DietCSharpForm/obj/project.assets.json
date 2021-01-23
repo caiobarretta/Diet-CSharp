@@ -1496,6 +1496,33 @@
         "runtime": {
           "bin/placeholder/Core.dll": {}
         }
+      },
+      "Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Infrastructure.dll": {}
+        }
+      },
+      "Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Core": "1.0.0",
+          "Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Services.dll": {}
+        }
       }
     }
   },
@@ -5711,11 +5738,23 @@
       "type": "project",
       "path": "../Core/Core.csproj",
       "msbuildProject": "../Core/Core.csproj"
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
+    },
+    "Services/1.0.0": {
+      "type": "project",
+      "path": "../Services/Services.csproj",
+      "msbuildProject": "../Services/Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Core >= 1.0.0"
+      "Core >= 1.0.0",
+      "Infrastructure >= 1.0.0",
+      "Services >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5753,6 +5792,12 @@
           "projectReferences": {
             "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
               "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj"
+            },
+            "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj"
+            },
+            "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj": {
+              "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj"
             }
           }
         }

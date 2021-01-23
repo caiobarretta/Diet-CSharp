@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository
 {
-    public class RefeicoesRepository : DefaultRepository<Refeico>, IRefeicoesRepository
+    public class RefeicoesRepository : DefaultRepository<Refeicao>, IRefeicoesRepository
     {
         public RefeicoesRepository(DietCScharpContext ctx) : base(ctx)
         {

@@ -19,21 +19,28 @@ namespace Infrastructure.Repository.Base
         }
         public virtual void Add(TEntity entity)
         {
+            if (string.IsNullOrEmpty(entity.Nome))
+                throw new ArgumentException("O Campo nome não pode ser vazio ou nulo.");
+            
+            entity.Ativo = true;
             var db = _ctx.Set<TEntity>();
             db.Add(entity);
         }
 
         public virtual void Delete(TEntity entity)
         {
+            entity.Ativo = false;
             var db = _ctx.Set<TEntity>();
-            db.Remove(entity);
+            db.Update(entity);
         }
 
         public virtual List<TEntity> Get(int take = 0, int skip = 0)
         {
             List<TEntity> list = new List<TEntity>();
             var db = _ctx.Set<TEntity>();
-            list = db.Take(take)
+            list = db
+                .Where(x => x.Ativo)
+                .Take(take)
                 .Skip(skip)
                 .AsNoTracking()
                 .ToList();
@@ -44,7 +51,7 @@ namespace Infrastructure.Repository.Base
         {
             TEntity entity = null;
             var db = _ctx.Set<TEntity>();
-            entity = db.Where(x => x.ID == id).FirstOrDefault();
+            entity = db.Where(x => x.ID == id && x.Ativo).FirstOrDefault();
             return entity;
         }
 
@@ -57,12 +64,12 @@ namespace Infrastructure.Repository.Base
             return entityReturn;
         }
 
-        public List<TEntity> Search(TEntity entity, string search)
+        public virtual List<TEntity> Search(TEntity entity, string search)
         {
             List<TEntity> list = new List<TEntity>();
             _ctx.Entry(entity).Reload();
             var db = _ctx.Set<TEntity>();
-            list = db.Where(x => x.Nome.Contains(search) || x.Descricao.Contains(search))
+            list = db.Where(x => x.Nome.Contains(search) || x.Descricao.Contains(search) && x.Ativo)
                 .AsNoTracking()
                 .ToList();
             return list;

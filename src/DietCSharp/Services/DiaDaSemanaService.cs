@@ -13,10 +13,10 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class DiasdaSemanaService : DefaultService<DiasdaSemana>, IDiasdaSemanaService
+    public class DiaDaSemanaService : DefaultService<DiaDaSemana>, IDiasdaSemanaService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public DiasdaSemanaService(IUnitOfWork unitOfWork) : base(unitOfWork.DiasdaSemanaRepository)
+        public DiaDaSemanaService(IUnitOfWork unitOfWork) : base(unitOfWork.DiasdaSemanaRepository)
         {
             _unitOfWork = unitOfWork;
         }

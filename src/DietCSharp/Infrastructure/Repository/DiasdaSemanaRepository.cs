@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Infrastructure.Repository
 {
-    public class DiasdaSemanaRepository : DefaultRepository<DiasdaSemana>, IDiasdaSemanaRepository
+    public class DiasdaSemanaRepository : DefaultRepository<DiaDaSemana>, IDiasdaSemanaRepository
     {
         public DiasdaSemanaRepository(DietCScharpContext ctx) : base(ctx)
         {
@@ -20,10 +20,10 @@ namespace Infrastructure.Repository
             {
                 foreach (var IdDiasdaSemana in listIdDiasdaSemana)
                 {
-                    ctx.Rel_Porc_Dia.Add(new Rel_Porc_Dium()
+                    ctx.PorcaoDeAlimentoDiasdaSemanas.Add(new PorcaoDeAlimentoDiasdaSemana()
                     {
                         ID_DiaSemana = IdDiasdaSemana,
-                        ID_PorcAlimento = iD_PorcAlimento
+                        ID_Porc_Dia = iD_PorcAlimento
                     });
                     ctx.SaveChanges();
                 }

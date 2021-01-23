@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DietCSharpForm.Services.Componente
 {
-    public class RefeicoesComponenteService : DefaultComponenteService<Refeico>, IRefeicoesServices
+    public class RefeicoesComponenteService : DefaultComponenteService<Refeicao>, IRefeicoesServices
     {
         
     }

@@ -20,12 +20,6 @@
     <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PacienteFormMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="PesquisaFormPaciente.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="PesquisarForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -65,7 +65,7 @@ namespace DietCSharpForm
                 txtNome.Text = dietum.Nome;
                 txtDescricao.Text = dietum.Descricao;
 
-                foreach (var item in dietum.Rel_Porc_Dieta)
+                foreach (var item in dietum.PorcaoDeAlimentoDieta)
                 {
                     var porcaoDeAlimento = porcaoDeAlimentoService.Get(item.ID_Dieta);
                     var formatoConteudoItemChb = string.Format("{0}-{1}", porcaoDeAlimento.ID, porcaoDeAlimento.Nome);
@@ -76,33 +76,40 @@ namespace DietCSharpForm
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtCodigo.Text, out int codigo))
-                throw new ArgumentException("Valor do código inválido.");
-
-            Dietum dietum = null;
-            if (TipoDeOperacao == TipoDeOperacao.Criar)
-                dietum = new Dietum();
-            else if (TipoDeOperacao == TipoDeOperacao.Editar)
-                criarEditarService.LoadEntity(ref dietum, Id);
-            else
-                throw new NotImplementedException("Fluxo não implementado!");
-
-            dietum.Nome = txtNome.Text;
-            dietum.Descricao = txtDescricao.Text;
-
-            if (!criarEditarService.Executar(dietum, out string mensagem))
+            try
             {
+                if (!int.TryParse(txtCodigo.Text, out int codigo))
+                    throw new ArgumentException("Valor do código inválido.");
+
+                Dietum dietum = null;
+                if (TipoDeOperacao == TipoDeOperacao.Criar)
+                    dietum = new Dietum();
+                else if (TipoDeOperacao == TipoDeOperacao.Editar)
+                    criarEditarService.LoadEntity(ref dietum, Id);
+                else
+                    throw new NotImplementedException("Fluxo não implementado!");
+
+                dietum.Nome = txtNome.Text;
+                dietum.Descricao = txtDescricao.Text;
+
+                List<int> listIdProcaoAlimento = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbPorcAlimento);
+
+                if (!criarEditarService.Executar(dietum, out string mensagem))
+                {
+                    MessageBox.Show(mensagem);
+                    return;
+                }
+
+                var porcaoDeAlimentoService = new PorcaoDeAlimentoService(_unitOfWork);
+                porcaoDeAlimentoService.AssociarPorcaoAlimentoDieta(listIdProcaoAlimento, dietum.ID);
+
+                _unitOfWork.Commit();
                 MessageBox.Show(mensagem);
-                return;
             }
-
-            List<int> listIdProcaoAlimento = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbPorcAlimento);
-
-            var porcaoDeAlimentoService = new PorcaoDeAlimentoService(_unitOfWork);
-            porcaoDeAlimentoService.AssociarPorcaoAlimentoDieta(listIdProcaoAlimento, dietum.ID);
-
-            _unitOfWork.Commit();
-            MessageBox.Show(mensagem);
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
         }
 

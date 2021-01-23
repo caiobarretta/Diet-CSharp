@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DietCSharpForm.Services.Componente
 {
-    public class DiasdaSemanaComponenteService : DefaultComponenteService<DiasdaSemana>, IDiasdaSemanaService
+    public class DiasdaSemanaComponenteService : DefaultComponenteService<DiaDaSemana>, IDiasdaSemanaService
     {
         
     }

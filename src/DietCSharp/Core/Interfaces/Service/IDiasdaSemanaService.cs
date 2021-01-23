@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces.Service
 {
-    public interface IDiasdaSemanaService : IService<DiasdaSemana>
+    public interface IDiasdaSemanaService : IService<DiaDaSemana>
     {
         void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento);
     }

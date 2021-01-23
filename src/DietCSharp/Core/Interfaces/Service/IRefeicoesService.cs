@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces.Service
 {
-    public interface IRefeicoesService : IService<Refeico>
+    public interface IRefeicoesService : IService<Refeicao>
     {
         
     }

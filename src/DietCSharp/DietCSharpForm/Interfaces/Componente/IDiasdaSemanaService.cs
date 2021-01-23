@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DietCSharpForm.Interfaces.Componente
 {
-    public interface IDiasdaSemanaService : IDefaultService<DiasdaSemana>
+    public interface IDiasdaSemanaService : IDefaultService<DiaDaSemana>
     {
         
     }

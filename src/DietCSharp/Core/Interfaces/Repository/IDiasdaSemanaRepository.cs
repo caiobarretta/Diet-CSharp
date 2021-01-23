@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces.Repository
 {
-    public interface IDiasdaSemanaRepository : IRepository<DiasdaSemana>
+    public interface IDiasdaSemanaRepository : IRepository<DiaDaSemana>
     {
         void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento);
     }

@@ -15,13 +15,13 @@ using Infrastructure;
 
 namespace DietCSharpForm
 {
-    public partial class FormEditarCadastrarRefeicoes : Form, IFormBase<Refeico>
+    public partial class FormEditarCadastrarRefeicoes : Form, IFormBase<Refeicao>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly DietCScharpContext _ctx;
-        public IService<Refeico> _service { get; private set; }
+        public IService<Refeicao> _service { get; private set; }
 
-        public CriarEditarService<Refeico> criarEditarService { get; private set; }
+        public CriarEditarService<Refeicao> criarEditarService { get; private set; }
 
         public TipoDeOperacao TipoDeOperacao { get; private set; }
 
@@ -34,11 +34,11 @@ namespace DietCSharpForm
             InitializeComponent();
         }
 
-        public IFormBase<Refeico> BuildServices(TipoDeOperacao tipoDeOperacao)
+        public IFormBase<Refeicao> BuildServices(TipoDeOperacao tipoDeOperacao)
         {
             this._service = new RefeicoesService(_unitOfWork);
             TipoDeOperacao = tipoDeOperacao;
-            criarEditarService = new CriarEditarService<Refeico>(this._service, tipoDeOperacao);
+            criarEditarService = new CriarEditarService<Refeicao>(this._service, tipoDeOperacao);
             return this;
         }
 
@@ -54,7 +54,7 @@ namespace DietCSharpForm
             this.Text = TipoDeOperacao.ToString();
             this.txtCodigo.Text = Id.ToString();
 
-            Refeico refeicao = null;
+            Refeicao refeicao = null;
             bool entidadeCarregada = criarEditarService.LoadEntity(ref refeicao, Id);
             if (entidadeCarregada)
             {
@@ -67,28 +67,35 @@ namespace DietCSharpForm
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtCodigo.Text, out int codigo))
-                throw new ArgumentException("Valor do código inválido.");
-
-            Refeico refeicao = null;
-            if (TipoDeOperacao == TipoDeOperacao.Criar)
-                refeicao = new Refeico();
-            else if(TipoDeOperacao == TipoDeOperacao.Editar)
-                criarEditarService.LoadEntity(ref refeicao, Id);
-            else
-                throw new NotImplementedException("Fluxo não implementado!");
-
-            refeicao.Nome = txtNome.Text;
-            refeicao.Descricao = txtDescricao.Text;
-
-            if(!criarEditarService.Executar(refeicao, out string mensagem))
+            try
             {
-                MessageBox.Show(mensagem);
-                return;
-            }
+                if (!int.TryParse(txtCodigo.Text, out int codigo))
+                    throw new ArgumentException("Valor do código inválido.");
 
-            MessageBox.Show(mensagem);
-            _unitOfWork.Commit();
+                Refeicao refeicao = null;
+                if (TipoDeOperacao == TipoDeOperacao.Criar)
+                    refeicao = new Refeicao();
+                else if (TipoDeOperacao == TipoDeOperacao.Editar)
+                    criarEditarService.LoadEntity(ref refeicao, Id);
+                else
+                    throw new NotImplementedException("Fluxo não implementado!");
+
+                refeicao.Nome = txtNome.Text;
+                refeicao.Descricao = txtDescricao.Text;
+
+                if (!criarEditarService.Executar(refeicao, out string mensagem))
+                {
+                    MessageBox.Show(mensagem);
+                    return;
+                }
+
+                MessageBox.Show(mensagem);
+                _unitOfWork.Commit();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

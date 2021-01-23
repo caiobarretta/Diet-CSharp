@@ -55,7 +55,7 @@ namespace DietCSharpForm
             this.Text = TipoDeOperacao.ToString();
             this.txtCodigo.Text = Id.ToString();
 
-            var diadaSemanaService = new DiasdaSemanaService(_unitOfWork);
+            var diadaSemanaService = new DiaDaSemanaService(_unitOfWork);
             var diadaSemanaList = diadaSemanaService.Get(int.MaxValue, 0);
             diadaSemanaList.ForEach(r =>
             {
@@ -76,14 +76,14 @@ namespace DietCSharpForm
                 txtNome.Text = porcaoDeAlimento.Nome;
                 txtDescricao.Text = porcaoDeAlimento.Descricao;
 
-                foreach (var item in porcaoDeAlimento.Rel_Porc_Dia)
+                foreach (var item in porcaoDeAlimento.PorcaoDeAlimentoDiasdaSemanas)
                 {
                     var diasdaSemana = diadaSemanaService.Get(item.ID_DiaSemana);
                     var formatoConteudoItemChb = string.Format("{0}-{1}", diasdaSemana.ID, diasdaSemana.Nome);
                     ComponentesFormHelper.SetItemCheckState(chbDiasSemana, formatoConteudoItemChb, CheckState.Checked);
                 }
 
-                foreach (var item in porcaoDeAlimento.Rel_Ref_Porcs)
+                foreach (var item in porcaoDeAlimento.RefeicaoPorcaoDeAlimentos)
                 {
                     var refeicao = refeicaoService.Get(item.ID_Refeicao);
                     var formatoConteudoItemChb = string.Format("{0}-{1}", refeicao.ID, refeicao.Nome);
@@ -95,37 +95,44 @@ namespace DietCSharpForm
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtCodigo.Text, out int codigo))
-                throw new ArgumentException("Valor do código inválido.");
-
-            PorcaoDeAlimento porcaoDeAlimento = null;
-            if (TipoDeOperacao == TipoDeOperacao.Criar)
-                porcaoDeAlimento = new PorcaoDeAlimento();
-            else if (TipoDeOperacao == TipoDeOperacao.Editar)
-                criarEditarService.LoadEntity(ref porcaoDeAlimento, Id);
-            else
-                throw new NotImplementedException("Fluxo não implementado!");
-
-            porcaoDeAlimento.Nome = txtNome.Text;
-            porcaoDeAlimento.Descricao = txtDescricao.Text;
-
-            List<int> listIdRefeicoes = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbRefeicoes);
-            List<int> listIdDiasdaSemana = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbDiasSemana);
-
-            if(!criarEditarService.Executar(porcaoDeAlimento, out string mensagem))
+            try
             {
+                if (!int.TryParse(txtCodigo.Text, out int codigo))
+                    throw new ArgumentException("Valor do código inválido.");
+
+                PorcaoDeAlimento porcaoDeAlimento = null;
+                if (TipoDeOperacao == TipoDeOperacao.Criar)
+                    porcaoDeAlimento = new PorcaoDeAlimento();
+                else if (TipoDeOperacao == TipoDeOperacao.Editar)
+                    criarEditarService.LoadEntity(ref porcaoDeAlimento, Id);
+                else
+                    throw new NotImplementedException("Fluxo não implementado!");
+
+                porcaoDeAlimento.Nome = txtNome.Text;
+                porcaoDeAlimento.Descricao = txtDescricao.Text;
+
+                List<int> listIdRefeicoes = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbRefeicoes);
+                List<int> listIdDiasdaSemana = ComponentesFormHelper.GetIdCheckedListBoxCheckedItems(chbDiasSemana);
+
+                if (!criarEditarService.Executar(porcaoDeAlimento, out string mensagem))
+                {
+                    MessageBox.Show(mensagem);
+                    return;
+                }
+
+                var diasdaSemanaService = new DiaDaSemanaService(_unitOfWork);
+                diasdaSemanaService.AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, porcaoDeAlimento.ID);
+
+                var porcaoDeAlimentoService = new PorcaoDeAlimentoService(_unitOfWork);
+                porcaoDeAlimentoService.AssociarPorcaoRefeicoes(listIdRefeicoes, porcaoDeAlimento.ID);
+
                 MessageBox.Show(mensagem);
-                return;
+                _unitOfWork.Commit();
             }
-
-            var diasdaSemanaService = new DiasdaSemanaService(_unitOfWork);
-            diasdaSemanaService.AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, porcaoDeAlimento.ID);
-
-            var porcaoDeAlimentoService = new PorcaoDeAlimentoService(_unitOfWork);
-            porcaoDeAlimentoService.AssociarPorcaoRefeicoes(listIdRefeicoes, porcaoDeAlimento.ID);
-
-            MessageBox.Show(mensagem);
-            _unitOfWork.Commit();
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FormEditarCadastrarPorcAlimento_FormClosed(object sender, FormClosedEventArgs e)

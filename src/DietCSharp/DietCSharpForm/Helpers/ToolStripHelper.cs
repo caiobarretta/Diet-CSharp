@@ -135,8 +135,8 @@ namespace DietCSharpForm.Helpers
             {
                 var form = new FormEditarCadastrarRefeicoes().BuildServices(TipoDeOperacao.Editar);
                 var componenteService = new RefeicoesComponenteService();
-                var refeicao = new Refeico();
-                new PesquisarForm<Refeico>(_unitOfWork, _refeicoesService, form, componenteService, _tipoUsuario, refeicao).ShowDialog();
+                var refeicao = new Refeicao();
+                new PesquisarForm<Refeicao>(_unitOfWork, _refeicoesService, form, componenteService, _tipoUsuario, refeicao).ShowDialog();
             }
             catch (Exception ex)
             {

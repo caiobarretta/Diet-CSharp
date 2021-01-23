@@ -11,7 +11,7 @@ using Core.Interfaces;
 
 namespace Services
 {
-    public class RefeicoesService : DefaultService<Refeico>, IRefeicoesService
+    public class RefeicoesService : DefaultService<Refeicao>, IRefeicoesService
     {
         private readonly IUnitOfWork _unitOfWork;
         public RefeicoesService(IUnitOfWork unitOfWork) : base(unitOfWork.RefeicoesRepository)

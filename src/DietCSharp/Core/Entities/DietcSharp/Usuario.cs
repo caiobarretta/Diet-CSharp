@@ -1,12 +1,11 @@
-﻿using Core.Entities.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 #nullable disable
 
 namespace Core.Entities.DietcSharp
 {
-    public partial class Usuario : Entity
+    public partial class Usuario : Base.Entity
     {
         public string Usuario1 { get; set; }
         public string Senha { get; set; }

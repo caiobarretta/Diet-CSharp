@@ -22,7 +22,7 @@ namespace Infrastructure.Repository
             {
                 foreach (var idPorcaoAlimento in listIdProcaoAlimento)
                 {
-                    ctx.Rel_Porc_Dieta.Add(new Rel_Porc_Dietum()
+                    ctx.PorcaoDeAlimentoDieta.Add(new PorcaoDeAlimentoDietum()
                     {
                         ID_Dieta = idDieta,
                         ID_PorcAlimento = idPorcaoAlimento
@@ -38,7 +38,7 @@ namespace Infrastructure.Repository
             {
                 foreach (var idRefeicao in listIdRefeicao)
                 {
-                    ctx.Rel_Ref_Porcs.Add(new Rel_Ref_Porc()
+                    ctx.RefeicaoPorcaoDeAlimentos.Add(new RefeicaoPorcaoDeAlimento()
                     {
                         ID_PorcAlimento = idPorcaoDeAlimento,
                         ID_Refeicao = idRefeicao
@@ -56,12 +56,10 @@ namespace Infrastructure.Repository
             {
                 porcaoDeAlimento = ctx.PorcaoDeAlimentos
                     .Where(x => x.ID == id)
-                    .Include(x => x.Rel_Porc_Dia)
-                    .Include(x => x.Rel_Ref_Porcs)
+                    .Include(x => x.PorcaoDeAlimentoDiasdaSemanas)
+                    .Include(x => x.RefeicaoPorcaoDeAlimentos)
                     .FirstOrDefault();
-
             }
-
             return porcaoDeAlimento;
         }
 

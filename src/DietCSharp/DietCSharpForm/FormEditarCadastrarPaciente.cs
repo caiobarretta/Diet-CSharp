@@ -80,33 +80,48 @@ namespace DietCSharpForm
 
         private void btnCadastrarSalvar_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtCodigo.Text, out int codigo))
-                throw new ArgumentException("Valor do código inválido.");
-
-            Usuario usuario = null;
-            if (TipoDeOperacao == TipoDeOperacao.Criar)
-                usuario = new Usuario();
-            else if (TipoDeOperacao == TipoDeOperacao.Editar)
-                criarEditarService.LoadEntity(ref usuario, Id);
-            else
-                throw new NotImplementedException("Fluxo não implementado!");
-
-            usuario.Nome = txtNome.Text;
-            usuario.Descricao = txtDescricao.Text;
-            usuario.Usuario1 = txtUsuario.Text;
-            usuario.Senha = txtSenha.Text;
-            var perfilService = new PerfilService(_unitOfWork);
-            usuario.ID_Perfil = perfilService.Search(new Perfil(), "Paciente").Where(x => x.Nome == "Paciente").FirstOrDefault().ID;
-            usuario.ID_Dieta = ComponentesFormHelper.GetIdSelectedFromListBox(lstDieta);
-
-            if(!criarEditarService.Executar(usuario, out string mensagem))
+            try
             {
-                MessageBox.Show(mensagem);
-                return;
-            }
+                if (!int.TryParse(txtCodigo.Text, out int codigo))
+                    throw new ArgumentException("Valor do código inválido.");
 
-            MessageBox.Show(mensagem);
-            _unitOfWork.Commit();
+                Usuario usuario = null;
+                if (TipoDeOperacao == TipoDeOperacao.Criar)
+                    usuario = new Usuario();
+                else if (TipoDeOperacao == TipoDeOperacao.Editar)
+                    criarEditarService.LoadEntity(ref usuario, Id);
+                else
+                    throw new NotImplementedException("Fluxo não implementado!");
+
+                usuario.Nome = txtNome.Text;
+                usuario.Descricao = txtDescricao.Text;
+                usuario.Usuario1 = txtUsuario.Text;
+                usuario.Senha = txtSenha.Text;
+                var perfilService = new PerfilService(_unitOfWork);
+                usuario.ID_Perfil = perfilService.Search(new Perfil(), "Paciente").Where(x => x.Nome == "Paciente").FirstOrDefault().ID;
+                try
+                {
+                    usuario.ID_Dieta = ComponentesFormHelper.GetIdSelectedFromListBox(lstDieta);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+
+                if (!criarEditarService.Executar(usuario, out string mensagem))
+                {
+                    MessageBox.Show(mensagem);
+                    return;
+                }
+
+                MessageBox.Show(mensagem);
+                _unitOfWork.Commit();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FormEditarCadastrarPaciente_FormClosed(object sender, FormClosedEventArgs e)

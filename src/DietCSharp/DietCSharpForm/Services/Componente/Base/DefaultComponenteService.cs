@@ -12,7 +12,7 @@ namespace DietCSharpForm.Services.Componente.Base
 {
     public class DefaultComponenteService<TEntity> : IDefaultService<TEntity> where TEntity : Entity
     {
-        public void ConfigureGridSearch(DataGridView dataGridView, ICollection<TEntity> entities)
+        public virtual void ConfigureGridSearch(DataGridView dataGridView, ICollection<TEntity> entities)
         {
 
             dataGridView.Columns.AddRange(new DataGridViewColumn[] {

@@ -19,7 +19,8 @@ namespace Infrastructure
                     ctx.Add(new Perfil()
                     {
                         Nome = "Nutricionista",
-                        Descricao = "Nutricionista"
+                        Descricao = "Nutricionista",
+                        Ativo = true
                     });
                     ctx.SaveChanges();
                 }
@@ -33,7 +34,8 @@ namespace Infrastructure
                         Nome = "Nutricionista",
                         Descricao = "Nutricionista",
                         Senha = "1234",
-                        ID_Perfil = 1
+                        ID_Perfil = 1,
+                        Ativo = true
                     });
                     ctx.SaveChanges();
                 }
@@ -45,23 +47,24 @@ namespace Infrastructure
                     ctx.Add(new Perfil()
                     {
                         Nome = "Paciente",
-                        Descricao = "Paciente"
+                        Descricao = "Paciente",
+                        Ativo = true
                     });
                     ctx.SaveChanges();
                 }
 
-                var diasDaSemana = ctx.DiasdaSemanas.ToList();
+                var diasDaSemana = ctx.DiaDaSemanas.ToList();
                 if (diasDaSemana.Count <= 0)
                 {
-                    var listDiaDaSemana = new List<DiasdaSemana>()
+                    var listDiaDaSemana = new List<DiaDaSemana>()
                     {
-                        new DiasdaSemana() { Nome = "Domingo", Descricao = "Domingo"},
-                        new DiasdaSemana() { Nome = "Segunda-Feira", Descricao = "Segunda-Feira"},
-                        new DiasdaSemana() { Nome = "Terça-Feira", Descricao = "Terça-Feira"},
-                        new DiasdaSemana() { Nome = "Quarta-Feira", Descricao = "Quarta-Feira"},
-                        new DiasdaSemana() { Nome = "Quinta-Feira", Descricao = "Quinta-Feira"},
-                        new DiasdaSemana() { Nome = "Sexta-Feira", Descricao = "Sexta-Feira"},
-                        new DiasdaSemana() { Nome = "Sábado", Descricao = "Sábado"},
+                        new DiaDaSemana() { Nome = "Domingo", Descricao = "Domingo", Ativo = true},
+                        new DiaDaSemana() { Nome = "Segunda-Feira", Descricao = "Segunda-Feira", Ativo = true},
+                        new DiaDaSemana() { Nome = "Terça-Feira", Descricao = "Terça-Feira", Ativo = true},
+                        new DiaDaSemana() { Nome = "Quarta-Feira", Descricao = "Quarta-Feira", Ativo = true},
+                        new DiaDaSemana() { Nome = "Quinta-Feira", Descricao = "Quinta-Feira", Ativo = true},
+                        new DiaDaSemana() { Nome = "Sexta-Feira", Descricao = "Sexta-Feira", Ativo = true},
+                        new DiaDaSemana() { Nome = "Sábado", Descricao = "Sábado", Ativo = true},
                     };
 
                     foreach (var diasdaSemana in listDiaDaSemana)

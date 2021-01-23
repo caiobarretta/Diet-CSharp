@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces.Repository
 {
-    public interface IRefeicoesRepository : IRepository<Refeico>
+    public interface IRefeicoesRepository : IRepository<Refeicao>
     {
         
     }

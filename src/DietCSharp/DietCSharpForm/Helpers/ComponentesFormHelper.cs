@@ -28,8 +28,11 @@ namespace DietCSharpForm.Helpers
             return true;
         }
 
-        public static List<int> GetIdCheckedListBoxCheckedItems(CheckedListBox chb)
+        public static List<int> GetIdCheckedListBoxCheckedItems(CheckedListBox chb, bool obrigatorio = true)
         {
+            if (obrigatorio && chb.CheckedItems.Count <= 0)
+                throw new Exception("É necessário selecionar ao menos um item na lista.");
+
             List<int> list = new List<int>();
             foreach (var item in chb.CheckedItems)
             {
@@ -64,6 +67,9 @@ namespace DietCSharpForm.Helpers
 
         public static int GetIdSelectedFromListBox(ListBox lst)
         {
+            if (lst.Items.Count <= 0)
+                throw new Exception("Selecione um item válido na lista");
+            
             int.TryParse(lst.SelectedItem.ToString().Split("-")[0], out int codigo);
             return codigo;
         }
