@@ -9,9 +9,9 @@ namespace Core.Entities.DietcSharp
     {
         public int ID { get; set; }
         public int ID_DiaSemana { get; set; }
-        public int ID_Porc_Dia { get; set; }
+        public int ID_PorcaoAlimento { get; set; }
 
-        public virtual PorcaoDeAlimento IDNavigation { get; set; }
         public virtual DiaDaSemana ID_DiaSemanaNavigation { get; set; }
+        public virtual PorcaoDeAlimento ID_PorcaoAlimentoNavigation { get; set; }
     }
 }

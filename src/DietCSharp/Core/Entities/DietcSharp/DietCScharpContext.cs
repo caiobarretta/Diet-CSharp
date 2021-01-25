@@ -31,7 +31,6 @@ namespace Core.Entities.DietcSharp
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=localhost;Database=DietCScharp;Trusted_Connection=True;");
             }
         }
@@ -94,22 +93,19 @@ namespace Core.Entities.DietcSharp
 
             modelBuilder.Entity<PorcaoDeAlimentoDiasdaSemana>(entity =>
             {
-                entity.HasKey(e => e.ID_Porc_Dia)
-                    .HasName("PK_Rel_Porc_Dia");
-
                 entity.ToTable("PorcaoDeAlimentoDiasdaSemana");
-
-                entity.HasOne(d => d.IDNavigation)
-                    .WithMany(p => p.PorcaoDeAlimentoDiasdaSemanas)
-                    .HasForeignKey(d => d.ID)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Rel_Porc_Dia_PorcaoDeAlimento");
 
                 entity.HasOne(d => d.ID_DiaSemanaNavigation)
                     .WithMany(p => p.PorcaoDeAlimentoDiasdaSemanas)
                     .HasForeignKey(d => d.ID_DiaSemana)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Porc_Dia_DiasdaSemana");
+
+                entity.HasOne(d => d.ID_PorcaoAlimentoNavigation)
+                    .WithMany(p => p.PorcaoDeAlimentoDiasdaSemanas)
+                    .HasForeignKey(d => d.ID_PorcaoAlimento)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Rel_Porc_Dia_PorcaoDeAlimento");
             });
 
             modelBuilder.Entity<PorcaoDeAlimentoDietum>(entity =>

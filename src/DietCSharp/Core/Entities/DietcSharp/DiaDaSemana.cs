@@ -12,6 +12,7 @@ namespace Core.Entities.DietcSharp
             PorcaoDeAlimentoDiasdaSemanas = new HashSet<PorcaoDeAlimentoDiasdaSemana>();
         }
 
+
         public virtual ICollection<PorcaoDeAlimentoDiasdaSemana> PorcaoDeAlimentoDiasdaSemanas { get; set; }
     }
 }

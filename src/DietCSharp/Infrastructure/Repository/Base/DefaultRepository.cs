@@ -30,8 +30,7 @@ namespace Infrastructure.Repository.Base
         public virtual void Delete(TEntity entity)
         {
             entity.Ativo = false;
-            var db = _ctx.Set<TEntity>();
-            db.Update(entity);
+            Update(entity);
         }
 
         public virtual List<TEntity> Get(int take = 0, int skip = 0)

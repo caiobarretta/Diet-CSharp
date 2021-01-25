@@ -119,6 +119,7 @@ namespace DietCSharpForm
                     MessageBox.Show(mensagem);
                     return;
                 }
+                _unitOfWork.Commit();
 
                 var diasdaSemanaService = new DiaDaSemanaService(_unitOfWork);
                 diasdaSemanaService.AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, porcaoDeAlimento.ID);

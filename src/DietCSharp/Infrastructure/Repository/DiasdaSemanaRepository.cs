@@ -14,7 +14,7 @@ namespace Infrastructure.Repository
         {
         }
 
-        public void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento)
+        public void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int ID_PorcaoAlimento)
         {
             using (var ctx = new DietCScharpContext())
             {
@@ -23,7 +23,7 @@ namespace Infrastructure.Repository
                     ctx.PorcaoDeAlimentoDiasdaSemanas.Add(new PorcaoDeAlimentoDiasdaSemana()
                     {
                         ID_DiaSemana = IdDiasdaSemana,
-                        ID_Porc_Dia = iD_PorcAlimento
+                        ID_PorcaoAlimento = ID_PorcaoAlimento
                     });
                     ctx.SaveChanges();
                 }
