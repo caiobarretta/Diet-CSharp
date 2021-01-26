@@ -115,8 +115,8 @@ namespace DietCSharpForm
                     return;
                 }
 
-                MessageBox.Show(mensagem);
                 _unitOfWork.Commit();
+                MessageBox.Show(mensagem);
             }
             catch(Exception ex)
             {

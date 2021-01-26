@@ -39,6 +39,8 @@ namespace DietCSharpForm
             // 
             // btnPesquisar
             // 
+            this.btnPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPesquisar.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnPesquisar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -47,7 +49,7 @@ namespace DietCSharpForm
             this.btnPesquisar.Location = new System.Drawing.Point(18, 45);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(118, 56);
+            this.btnPesquisar.Size = new System.Drawing.Size(128, 56);
             this.btnPesquisar.TabIndex = 0;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
@@ -57,10 +59,10 @@ namespace DietCSharpForm
             // 
             this.txtPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPesquisar.Location = new System.Drawing.Point(143, 56);
+            this.txtPesquisar.Location = new System.Drawing.Point(148, 60);
             this.txtPesquisar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(1325, 27);
+            this.txtPesquisar.Size = new System.Drawing.Size(313, 27);
             this.txtPesquisar.TabIndex = 1;
             // 
             // btnEditar
@@ -72,10 +74,10 @@ namespace DietCSharpForm
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEditar.Location = new System.Drawing.Point(520, 45);
+            this.btnEditar.Location = new System.Drawing.Point(463, 41);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(1075, 56);
+            this.btnEditar.Size = new System.Drawing.Size(169, 56);
             this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -91,10 +93,10 @@ namespace DietCSharpForm
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnExcluir.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnExcluir.Location = new System.Drawing.Point(646, 45);
+            this.btnExcluir.Location = new System.Drawing.Point(628, 41);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(1075, 56);
+            this.btnExcluir.Size = new System.Drawing.Size(154, 56);
             this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -102,30 +104,32 @@ namespace DietCSharpForm
             // 
             // dtgPesquisa
             // 
-            this.dtgPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dtgPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgPesquisa.Location = new System.Drawing.Point(18, 111);
+            this.dtgPesquisa.Location = new System.Drawing.Point(18, 119);
             this.dtgPesquisa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgPesquisa.MultiSelect = false;
             this.dtgPesquisa.Name = "dtgPesquisa";
             this.dtgPesquisa.ReadOnly = true;
             this.dtgPesquisa.RowHeadersWidth = 51;
             this.dtgPesquisa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgPesquisa.Size = new System.Drawing.Size(1703, 440);
+            this.dtgPesquisa.Size = new System.Drawing.Size(764, 637);
             this.dtgPesquisa.TabIndex = 4;
             // 
             // PesquisarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1937, 1063);
+            this.ClientSize = new System.Drawing.Size(784, 761);
             this.Controls.Add(this.dtgPesquisa);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.btnPesquisar);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(800, 800);
+            this.MinimumSize = new System.Drawing.Size(800, 800);
             this.Name = "PesquisarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pequisar";

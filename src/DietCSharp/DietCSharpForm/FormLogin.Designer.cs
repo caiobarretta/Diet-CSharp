@@ -49,7 +49,7 @@ namespace DietCSharpForm
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(14, 104);
+            this.lblPassword.Location = new System.Drawing.Point(14, 76);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(49, 20);
             this.lblPassword.TabIndex = 1;
@@ -59,24 +59,22 @@ namespace DietCSharpForm
             // 
             this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsuario.Location = new System.Drawing.Point(14, 36);
+            this.txtUsuario.Location = new System.Drawing.Point(12, 31);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(249, 27);
+            this.txtUsuario.Size = new System.Drawing.Size(63, 27);
             this.txtUsuario.TabIndex = 2;
-            this.txtUsuario.Text = "Nutri";
             // 
             // txtSenha
             // 
             this.txtSenha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSenha.Location = new System.Drawing.Point(14, 128);
+            this.txtSenha.Location = new System.Drawing.Point(-835, 105);
             this.txtSenha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(249, 27);
+            this.txtSenha.Size = new System.Drawing.Size(1038, 27);
             this.txtSenha.TabIndex = 3;
-            this.txtSenha.Text = "1234";
             // 
             // btnCancelar
             // 
@@ -86,7 +84,7 @@ namespace DietCSharpForm
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelar.Location = new System.Drawing.Point(169, 187);
+            this.btnCancelar.Location = new System.Drawing.Point(-21, 153);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(94, 45);
@@ -103,7 +101,7 @@ namespace DietCSharpForm
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLogin.Location = new System.Drawing.Point(57, 187);
+            this.btnLogin.Location = new System.Drawing.Point(-156, 153);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(94, 45);
@@ -116,17 +114,18 @@ namespace DietCSharpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 269);
+            this.ClientSize = new System.Drawing.Size(266, 211);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximumSize = new System.Drawing.Size(287, 308);
+            this.MaximumSize = new System.Drawing.Size(282, 250);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(287, 308);
+            this.MinimumSize = new System.Drawing.Size(282, 250);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

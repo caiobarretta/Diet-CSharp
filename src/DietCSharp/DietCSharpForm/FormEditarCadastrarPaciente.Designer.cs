@@ -49,14 +49,17 @@ namespace DietCSharpForm
             // 
             // btnCadastrarCancelar
             // 
+            this.btnCadastrarCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCadastrarCancelar.BackColor = System.Drawing.Color.Firebrick;
             this.btnCadastrarCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCadastrarCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrarCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCadastrarCancelar.Location = new System.Drawing.Point(452, 428);
+            this.btnCadastrarCancelar.Location = new System.Drawing.Point(645, 701);
+            this.btnCadastrarCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCadastrarCancelar.Name = "btnCadastrarCancelar";
-            this.btnCadastrarCancelar.Size = new System.Drawing.Size(82, 33);
+            this.btnCadastrarCancelar.Size = new System.Drawing.Size(128, 55);
             this.btnCadastrarCancelar.TabIndex = 21;
             this.btnCadastrarCancelar.Text = "Cancelar";
             this.btnCadastrarCancelar.UseVisualStyleBackColor = false;
@@ -64,14 +67,17 @@ namespace DietCSharpForm
             // 
             // btnCadastrarSalvar
             // 
+            this.btnCadastrarSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCadastrarSalvar.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnCadastrarSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCadastrarSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrarSalvar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCadastrarSalvar.Location = new System.Drawing.Point(364, 428);
+            this.btnCadastrarSalvar.Location = new System.Drawing.Point(519, 701);
+            this.btnCadastrarSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCadastrarSalvar.Name = "btnCadastrarSalvar";
-            this.btnCadastrarSalvar.Size = new System.Drawing.Size(82, 33);
+            this.btnCadastrarSalvar.Size = new System.Drawing.Size(128, 55);
             this.btnCadastrarSalvar.TabIndex = 20;
             this.btnCadastrarSalvar.Text = "Salvar";
             this.btnCadastrarSalvar.UseVisualStyleBackColor = false;
@@ -79,109 +85,127 @@ namespace DietCSharpForm
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(14, 319);
+            this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescricao.Location = new System.Drawing.Point(20, 530);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(520, 103);
+            this.txtDescricao.Size = new System.Drawing.Size(753, 170);
             this.txtDescricao.TabIndex = 19;
             // 
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(14, 301);
+            this.lblDescricao.Location = new System.Drawing.Point(20, 462);
             this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(58, 15);
+            this.lblDescricao.Size = new System.Drawing.Size(74, 20);
             this.lblDescricao.TabIndex = 18;
             this.lblDescricao.Text = "Descrição";
             // 
             // lstDieta
             // 
+            this.lstDieta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstDieta.FormattingEnabled = true;
-            this.lstDieta.ItemHeight = 15;
-            this.lstDieta.Location = new System.Drawing.Point(12, 234);
+            this.lstDieta.ItemHeight = 20;
+            this.lstDieta.Location = new System.Drawing.Point(20, 390);
+            this.lstDieta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstDieta.Name = "lstDieta";
-            this.lstDieta.Size = new System.Drawing.Size(522, 64);
+            this.lstDieta.Size = new System.Drawing.Size(753, 64);
             this.lstDieta.TabIndex = 17;
             // 
             // lblDieta
             // 
             this.lblDieta.AutoSize = true;
-            this.lblDieta.Location = new System.Drawing.Point(12, 216);
+            this.lblDieta.Location = new System.Drawing.Point(18, 360);
             this.lblDieta.Name = "lblDieta";
-            this.lblDieta.Size = new System.Drawing.Size(34, 15);
+            this.lblDieta.Size = new System.Drawing.Size(45, 20);
             this.lblDieta.TabIndex = 16;
             this.lblDieta.Text = "Dieta";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(12, 83);
+            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNome.Location = new System.Drawing.Point(20, 139);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(522, 23);
+            this.txtNome.Size = new System.Drawing.Size(753, 27);
             this.txtNome.TabIndex = 15;
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(12, 65);
+            this.lblNome.Location = new System.Drawing.Point(18, 109);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(40, 15);
+            this.lblNome.Size = new System.Drawing.Size(50, 20);
             this.lblNome.TabIndex = 14;
             this.lblNome.Text = "Nome";
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(14, 15);
+            this.lblCodigo.Location = new System.Drawing.Point(20, 25);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(46, 15);
+            this.lblCodigo.Size = new System.Drawing.Size(58, 20);
             this.lblCodigo.TabIndex = 23;
             this.lblCodigo.Text = "Codigo";
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(12, 33);
+            this.txtCodigo.Location = new System.Drawing.Point(20, 55);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(522, 23);
+            this.txtCodigo.Size = new System.Drawing.Size(753, 27);
             this.txtCodigo.TabIndex = 24;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(14, 133);
+            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUsuario.Location = new System.Drawing.Point(20, 221);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(522, 23);
+            this.txtUsuario.Size = new System.Drawing.Size(753, 27);
             this.txtUsuario.TabIndex = 26;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 115);
+            this.label1.Location = new System.Drawing.Point(20, 191);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 15);
+            this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 25;
             this.label1.Text = "Usuário";
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(14, 183);
+            this.txtSenha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSenha.Location = new System.Drawing.Point(20, 305);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(522, 23);
+            this.txtSenha.Size = new System.Drawing.Size(753, 27);
             this.txtSenha.TabIndex = 28;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 165);
+            this.label2.Location = new System.Drawing.Point(20, 275);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 15);
+            this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 27;
             this.label2.Text = "Senha";
             // 
             // FormEditarCadastrarPaciente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 472);
+            this.ClientSize = new System.Drawing.Size(784, 761);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUsuario);
@@ -196,6 +220,9 @@ namespace DietCSharpForm
             this.Controls.Add(this.lblDieta);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblNome);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(800, 800);
+            this.MinimumSize = new System.Drawing.Size(800, 800);
             this.Name = "FormEditarCadastrarPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditarPaciente";

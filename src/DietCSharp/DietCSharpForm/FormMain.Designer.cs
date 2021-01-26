@@ -57,7 +57,7 @@ namespace DietCSharpForm
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(578, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1429, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,19 +67,19 @@ namespace DietCSharpForm
             this.toolStripRefeicoesCadastrar,
             this.toolStripRefeicoesPesquisar});
             this.toolStripRefeicoes.Name = "toolStripRefeicoes";
-            this.toolStripRefeicoes.Size = new System.Drawing.Size(87, 24);
+            this.toolStripRefeicoes.Size = new System.Drawing.Size(60, 18);
             this.toolStripRefeicoes.Text = "Refeições";
             // 
             // toolStripRefeicoesCadastrar
             // 
             this.toolStripRefeicoesCadastrar.Name = "toolStripRefeicoesCadastrar";
-            this.toolStripRefeicoesCadastrar.Size = new System.Drawing.Size(155, 26);
+            this.toolStripRefeicoesCadastrar.Size = new System.Drawing.Size(125, 26);
             this.toolStripRefeicoesCadastrar.Text = "Cadastrar";
             // 
             // toolStripRefeicoesPesquisar
             // 
             this.toolStripRefeicoesPesquisar.Name = "toolStripRefeicoesPesquisar";
-            this.toolStripRefeicoesPesquisar.Size = new System.Drawing.Size(155, 26);
+            this.toolStripRefeicoesPesquisar.Size = new System.Drawing.Size(125, 26);
             this.toolStripRefeicoesPesquisar.Text = "Pesquisar";
             // 
             // toolStripPorcAlimentos
@@ -88,19 +88,19 @@ namespace DietCSharpForm
             this.toolStripPorcAlimentosCadastrar,
             this.toolStripPorcAlimentosPesquisar});
             this.toolStripPorcAlimentos.Name = "toolStripPorcAlimentos";
-            this.toolStripPorcAlimentos.Size = new System.Drawing.Size(161, 24);
+            this.toolStripPorcAlimentos.Size = new System.Drawing.Size(111, 18);
             this.toolStripPorcAlimentos.Text = "Poções de Alimentos";
             // 
             // toolStripPorcAlimentosCadastrar
             // 
             this.toolStripPorcAlimentosCadastrar.Name = "toolStripPorcAlimentosCadastrar";
-            this.toolStripPorcAlimentosCadastrar.Size = new System.Drawing.Size(155, 26);
+            this.toolStripPorcAlimentosCadastrar.Size = new System.Drawing.Size(125, 26);
             this.toolStripPorcAlimentosCadastrar.Text = "Cadastrar";
             // 
             // toolStripPorcAlimentosPesquisar
             // 
             this.toolStripPorcAlimentosPesquisar.Name = "toolStripPorcAlimentosPesquisar";
-            this.toolStripPorcAlimentosPesquisar.Size = new System.Drawing.Size(155, 26);
+            this.toolStripPorcAlimentosPesquisar.Size = new System.Drawing.Size(125, 26);
             this.toolStripPorcAlimentosPesquisar.Text = "Pesquisar";
             // 
             // toolStripDieta
@@ -109,19 +109,19 @@ namespace DietCSharpForm
             this.toolStripDietaCadastrar,
             this.toolStripDietaPesquisar});
             this.toolStripDieta.Name = "toolStripDieta";
-            this.toolStripDieta.Size = new System.Drawing.Size(59, 24);
+            this.toolStripDieta.Size = new System.Drawing.Size(41, 18);
             this.toolStripDieta.Text = "Dieta";
             // 
             // toolStripDietaCadastrar
             // 
             this.toolStripDietaCadastrar.Name = "toolStripDietaCadastrar";
-            this.toolStripDietaCadastrar.Size = new System.Drawing.Size(155, 26);
+            this.toolStripDietaCadastrar.Size = new System.Drawing.Size(125, 26);
             this.toolStripDietaCadastrar.Text = "Cadastrar";
             // 
             // toolStripDietaPesquisar
             // 
             this.toolStripDietaPesquisar.Name = "toolStripDietaPesquisar";
-            this.toolStripDietaPesquisar.Size = new System.Drawing.Size(155, 26);
+            this.toolStripDietaPesquisar.Size = new System.Drawing.Size(125, 26);
             this.toolStripDietaPesquisar.Text = "Pesquisar";
             // 
             // toolStripPaciente
@@ -130,26 +130,26 @@ namespace DietCSharpForm
             this.toolStripPacienteCadastrar,
             this.toolStripPacientePesquisar});
             this.toolStripPaciente.Name = "toolStripPaciente";
-            this.toolStripPaciente.Size = new System.Drawing.Size(78, 24);
+            this.toolStripPaciente.Size = new System.Drawing.Size(56, 18);
             this.toolStripPaciente.Text = "Paciente";
             // 
             // toolStripPacienteCadastrar
             // 
             this.toolStripPacienteCadastrar.Name = "toolStripPacienteCadastrar";
-            this.toolStripPacienteCadastrar.Size = new System.Drawing.Size(155, 26);
+            this.toolStripPacienteCadastrar.Size = new System.Drawing.Size(125, 26);
             this.toolStripPacienteCadastrar.Text = "Cadastrar";
             // 
             // toolStripPacientePesquisar
             // 
             this.toolStripPacientePesquisar.Name = "toolStripPacientePesquisar";
-            this.toolStripPacientePesquisar.Size = new System.Drawing.Size(155, 26);
+            this.toolStripPacientePesquisar.Size = new System.Drawing.Size(125, 26);
             this.toolStripPacientePesquisar.Text = "Pesquisar";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 600);
+            this.ClientSize = new System.Drawing.Size(1429, 1063);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;

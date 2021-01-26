@@ -99,6 +99,7 @@ namespace DietCSharpForm
                     MessageBox.Show(mensagem);
                     return;
                 }
+                _unitOfWork.Commit();
 
                 var porcaoDeAlimentoService = new PorcaoDeAlimentoService(_unitOfWork);
                 porcaoDeAlimentoService.AssociarPorcaoAlimentoDieta(listIdProcaoAlimento, dietum.ID);

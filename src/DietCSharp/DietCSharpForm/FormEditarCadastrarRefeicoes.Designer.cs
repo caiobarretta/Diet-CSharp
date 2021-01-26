@@ -46,63 +46,75 @@ namespace DietCSharpForm
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(12, 9);
+            this.lblCodigo.Location = new System.Drawing.Point(18, 15);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(46, 15);
+            this.lblCodigo.Size = new System.Drawing.Size(58, 20);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código";
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(12, 27);
+            this.txtCodigo.Location = new System.Drawing.Point(18, 45);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(479, 23);
+            this.txtCodigo.Size = new System.Drawing.Size(764, 27);
             this.txtCodigo.TabIndex = 1;
             // 
             // lblPesquisaNome
             // 
             this.lblPesquisaNome.AutoSize = true;
-            this.lblPesquisaNome.Location = new System.Drawing.Point(12, 65);
+            this.lblPesquisaNome.Location = new System.Drawing.Point(18, 109);
             this.lblPesquisaNome.Name = "lblPesquisaNome";
-            this.lblPesquisaNome.Size = new System.Drawing.Size(40, 15);
+            this.lblPesquisaNome.Size = new System.Drawing.Size(50, 20);
             this.lblPesquisaNome.TabIndex = 2;
             this.lblPesquisaNome.Text = "Nome";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(12, 83);
+            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNome.Location = new System.Drawing.Point(18, 139);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(479, 23);
+            this.txtNome.Size = new System.Drawing.Size(764, 27);
             this.txtNome.TabIndex = 3;
             // 
             // lblPesquisarDescricao
             // 
             this.lblPesquisarDescricao.AutoSize = true;
-            this.lblPesquisarDescricao.Location = new System.Drawing.Point(12, 125);
+            this.lblPesquisarDescricao.Location = new System.Drawing.Point(18, 209);
             this.lblPesquisarDescricao.Name = "lblPesquisarDescricao";
-            this.lblPesquisarDescricao.Size = new System.Drawing.Size(58, 15);
+            this.lblPesquisarDescricao.Size = new System.Drawing.Size(74, 20);
             this.lblPesquisarDescricao.TabIndex = 4;
             this.lblPesquisarDescricao.Text = "Descrição";
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(12, 143);
+            this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescricao.Location = new System.Drawing.Point(18, 273);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(479, 149);
+            this.txtDescricao.Size = new System.Drawing.Size(764, 246);
             this.txtDescricao.TabIndex = 5;
             // 
             // btnSalvar
             // 
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSalvar.Location = new System.Drawing.Point(311, 298);
+            this.btnSalvar.Location = new System.Drawing.Point(514, 500);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(82, 34);
+            this.btnSalvar.Size = new System.Drawing.Size(128, 56);
             this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -110,14 +122,17 @@ namespace DietCSharpForm
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelar.Location = new System.Drawing.Point(409, 298);
+            this.btnCancelar.Location = new System.Drawing.Point(654, 500);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(82, 34);
+            this.btnCancelar.Size = new System.Drawing.Size(128, 56);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -125,9 +140,9 @@ namespace DietCSharpForm
             // 
             // FormEditarCadastrarRefeicoes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 344);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtDescricao);
@@ -136,6 +151,10 @@ namespace DietCSharpForm
             this.Controls.Add(this.lblPesquisaNome);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FormEditarCadastrarRefeicoes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Editar";

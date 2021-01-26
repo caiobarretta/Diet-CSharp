@@ -26,13 +26,13 @@ namespace Services
             if (_tipoDeOperacao == TipoDeOperacao.Criar)
             {
                 service.Add(entity);
-                mensagem = "Refeição Criada Com Sucesso";
+                mensagem = "Dados Criados Com Sucesso";
                 return true;
             }
             else if (_tipoDeOperacao == TipoDeOperacao.Editar)
             {
                 service.Update(entity);
-                mensagem = $"Refeição {entity.Nome} Alterada Com Sucesso";
+                mensagem = $"Dados de {entity.Nome} Alterados Com Sucesso";
                 return true;
             }
             else

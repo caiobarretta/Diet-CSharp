@@ -48,38 +48,47 @@ namespace DietCSharpForm
             // lblRefeicoes
             // 
             this.lblRefeicoes.AutoSize = true;
-            this.lblRefeicoes.Location = new System.Drawing.Point(13, 180);
+            this.lblRefeicoes.Location = new System.Drawing.Point(19, 300);
             this.lblRefeicoes.Name = "lblRefeicoes";
-            this.lblRefeicoes.Size = new System.Drawing.Size(57, 15);
+            this.lblRefeicoes.Size = new System.Drawing.Size(73, 20);
             this.lblRefeicoes.TabIndex = 23;
             this.lblRefeicoes.Text = "Refeições";
             // 
             // chbRefeicoes
             // 
+            this.chbRefeicoes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chbRefeicoes.FormattingEnabled = true;
-            this.chbRefeicoes.Location = new System.Drawing.Point(12, 198);
+            this.chbRefeicoes.Location = new System.Drawing.Point(17, 323);
+            this.chbRefeicoes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chbRefeicoes.Name = "chbRefeicoes";
-            this.chbRefeicoes.Size = new System.Drawing.Size(522, 58);
+            this.chbRefeicoes.Size = new System.Drawing.Size(764, 92);
             this.chbRefeicoes.TabIndex = 22;
             // 
             // chbDiasSemana
             // 
+            this.chbDiasSemana.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chbDiasSemana.FormattingEnabled = true;
-            this.chbDiasSemana.Location = new System.Drawing.Point(12, 119);
+            this.chbDiasSemana.Location = new System.Drawing.Point(17, 192);
+            this.chbDiasSemana.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chbDiasSemana.Name = "chbDiasSemana";
-            this.chbDiasSemana.Size = new System.Drawing.Size(522, 58);
+            this.chbDiasSemana.Size = new System.Drawing.Size(764, 92);
             this.chbDiasSemana.TabIndex = 21;
             // 
             // btnCadastrarCancelar
             // 
+            this.btnCadastrarCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCadastrarCancelar.BackColor = System.Drawing.Color.Firebrick;
             this.btnCadastrarCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCadastrarCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrarCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCadastrarCancelar.Location = new System.Drawing.Point(452, 404);
+            this.btnCadastrarCancelar.Location = new System.Drawing.Point(653, 700);
+            this.btnCadastrarCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCadastrarCancelar.Name = "btnCadastrarCancelar";
-            this.btnCadastrarCancelar.Size = new System.Drawing.Size(82, 34);
+            this.btnCadastrarCancelar.Size = new System.Drawing.Size(128, 56);
             this.btnCadastrarCancelar.TabIndex = 20;
             this.btnCadastrarCancelar.Text = "Cancelar";
             this.btnCadastrarCancelar.UseVisualStyleBackColor = false;
@@ -87,14 +96,17 @@ namespace DietCSharpForm
             // 
             // btnSalvar
             // 
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSalvar.Location = new System.Drawing.Point(364, 404);
+            this.btnSalvar.Location = new System.Drawing.Point(527, 700);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(82, 34);
+            this.btnSalvar.Size = new System.Drawing.Size(128, 56);
             this.btnSalvar.TabIndex = 19;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -102,68 +114,77 @@ namespace DietCSharpForm
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(12, 277);
+            this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescricao.Location = new System.Drawing.Point(18, 501);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(522, 120);
+            this.txtDescricao.Size = new System.Drawing.Size(763, 199);
             this.txtDescricao.TabIndex = 18;
             // 
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(12, 259);
+            this.lblDescricao.Location = new System.Drawing.Point(18, 431);
             this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(58, 15);
+            this.lblDescricao.Size = new System.Drawing.Size(74, 20);
             this.lblDescricao.TabIndex = 17;
             this.lblDescricao.Text = "Descrição";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 101);
+            this.label1.Location = new System.Drawing.Point(18, 169);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 15);
+            this.label1.Size = new System.Drawing.Size(116, 20);
             this.label1.TabIndex = 26;
             this.label1.Text = "Dias da Semana";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(12, 75);
+            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNome.Location = new System.Drawing.Point(17, 118);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(522, 23);
+            this.txtNome.Size = new System.Drawing.Size(764, 27);
             this.txtNome.TabIndex = 25;
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(12, 57);
+            this.lblNome.Location = new System.Drawing.Point(18, 95);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(40, 15);
+            this.lblNome.Size = new System.Drawing.Size(50, 20);
             this.lblNome.TabIndex = 24;
             this.lblNome.Text = "Nome";
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(12, 9);
+            this.lblCodigo.Location = new System.Drawing.Point(18, 15);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(46, 15);
+            this.lblCodigo.Size = new System.Drawing.Size(58, 20);
             this.lblCodigo.TabIndex = 27;
             this.lblCodigo.Text = "Código";
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(13, 27);
+            this.txtCodigo.Location = new System.Drawing.Point(18, 38);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(521, 23);
+            this.txtCodigo.Size = new System.Drawing.Size(763, 27);
             this.txtCodigo.TabIndex = 28;
             // 
             // FormEditarCadastrarPorcAlimento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 450);
+            this.ClientSize = new System.Drawing.Size(784, 761);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.label1);
@@ -176,6 +197,9 @@ namespace DietCSharpForm
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.lblDescricao);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(800, 800);
+            this.MinimumSize = new System.Drawing.Size(800, 800);
             this.Name = "FormEditarCadastrarPorcAlimento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditarPorcAlimento";
