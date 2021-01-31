@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\DietCSharpForm.csproj": {}
+    "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\DietCSharpForm.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
+    "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\caioa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\obj\\",
+        "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\gabil\\.nuget\\packages\\",
+        "outputPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\caioa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\gabil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -31,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -79,27 +76,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\DietCSharpForm.csproj": {
+    "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\DietCSharpForm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\DietCSharpForm.csproj",
+        "projectUniqueName": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\DietCSharpForm.csproj",
         "projectName": "DietCSharpForm",
-        "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\DietCSharpForm.csproj",
-        "packagesPath": "C:\\Users\\caioa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\obj\\",
+        "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\DietCSharpForm.csproj",
+        "packagesPath": "C:\\Users\\gabil\\.nuget\\packages\\",
+        "outputPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\DietCSharpForm\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\caioa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\gabil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -110,15 +102,16 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj"
+              "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
+                "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj"
               },
-              "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj"
               },
-              "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj"
+              "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj": {
+                "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj"
               }
             }
           }
@@ -131,6 +124,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -149,27 +143,22 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\caioa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\gabil\\.nuget\\packages\\",
+        "outputPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\caioa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\gabil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -180,9 +169,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj"
+              "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
+                "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj"
               }
             }
           }
@@ -195,6 +185,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -210,27 +201,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj": {
+    "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\caioa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Services\\obj\\",
+        "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\gabil\\.nuget\\packages\\",
+        "outputPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\caioa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\gabil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -241,12 +227,13 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj"
+              "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
+                "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj"
               },
-              "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -259,6 +246,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -274,7 +262,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

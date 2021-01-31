@@ -49,9 +49,11 @@ namespace DietCSharpForm
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            /*
             txtUsuario.Text = "nutri";
             txtSenha.Text = "1234";
             btnLogin_Click(sender, e);
+            */
         }
     }
 }

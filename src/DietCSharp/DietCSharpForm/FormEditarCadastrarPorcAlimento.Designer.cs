@@ -48,9 +48,10 @@ namespace DietCSharpForm
             // lblRefeicoes
             // 
             this.lblRefeicoes.AutoSize = true;
-            this.lblRefeicoes.Location = new System.Drawing.Point(19, 300);
+            this.lblRefeicoes.ForeColor = System.Drawing.Color.White;
+            this.lblRefeicoes.Location = new System.Drawing.Point(17, 225);
             this.lblRefeicoes.Name = "lblRefeicoes";
-            this.lblRefeicoes.Size = new System.Drawing.Size(73, 20);
+            this.lblRefeicoes.Size = new System.Drawing.Size(57, 15);
             this.lblRefeicoes.TabIndex = 23;
             this.lblRefeicoes.Text = "Refeições";
             // 
@@ -59,10 +60,9 @@ namespace DietCSharpForm
             this.chbRefeicoes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chbRefeicoes.FormattingEnabled = true;
-            this.chbRefeicoes.Location = new System.Drawing.Point(17, 323);
-            this.chbRefeicoes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chbRefeicoes.Location = new System.Drawing.Point(15, 242);
             this.chbRefeicoes.Name = "chbRefeicoes";
-            this.chbRefeicoes.Size = new System.Drawing.Size(764, 92);
+            this.chbRefeicoes.Size = new System.Drawing.Size(669, 58);
             this.chbRefeicoes.TabIndex = 22;
             // 
             // chbDiasSemana
@@ -70,10 +70,9 @@ namespace DietCSharpForm
             this.chbDiasSemana.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chbDiasSemana.FormattingEnabled = true;
-            this.chbDiasSemana.Location = new System.Drawing.Point(17, 192);
-            this.chbDiasSemana.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chbDiasSemana.Location = new System.Drawing.Point(15, 144);
             this.chbDiasSemana.Name = "chbDiasSemana";
-            this.chbDiasSemana.Size = new System.Drawing.Size(764, 92);
+            this.chbDiasSemana.Size = new System.Drawing.Size(669, 58);
             this.chbDiasSemana.TabIndex = 21;
             // 
             // btnCadastrarCancelar
@@ -85,10 +84,9 @@ namespace DietCSharpForm
             this.btnCadastrarCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrarCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCadastrarCancelar.Location = new System.Drawing.Point(653, 700);
-            this.btnCadastrarCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCadastrarCancelar.Location = new System.Drawing.Point(571, 525);
             this.btnCadastrarCancelar.Name = "btnCadastrarCancelar";
-            this.btnCadastrarCancelar.Size = new System.Drawing.Size(128, 56);
+            this.btnCadastrarCancelar.Size = new System.Drawing.Size(112, 42);
             this.btnCadastrarCancelar.TabIndex = 20;
             this.btnCadastrarCancelar.Text = "Cancelar";
             this.btnCadastrarCancelar.UseVisualStyleBackColor = false;
@@ -103,10 +101,9 @@ namespace DietCSharpForm
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSalvar.Location = new System.Drawing.Point(527, 700);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSalvar.Location = new System.Drawing.Point(461, 525);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(128, 56);
+            this.btnSalvar.Size = new System.Drawing.Size(112, 42);
             this.btnSalvar.TabIndex = 19;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -116,28 +113,29 @@ namespace DietCSharpForm
             // 
             this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescricao.Location = new System.Drawing.Point(18, 501);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDescricao.Location = new System.Drawing.Point(16, 376);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(763, 199);
+            this.txtDescricao.Size = new System.Drawing.Size(668, 150);
             this.txtDescricao.TabIndex = 18;
             // 
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(18, 431);
+            this.lblDescricao.ForeColor = System.Drawing.Color.White;
+            this.lblDescricao.Location = new System.Drawing.Point(16, 323);
             this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(74, 20);
+            this.lblDescricao.Size = new System.Drawing.Size(58, 15);
             this.lblDescricao.TabIndex = 17;
             this.lblDescricao.Text = "Descrição";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 169);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(16, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 20);
+            this.label1.Size = new System.Drawing.Size(90, 15);
             this.label1.TabIndex = 26;
             this.label1.Text = "Dias da Semana";
             // 
@@ -145,27 +143,28 @@ namespace DietCSharpForm
             // 
             this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNome.Location = new System.Drawing.Point(17, 118);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNome.Location = new System.Drawing.Point(15, 88);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(764, 27);
+            this.txtNome.Size = new System.Drawing.Size(669, 23);
             this.txtNome.TabIndex = 25;
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(18, 95);
+            this.lblNome.ForeColor = System.Drawing.Color.White;
+            this.lblNome.Location = new System.Drawing.Point(16, 71);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(50, 20);
+            this.lblNome.Size = new System.Drawing.Size(40, 15);
             this.lblNome.TabIndex = 24;
             this.lblNome.Text = "Nome";
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(18, 15);
+            this.lblCodigo.ForeColor = System.Drawing.Color.White;
+            this.lblCodigo.Location = new System.Drawing.Point(16, 11);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(58, 20);
+            this.lblCodigo.Size = new System.Drawing.Size(46, 15);
             this.lblCodigo.TabIndex = 27;
             this.lblCodigo.Text = "Código";
             // 
@@ -174,17 +173,17 @@ namespace DietCSharpForm
             this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(18, 38);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCodigo.Location = new System.Drawing.Point(16, 28);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(763, 27);
+            this.txtCodigo.Size = new System.Drawing.Size(668, 23);
             this.txtCodigo.TabIndex = 28;
             // 
             // FormEditarCadastrarPorcAlimento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 761);
+            this.BackColor = System.Drawing.Color.SlateGray;
+            this.ClientSize = new System.Drawing.Size(686, 571);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.label1);
@@ -197,9 +196,8 @@ namespace DietCSharpForm
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.lblDescricao);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximumSize = new System.Drawing.Size(800, 800);
-            this.MinimumSize = new System.Drawing.Size(800, 800);
+            this.MaximumSize = new System.Drawing.Size(702, 610);
+            this.MinimumSize = new System.Drawing.Size(702, 610);
             this.Name = "FormEditarCadastrarPorcAlimento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditarPorcAlimento";
