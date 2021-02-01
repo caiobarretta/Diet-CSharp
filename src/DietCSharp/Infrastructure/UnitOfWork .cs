@@ -75,6 +75,15 @@ namespace Infrastructure
             }
         }
 
+        private IRegistroDeAtividadeRepository registroDeAtividadeRepository;
+        public IRegistroDeAtividadeRepository RegistroDeAtividadeRepository
+        {
+            get
+            {
+                return registroDeAtividadeRepository = registroDeAtividadeRepository ?? new RegistroDeAtividadeRepository(_ctx);
+            }
+        }
+
 
         public void Commit()
         {

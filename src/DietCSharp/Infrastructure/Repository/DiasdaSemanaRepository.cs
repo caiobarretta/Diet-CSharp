@@ -29,5 +29,19 @@ namespace Infrastructure.Repository
                 }
             }
         }
+
+        public List<DiaDaSemana> RetornarDiaDaSemanaPeloIdDaPorcaoDeAlimento(int id)
+        {
+            using (var ctx = new DietCScharpContext())
+            {
+                var lstDiaDaSemana = (from dia in ctx.DiaDaSemanas
+                                      join diaPorc in ctx.PorcaoDeAlimentoDiasdaSemanas on dia.ID equals diaPorc.ID_DiaSemana
+                                      join porc in ctx.PorcaoDeAlimentos on diaPorc.ID_PorcaoAlimento equals porc.ID
+                                      where porc.ID == id
+                                      select dia
+                                      ).ToList();
+                return lstDiaDaSemana;
+            }
+        }
     }
 }

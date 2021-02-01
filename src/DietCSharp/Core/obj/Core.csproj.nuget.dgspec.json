@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {}
+    "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {}
   },
   "projects": {
-    "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
+    "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\gabil\\.nuget\\packages\\",
-        "outputPath": "C:\\Faculdade\\Diet-CSharp\\Diet-CSharp\\src\\DietCSharp\\Core\\obj\\",
+        "projectPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\caioa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\caioa\\Documents\\ifsp\\cmp\\LP2\\Diet-CSharp\\src\\DietCSharp\\Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\gabil\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\caioa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -26,7 +31,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -38,7 +42,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -76,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

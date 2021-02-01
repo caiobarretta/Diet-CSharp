@@ -24,5 +24,7 @@ namespace Services
         public void AssociarPorcaoRefeicoes(List<int> listIdRefeicao, int idPorcaoDeAlimento) => _unitOfWork.PorcaoDeAlimentoRepository.AssociarPorcaoRefeicoes(listIdRefeicao, idPorcaoDeAlimento);
 
         public void AssociarPorcaoAlimentoDieta(List<int> listIdProcaoAlimento, int idDieta) => _unitOfWork.PorcaoDeAlimentoRepository.AssociarPorcaoAlimentoDieta(listIdProcaoAlimento, idDieta);
+
+        public List<PorcaoDeAlimento> RetornaPorcaoDeAlimentoPeloIdDaDieta(int id) => _unitOfWork.PorcaoDeAlimentoRepository.RetornaPorcaoDeAlimentoPeloIdDaDieta(id);
     }
 }

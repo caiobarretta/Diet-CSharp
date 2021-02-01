@@ -13,6 +13,7 @@ namespace Core.Entities.DietcSharp
             Usuarios = new HashSet<Usuario>();
         }
 
+
         public virtual ICollection<PorcaoDeAlimentoDietum> PorcaoDeAlimentoDieta { get; set; }
         public virtual ICollection<Usuario> Usuarios { get; set; }
     }

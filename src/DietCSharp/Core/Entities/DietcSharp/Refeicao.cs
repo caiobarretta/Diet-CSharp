@@ -12,6 +12,7 @@ namespace Core.Entities.DietcSharp
             RefeicaoPorcaoDeAlimentos = new HashSet<RefeicaoPorcaoDeAlimento>();
         }
 
+
         public virtual ICollection<RefeicaoPorcaoDeAlimento> RefeicaoPorcaoDeAlimentos { get; set; }
     }
 }

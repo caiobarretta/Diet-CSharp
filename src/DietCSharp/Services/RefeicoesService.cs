@@ -18,5 +18,7 @@ namespace Services
         {
             _unitOfWork = unitOfWork;
         }
+
+        public List<Refeicao> RetornaRefeicoesPeloIdDaProcaoDeAlimento(int id) => _unitOfWork.RefeicoesRepository.RetornaRefeicoesPeloIdDaProcaoDeAlimento(id);
     }
 }

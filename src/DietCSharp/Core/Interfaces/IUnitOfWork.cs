@@ -15,6 +15,7 @@ namespace Core.Interfaces
         IPorcaoDeAlimentoRepository PorcaoDeAlimentoRepository { get; }
         IRefeicoesRepository RefeicoesRepository { get; }
         IUsuarioRepository UsuarioRepository { get; }
+        IRegistroDeAtividadeRepository RegistroDeAtividadeRepository { get; }
         void Commit();
     }
 }

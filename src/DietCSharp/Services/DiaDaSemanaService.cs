@@ -21,9 +21,8 @@ namespace Services
             _unitOfWork = unitOfWork;
         }
 
-        public void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento)
-        {
-            _unitOfWork.DiasdaSemanaRepository.AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, iD_PorcAlimento);
-        }
+        public void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento) => _unitOfWork.DiasdaSemanaRepository.AssociarDiasDaSemanaRefeicoes(listIdDiasdaSemana, iD_PorcAlimento);
+
+        public List<DiaDaSemana> RetornarDiaDaSemanaPeloIdDaPorcaoDeAlimento(int id) => _unitOfWork.DiasdaSemanaRepository.RetornarDiaDaSemanaPeloIdDaPorcaoDeAlimento(id);
     }
 }

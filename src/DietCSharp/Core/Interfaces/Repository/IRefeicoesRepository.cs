@@ -10,6 +10,6 @@ namespace Core.Interfaces.Repository
 {
     public interface IRefeicoesRepository : IRepository<Refeicao>
     {
-        
+        List<Refeicao> RetornaRefeicoesPeloIdDaProcaoDeAlimento(int id);
     }
 }

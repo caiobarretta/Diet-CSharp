@@ -12,5 +12,6 @@ namespace Core.Interfaces.Repository
     {
         void AssociarPorcaoRefeicoes(List<int> listIdRefeicao, int idPorcaoDeAlimento);
         void AssociarPorcaoAlimentoDieta(List<int> listIdProcaoAlimento, int iD_Dieta);
+        List<PorcaoDeAlimento> RetornaPorcaoDeAlimentoPeloIdDaDieta(int id);
     }
 }

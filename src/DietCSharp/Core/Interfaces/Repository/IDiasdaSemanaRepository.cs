@@ -11,5 +11,6 @@ namespace Core.Interfaces.Repository
     public interface IDiasdaSemanaRepository : IRepository<DiaDaSemana>
     {
         void AssociarDiasDaSemanaRefeicoes(List<int> listIdDiasdaSemana, int iD_PorcAlimento);
+        List<DiaDaSemana> RetornarDiaDaSemanaPeloIdDaPorcaoDeAlimento(int id);
     }
 }

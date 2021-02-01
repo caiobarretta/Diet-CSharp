@@ -63,6 +63,21 @@ namespace Infrastructure.Repository
             return porcaoDeAlimento;
         }
 
+        public virtual List<PorcaoDeAlimento> RetornaPorcaoDeAlimentoPeloIdDaDieta(int id)
+        {
+            List<PorcaoDeAlimento> porcaoDeAlimento = null;
+            using (var ctx = new DietCScharpContext())
+            {
+                porcaoDeAlimento = (from porc in ctx.PorcaoDeAlimentos
+                                    join porcDieta in ctx.PorcaoDeAlimentoDieta on porc.ID equals porcDieta.ID_PorcAlimento
+                                    join dieta in ctx.Dieta on porcDieta.ID_Dieta equals dieta.ID
+                                    where dieta.ID == id
+                                    select porc
+                    ).ToList();
+            }
+            return porcaoDeAlimento;
+        }
+
         public override PorcaoDeAlimento Get(PorcaoDeAlimento entity)
         {
             throw new NotImplementedException();

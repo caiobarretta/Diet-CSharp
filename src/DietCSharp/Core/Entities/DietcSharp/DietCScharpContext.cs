@@ -23,8 +23,10 @@ namespace Core.Entities.DietcSharp
         public virtual DbSet<PorcaoDeAlimento> PorcaoDeAlimentos { get; set; }
         public virtual DbSet<PorcaoDeAlimentoDiasdaSemana> PorcaoDeAlimentoDiasdaSemanas { get; set; }
         public virtual DbSet<PorcaoDeAlimentoDietum> PorcaoDeAlimentoDieta { get; set; }
+        public virtual DbSet<PorcaoDeAlimentoRegistroDeAtividade> PorcaoDeAlimentoRegistroDeAtividades { get; set; }
         public virtual DbSet<Refeicao> Refeicaos { get; set; }
         public virtual DbSet<RefeicaoPorcaoDeAlimento> RefeicaoPorcaoDeAlimentos { get; set; }
+        public virtual DbSet<RegistroDeAtividade> RegistroDeAtividades { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -123,6 +125,23 @@ namespace Core.Entities.DietcSharp
                     .HasConstraintName("FK_Rel_Porc_Dieta_PorcaoDeAlimento");
             });
 
+            modelBuilder.Entity<PorcaoDeAlimentoRegistroDeAtividade>(entity =>
+            {
+                entity.ToTable("PorcaoDeAlimentoRegistroDeAtividade");
+
+                entity.HasOne(d => d.ID_PorcAlimentoNavigation)
+                    .WithMany(p => p.PorcaoDeAlimentoRegistroDeAtividades)
+                    .HasForeignKey(d => d.ID_PorcAlimento)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Rel_Porc_RegistroDeAtividade_PorcaoDeAlimento");
+
+                entity.HasOne(d => d.ID_RegistroDeAtividadeNavigation)
+                    .WithMany(p => p.PorcaoDeAlimentoRegistroDeAtividades)
+                    .HasForeignKey(d => d.ID_RegistroDeAtividade)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PorcaoDeAlimentoRegistroDeAtividade_PorcaoDeAlimentoRegistroDeAtividade");
+            });
+
             modelBuilder.Entity<Refeicao>(entity =>
             {
                 entity.ToTable("Refeicao");
@@ -152,6 +171,27 @@ namespace Core.Entities.DietcSharp
                     .HasForeignKey(d => d.ID_Refeicao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rel_Ref_Porc_Refeicoes");
+            });
+
+            modelBuilder.Entity<RegistroDeAtividade>(entity =>
+            {
+                entity.ToTable("RegistroDeAtividade");
+
+                entity.Property(e => e.Descricao)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Nome)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Registro).HasColumnType("datetime");
+
+                entity.Property(e => e.Sentimento)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Usuario>(entity =>

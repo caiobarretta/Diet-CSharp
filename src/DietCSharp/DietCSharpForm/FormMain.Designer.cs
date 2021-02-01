@@ -44,36 +44,34 @@ namespace DietCSharpForm
             this.toolStripPacienteCadastrar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripPacientePesquisar = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblNomePerfil = new System.Windows.Forms.Label();
+            this.lblNomeUsuario = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblDiasSemana = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.gbDieta = new System.Windows.Forms.GroupBox();
+            this.treeViewPorcaoDeAlimento = new System.Windows.Forms.TreeView();
             this.label3 = new System.Windows.Forms.Label();
-            this.lstPorcoesAlimento = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDieta = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbRegistrodeAtividades = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCadastrarCancelar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbBuchoCheio = new System.Windows.Forms.RadioButton();
+            this.rbSatisfeito = new System.Windows.Forms.RadioButton();
+            this.rbPasseiFome = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtComentario = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.clbPorcaoDeAlimentosConsumido = new System.Windows.Forms.CheckedListBox();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbDieta.SuspendLayout();
+            this.gbRegistrodeAtividades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -95,7 +93,6 @@ namespace DietCSharpForm
             this.menuStrip1.Size = new System.Drawing.Size(1252, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // toolStripRefeicoes
             // 
@@ -187,8 +184,8 @@ namespace DietCSharpForm
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.lblNomePerfil);
+            this.groupBox1.Controls.Add(this.lblNomeUsuario);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -199,25 +196,24 @@ namespace DietCSharpForm
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuário";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label8
+            // lblNomePerfil
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(97, 68);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 21);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "nomePerfil";
+            this.lblNomePerfil.AutoSize = true;
+            this.lblNomePerfil.Location = new System.Drawing.Point(97, 68);
+            this.lblNomePerfil.Name = "lblNomePerfil";
+            this.lblNomePerfil.Size = new System.Drawing.Size(85, 21);
+            this.lblNomePerfil.TabIndex = 3;
+            this.lblNomePerfil.Text = "nomePerfil";
             // 
-            // label7
+            // lblNomeUsuario
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(97, 34);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 21);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "nomeUser";
+            this.lblNomeUsuario.AutoSize = true;
+            this.lblNomeUsuario.Location = new System.Drawing.Point(97, 34);
+            this.lblNomeUsuario.Name = "lblNomeUsuario";
+            this.lblNomeUsuario.Size = new System.Drawing.Size(82, 21);
+            this.lblNomeUsuario.TabIndex = 2;
+            this.lblNomeUsuario.Text = "nomeUser";
             // 
             // label6
             // 
@@ -237,40 +233,27 @@ namespace DietCSharpForm
             this.label5.TabIndex = 0;
             this.label5.Text = "Perfil:";
             // 
-            // groupBox2
+            // gbDieta
             // 
-            this.groupBox2.Controls.Add(this.lblDiasSemana);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.lstPorcoesAlimento);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(12, 167);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(397, 552);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Dieta";
+            this.gbDieta.Controls.Add(this.treeViewPorcaoDeAlimento);
+            this.gbDieta.Controls.Add(this.label3);
+            this.gbDieta.Controls.Add(this.lblDieta);
+            this.gbDieta.Controls.Add(this.label1);
+            this.gbDieta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gbDieta.ForeColor = System.Drawing.Color.White;
+            this.gbDieta.Location = new System.Drawing.Point(12, 167);
+            this.gbDieta.Name = "gbDieta";
+            this.gbDieta.Size = new System.Drawing.Size(397, 552);
+            this.gbDieta.TabIndex = 3;
+            this.gbDieta.TabStop = false;
+            this.gbDieta.Text = "Dieta";
             // 
-            // lblDiasSemana
+            // treeViewPorcaoDeAlimento
             // 
-            this.lblDiasSemana.FormattingEnabled = true;
-            this.lblDiasSemana.ItemHeight = 21;
-            this.lblDiasSemana.Location = new System.Drawing.Point(22, 281);
-            this.lblDiasSemana.Name = "lblDiasSemana";
-            this.lblDiasSemana.Size = new System.Drawing.Size(347, 130);
-            this.lblDiasSemana.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 257);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 21);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Dias da Semana";
+            this.treeViewPorcaoDeAlimento.Location = new System.Drawing.Point(22, 125);
+            this.treeViewPorcaoDeAlimento.Name = "treeViewPorcaoDeAlimento";
+            this.treeViewPorcaoDeAlimento.Size = new System.Drawing.Size(356, 395);
+            this.treeViewPorcaoDeAlimento.TabIndex = 4;
             // 
             // label3
             // 
@@ -281,23 +264,14 @@ namespace DietCSharpForm
             this.label3.TabIndex = 3;
             this.label3.Text = "Porções de Alimento";
             // 
-            // lstPorcoesAlimento
+            // lblDieta
             // 
-            this.lstPorcoesAlimento.FormattingEnabled = true;
-            this.lstPorcoesAlimento.ItemHeight = 21;
-            this.lstPorcoesAlimento.Location = new System.Drawing.Point(22, 108);
-            this.lstPorcoesAlimento.Name = "lstPorcoesAlimento";
-            this.lstPorcoesAlimento.Size = new System.Drawing.Size(347, 130);
-            this.lstPorcoesAlimento.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(81, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "nomeDieta";
+            this.lblDieta.AutoSize = true;
+            this.lblDieta.Location = new System.Drawing.Point(81, 43);
+            this.lblDieta.Name = "lblDieta";
+            this.lblDieta.Size = new System.Drawing.Size(86, 21);
+            this.lblDieta.TabIndex = 1;
+            this.lblDieta.Text = "nomeDieta";
             // 
             // label1
             // 
@@ -308,30 +282,30 @@ namespace DietCSharpForm
             this.label1.TabIndex = 0;
             this.label1.Text = "Dieta: ";
             // 
-            // groupBox3
+            // gbRegistrodeAtividades
             // 
-            this.groupBox3.Controls.Add(this.pictureBox3);
-            this.groupBox3.Controls.Add(this.pictureBox2);
-            this.groupBox3.Controls.Add(this.pictureBox1);
-            this.groupBox3.Controls.Add(this.btnCadastrarCancelar);
-            this.groupBox3.Controls.Add(this.btnSalvar);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.radioButton3);
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.checkedListBox1);
-            this.groupBox3.Controls.Add(this.monthCalendar1);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(434, 45);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(806, 674);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Registro de Atividades";
+            this.gbRegistrodeAtividades.Controls.Add(this.pictureBox3);
+            this.gbRegistrodeAtividades.Controls.Add(this.pictureBox2);
+            this.gbRegistrodeAtividades.Controls.Add(this.pictureBox1);
+            this.gbRegistrodeAtividades.Controls.Add(this.btnCancelar);
+            this.gbRegistrodeAtividades.Controls.Add(this.btnSalvar);
+            this.gbRegistrodeAtividades.Controls.Add(this.label11);
+            this.gbRegistrodeAtividades.Controls.Add(this.rbBuchoCheio);
+            this.gbRegistrodeAtividades.Controls.Add(this.rbSatisfeito);
+            this.gbRegistrodeAtividades.Controls.Add(this.rbPasseiFome);
+            this.gbRegistrodeAtividades.Controls.Add(this.label10);
+            this.gbRegistrodeAtividades.Controls.Add(this.txtComentario);
+            this.gbRegistrodeAtividades.Controls.Add(this.label9);
+            this.gbRegistrodeAtividades.Controls.Add(this.clbPorcaoDeAlimentosConsumido);
+            this.gbRegistrodeAtividades.Controls.Add(this.monthCalendar);
+            this.gbRegistrodeAtividades.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gbRegistrodeAtividades.ForeColor = System.Drawing.Color.White;
+            this.gbRegistrodeAtividades.Location = new System.Drawing.Point(434, 45);
+            this.gbRegistrodeAtividades.Name = "gbRegistrodeAtividades";
+            this.gbRegistrodeAtividades.Size = new System.Drawing.Size(806, 674);
+            this.gbRegistrodeAtividades.TabIndex = 4;
+            this.gbRegistrodeAtividades.TabStop = false;
+            this.gbRegistrodeAtividades.Text = "Registro de Atividades";
             // 
             // pictureBox3
             // 
@@ -363,21 +337,22 @@ namespace DietCSharpForm
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // btnCadastrarCancelar
+            // btnCancelar
             // 
-            this.btnCadastrarCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCadastrarCancelar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnCadastrarCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCadastrarCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrarCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCadastrarCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCadastrarCancelar.Location = new System.Drawing.Point(607, 318);
-            this.btnCadastrarCancelar.Name = "btnCadastrarCancelar";
-            this.btnCadastrarCancelar.Size = new System.Drawing.Size(108, 42);
-            this.btnCadastrarCancelar.TabIndex = 21;
-            this.btnCadastrarCancelar.Text = "Cancelar";
-            this.btnCadastrarCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.Location = new System.Drawing.Point(607, 318);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(108, 42);
+            this.btnCancelar.TabIndex = 21;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -394,6 +369,7 @@ namespace DietCSharpForm
             this.btnSalvar.TabIndex = 20;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // label11
             // 
@@ -404,41 +380,41 @@ namespace DietCSharpForm
             this.label11.TabIndex = 8;
             this.label11.Text = "Porção de Alimentos Consumidos:";
             // 
-            // radioButton3
+            // rbBuchoCheio
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.ForeColor = System.Drawing.Color.Orange;
-            this.radioButton3.Location = new System.Drawing.Point(609, 161);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(115, 25);
-            this.radioButton3.TabIndex = 7;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Bucho Cheio";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbBuchoCheio.AutoSize = true;
+            this.rbBuchoCheio.ForeColor = System.Drawing.Color.Orange;
+            this.rbBuchoCheio.Location = new System.Drawing.Point(609, 161);
+            this.rbBuchoCheio.Name = "rbBuchoCheio";
+            this.rbBuchoCheio.Size = new System.Drawing.Size(115, 25);
+            this.rbBuchoCheio.TabIndex = 7;
+            this.rbBuchoCheio.TabStop = true;
+            this.rbBuchoCheio.Text = "Bucho Cheio";
+            this.rbBuchoCheio.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbSatisfeito
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.Color.LightGreen;
-            this.radioButton2.Location = new System.Drawing.Point(609, 113);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(92, 25);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Satisfeito";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbSatisfeito.AutoSize = true;
+            this.rbSatisfeito.ForeColor = System.Drawing.Color.LightGreen;
+            this.rbSatisfeito.Location = new System.Drawing.Point(609, 113);
+            this.rbSatisfeito.Name = "rbSatisfeito";
+            this.rbSatisfeito.Size = new System.Drawing.Size(92, 25);
+            this.rbSatisfeito.TabIndex = 6;
+            this.rbSatisfeito.TabStop = true;
+            this.rbSatisfeito.Text = "Satisfeito";
+            this.rbSatisfeito.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbPasseiFome
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.Firebrick;
-            this.radioButton1.Location = new System.Drawing.Point(607, 64);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(113, 25);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Passei Fome";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbPasseiFome.AutoSize = true;
+            this.rbPasseiFome.ForeColor = System.Drawing.Color.Firebrick;
+            this.rbPasseiFome.Location = new System.Drawing.Point(607, 64);
+            this.rbPasseiFome.Name = "rbPasseiFome";
+            this.rbPasseiFome.Size = new System.Drawing.Size(113, 25);
+            this.rbPasseiFome.TabIndex = 5;
+            this.rbPasseiFome.TabStop = true;
+            this.rbPasseiFome.Text = "Passei Fome";
+            this.rbPasseiFome.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -449,13 +425,13 @@ namespace DietCSharpForm
             this.label10.TabIndex = 4;
             this.label10.Text = "Sentimentos:";
             // 
-            // textBox1
+            // txtComentario
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 264);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(567, 96);
-            this.textBox1.TabIndex = 3;
+            this.txtComentario.Location = new System.Drawing.Point(12, 264);
+            this.txtComentario.Multiline = true;
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(567, 96);
+            this.txtComentario.TabIndex = 3;
             // 
             // label9
             // 
@@ -466,19 +442,21 @@ namespace DietCSharpForm
             this.label9.TabIndex = 2;
             this.label9.Text = "Comentários:";
             // 
-            // checkedListBox1
+            // clbPorcaoDeAlimentosConsumido
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(262, 48);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(317, 148);
-            this.checkedListBox1.TabIndex = 1;
+            this.clbPorcaoDeAlimentosConsumido.FormattingEnabled = true;
+            this.clbPorcaoDeAlimentosConsumido.Location = new System.Drawing.Point(262, 48);
+            this.clbPorcaoDeAlimentosConsumido.Name = "clbPorcaoDeAlimentosConsumido";
+            this.clbPorcaoDeAlimentosConsumido.Size = new System.Drawing.Size(317, 148);
+            this.clbPorcaoDeAlimentosConsumido.TabIndex = 1;
             // 
-            // monthCalendar1
+            // monthCalendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(12, 34);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
+            this.monthCalendar.Location = new System.Drawing.Point(12, 34);
+            this.monthCalendar.MaxSelectionCount = 1;
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 0;
+            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
             // 
             // FormMain
             // 
@@ -486,8 +464,8 @@ namespace DietCSharpForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1252, 731);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbRegistrodeAtividades);
+            this.Controls.Add(this.gbDieta);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -501,10 +479,10 @@ namespace DietCSharpForm
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbDieta.ResumeLayout(false);
+            this.gbDieta.PerformLayout();
+            this.gbRegistrodeAtividades.ResumeLayout(false);
+            this.gbRegistrodeAtividades.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -530,32 +508,30 @@ namespace DietCSharpForm
         private System.Windows.Forms.ToolStripMenuItem toolStripPacientePesquisar;
         private System.Windows.Forms.Label lblNomeUsuario;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox gbDieta;
+        private System.Windows.Forms.Label lblDieta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox lstPorcoesAlimento;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox lblDiasSemana;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.GroupBox gbRegistrodeAtividades;
+        private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblNomePerfil;
+        private System.Windows.Forms.Label txtNomeUsuario;
+        private System.Windows.Forms.CheckedListBox clbPorcaoDeAlimentosConsumido;
+        private System.Windows.Forms.TextBox txtComentario;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbBuchoCheio;
+        private System.Windows.Forms.RadioButton rbSatisfeito;
+        private System.Windows.Forms.RadioButton rbPasseiFome;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnCadastrarCancelar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TreeView treeViewPorcaoDeAlimento;
     }
 }
 

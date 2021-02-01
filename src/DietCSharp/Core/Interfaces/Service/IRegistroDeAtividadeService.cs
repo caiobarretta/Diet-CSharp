@@ -1,5 +1,4 @@
 ﻿using Core.Entities.DietcSharp;
-using Core.Interfaces.Repository;
 using Core.Interfaces.Service.Base;
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces.Service
 {
-    public interface IRefeicoesService : IService<Refeicao>
+    public interface IRegistroDeAtividadeService : IService<RegistroDeAtividade>
     {
-        
+        List<PorcaoDeAlimento> RetornaProcaoDeAlimentoPeloRegistroDeAtividade(int id);
     }
 }

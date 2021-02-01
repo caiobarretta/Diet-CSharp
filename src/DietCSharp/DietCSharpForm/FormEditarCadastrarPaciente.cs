@@ -68,6 +68,8 @@ namespace DietCSharpForm
             {
                 txtNome.Text = usuario.Nome;
                 txtDescricao.Text = usuario.Descricao;
+                txtUsuario.Text = usuario.Usuario1;
+                txtSenha.Text = usuario.Senha;
 
                 if (usuario.ID_Dieta.HasValue)
                 {
